@@ -1,0 +1,2214 @@
+<html lang="es"><head><script data-bard-client-injected="true">(function(firebaseConfig, initialAuthToken, appId) {
+        window.__firebase_config = firebaseConfig;
+        window.__initial_auth_token = initialAuthToken;
+        window.__app_id = appId;
+            })("\n{\n  \"apiKey\": \"AIzaSyCqyCcs2R2e7AegGjvFAwG98wlamtbHvZY\",\n  \"authDomain\": \"bard-frontend.firebaseapp.com\",\n  \"projectId\": \"bard-frontend\",\n  \"storageBucket\": \"bard-frontend.firebasestorage.app\",\n  \"messagingSenderId\": \"175205271074\",\n  \"appId\": \"1:175205271074:web:2b7bd4d34d33bf38e6ec7b\"\n}\n","eyJhbGciOiJSUzI1NiIsImtpZCI6IjExNjRiNzdiNDMzZDdhMDAyMWI4NjE4YjhjYTU3ZTMyZGI5MWUxMTMiLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiJmaXJlYmFzZS1hZG1pbnNkay1mYnN2Y0BiYXJkLWZyb250ZW5kLmlhbS5nc2VydmljZWFjY291bnQuY29tIiwiYXVkIjoiaHR0cHM6Ly9pZGVudGl0eXRvb2xraXQuZ29vZ2xlYXBpcy5jb20vZ29vZ2xlLmlkZW50aXR5LmlkZW50aXR5dG9vbGtpdC52MS5JZGVudGl0eVRvb2xraXQiLCJ1aWQiOiIwNzI2OTcxMTM1ODMxMTgyMTkyOSIsImlzcyI6ImZpcmViYXNlLWFkbWluc2RrLWZic3ZjQGJhcmQtZnJvbnRlbmQuaWFtLmdzZXJ2aWNlYWNjb3VudC5jb20iLCJjbGFpbXMiOnsiYXBwSWQiOiI5ODdhZDk0ZDE0YTQtY290aXphZG9yX21heW9fdjkuaHRtbC0yODgifSwiZXhwIjoxNzg3MzIxNDczLCJpYXQiOjE3ODczMTc4NzMsImFsZyI6IlJTMjU2In0.bGX79sZFxNGK_w4j-C58SOssY47FoosF3eIs4m4vpeA7O7Bqkx5R23Y_wDbW6aRbPhoExU_W8dASdLrWpsqszbTzl4Q1On-nRaYVyp8bfvw9BfDV2kQdIDK_R8vzyc29rKDklkuXW492Su69gaam2al7ejrXwit-EgNXMHVlOYcJZ9p8V_ejN-jh3Dl6vp5MiP5Dz7W8AWxap0rUz29BPZ44vjpHKcXWQJRwb78BNwd0__nMQcQECGnuxh4t3rU_rbBaFKdHPq_Lex-rtYdasX3MyWGAUyqrwqMvr1NmWDDfBma-ImUS9rk-qFYw3SJkNa_MjEKDboVSZ3ifGEk7Wg","987ad94d14a4-cotizador_mayo_v9.html-288")</script><script data-bard-client-injected="true">(function(){'use strict';window.addEventListener("message",a=>{a.data&&a.data.type==="SUPPLEMENTAL_DATA_UPDATE"&&window.dispatchEvent(new CustomEvent("supplementaldataupdate",{detail:a.data.data}))});}).call(this);
+</script><script data-bard-client-injected="true">(function(){'use strict';var h=typeof Object.defineProperties=="function"?Object.defineProperty:function(a,b,d){if(a==Array.prototype||a==Object.prototype)return a;a[b]=d.value;return a};function l(a){a=["object"==typeof globalThis&&globalThis,a,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var b=0;b<a.length;++b){var d=a[b];if(d&&d.Math==Math)return d}throw Error("Cannot find global object");}var n=l(this);
+function p(a,b){if(b)a:{var d=n;a=a.split(".");for(var c=0;c<a.length-1;c++){var e=a[c];if(!(e in d))break a;d=d[e]}a=a[a.length-1];c=d[a];b=b(c);b!=c&&b!=null&&h(d,a,{configurable:!0,writable:!0,value:b})}}function r(a){function b(c){return a.next(c)}function d(c){return a.throw(c)}return new Promise(function(c,e){function f(g){g.done?c(g.value):Promise.resolve(g.value).then(b,d).then(f,e)}f(a.next())})}function t(a){return r(a())}
+p("Object.values",function(a){return a?a:function(b){var d=[],c;for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&d.push(b[c]);return d}});p("Array.prototype.includes",function(a){return a?a:function(b,d){var c=this;c instanceof String&&(c=String(c));var e=c.length;d=d||0;for(d<0&&(d=Math.max(d+e,0));d<e;d++){var f=c[d];if(f===b||Object.is(f,b))return!0}return!1}});/*
+
+ MIT License
+
+ Copyright (c) 2017-2023 W.Y.
+
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ SOFTWARE.
+
+*/
+function u(a,b){var d=a.style;b.backgroundColor&&(d.backgroundColor=b.backgroundColor);b.width&&(d.width=`${b.width}px`);b.height&&(d.height=`${b.height}px`);var c=b.style;c!=null&&Object.keys(c).forEach(e=>{d[e]=c[e]})};var v=(()=>{var a=0;return()=>{a+=1;return`u${`0000${(Math.random()*1679616<<0).toString(36)}`.slice(-4)}${a}`}})();function w(a){var b=[];for(let d=0,c=a.length;d<c;d++)b.push(a[d]);return b}let x=null;function y(a={}){return x?x:a.m?x=a.m:x=w(window.getComputedStyle(document.documentElement))}function z(a,b){return(a=(a.ownerDocument.defaultView||window).getComputedStyle(a).getPropertyValue(b))?parseFloat(a.replace("px","")):0}
+function A(a,b={}){var d;if(!(d=b.width)){d=z(a,"border-left-width");var c=z(a,"border-right-width");d=a.clientWidth+d+c}(b=b.height)||(b=z(a,"border-top-width"),c=z(a,"border-bottom-width"),b=a.clientHeight+b+c);return{width:d,height:b}}function B(a){return new Promise((b,d)=>{var c=new Image;c.onload=()=>{c.decode().then(()=>{requestAnimationFrame(()=>b(c))})};c.onerror=d;c.crossOrigin="anonymous";c.decoding="async";c.src=a})}
+function C(a){return t(function*(){return Promise.resolve().then(()=>(new XMLSerializer).serializeToString(a)).then(encodeURIComponent).then(b=>`data:image/svg+xml;charset=utf-8,${b}`)})}
+function D(a,b,d){return t(function*(){var c=document.createElementNS("http://www.w3.org/2000/svg","svg"),e=document.createElementNS("http://www.w3.org/2000/svg","foreignObject");c.setAttribute("width",`${b}`);c.setAttribute("height",`${d}`);c.setAttribute("viewBox",`0 0 ${b} ${d}`);e.setAttribute("width","100%");e.setAttribute("height","100%");e.setAttribute("x","0");e.setAttribute("y","0");e.setAttribute("externalResourcesRequired","true");c.appendChild(e);e.appendChild(a);return C(c)})}
+var E=(a,b)=>{if(a instanceof b)return!0;a=Object.getPrototypeOf(a);return a===null?!1:a.constructor.name===b.name||E(a,b)};function F(a,b){return y(b).map(d=>{var c=a.getPropertyValue(d),e=a.getPropertyPriority(d);return`${d}: ${c}${e?" !important":""};`}).join(" ")}
+function G(a,b,d,c){a=window.getComputedStyle(a,d);var e=a.getPropertyValue("content");if(e!==""&&e!=="none"){var f=v();try{b.className=`${b.className} ${f}`}catch(k){return}e=document.createElement("style");var g=e.appendChild;d=`.${f}:${d}`;a.cssText?(c=a.getPropertyValue("content"),c=`${a.cssText} content: '${c.replace(/'|"/g,"")}';`):c=F(a,c);g.call(e,document.createTextNode(`${d}{${c}}`));b.appendChild(e)}};function H(a){return a.search(/^(data:)/)!==-1}function I(a,b,d){return t(function*(){var c=yield fetch(a,b);if(c.status===404)throw Error(`Resource "${c.url}" not found`);var e=yield c.blob();return new Promise((f,g)=>{var k=new FileReader;k.onerror=g;k.onloadend=()=>{try{f(d({u:c,result:k.result}))}catch(m){g(m)}};k.readAsDataURL(e)})})}const J={};function K(a,b,d){var c=a.replace(/\?.*/,"");d&&(c=a);/ttf|otf|eot|woff2?/i.test(c)&&(c=c.replace(/.*\//,""));return b?`[${b}]${c}`:c}
+function L(a,b,d){return t(function*(){var c=K(a,b,d.D);if(J[c]!=null)return J[c];d.v&&(a+=(/\?/.test(a)?"&":"?")+(new Date).getTime());try{let f=yield I(a,d.j,({u:g,result:k})=>{b||(b=g.headers.get("Content-Type")||"");return k.split(/,/)[1]});var e=`data:${b};base64,${f}`}catch(f){e=d.C||""}return J[c]=e})};const M={R:"application/font-woff",S:"application/font-woff",O:"application/font-truetype",A:"application/vnd.ms-fontobject",I:"image/png",G:"image/jpeg",F:"image/jpeg",B:"image/gif",N:"image/tiff",M:"image/svg+xml",P:"image/webp"};function N(a){return(a=/\.([^./]*?)$/g.exec(a))?a[1]:""};function O(a){return t(function*(){var b=a.toDataURL();return b==="data:,"?a.cloneNode(!1):B(b)})}function aa(a,b){return t(function*(){if(a.currentSrc){var d=document.createElement("canvas");let c=d.getContext("2d");d.width=a.clientWidth;d.height=a.clientHeight;c==null||c.drawImage(a,0,0,d.width,d.height);d=d.toDataURL();return B(d)}d=a.poster;d=yield L(d,M[N(d).toLowerCase()]||"",b);return B(d)})}
+function ba(a,b){return t(function*(){try{let d;if(a==null?0:(d=a.contentDocument)==null?0:d.body)return yield P(a.contentDocument.body,b,!0)}catch(d){}return a.cloneNode(!1)})}function ca(a,b){return t(function*(){return E(a,HTMLCanvasElement)?O(a):E(a,HTMLVideoElement)?aa(a,b):E(a,HTMLIFrameElement)?ba(a,b):a.cloneNode(a.tagName!=null&&a.tagName.toUpperCase()==="SVG")})}
+function da(a,b,d){return t(function*(){if(b.tagName!=null&&b.tagName.toUpperCase()==="SVG")return b;var c=[];if(a.tagName!=null&&a.tagName.toUpperCase()==="SLOT"&&a.assignedNodes)c=w(a.assignedNodes());else{let e;if(E(a,HTMLIFrameElement)&&((e=a.contentDocument)==null?0:e.body))c=w(a.contentDocument.body.childNodes);else{let f;c=w(((f=a.shadowRoot)!=null?f:a).childNodes)}}if(c.length===0||E(a,HTMLVideoElement))return b;yield c.reduce((e,f)=>e.then(()=>P(f,d)).then(g=>{g&&b.appendChild(g)}),Promise.resolve());
+return b})}function ea(a,b,d){var c=b.style;if(c){var e=window.getComputedStyle(a);e.cssText?(c.cssText=e.cssText,c.transformOrigin=e.transformOrigin):y(d).forEach(f=>{var g=e.getPropertyValue(f);f==="font-size"&&g.endsWith("px")&&(g=`${Math.floor(parseFloat(g.substring(0,g.length-2)))-.1}px`);E(a,HTMLIFrameElement)&&f==="display"&&g==="inline"&&(g="block");f==="d"&&b.getAttribute("d")&&(g=`path(${b.getAttribute("d")})`);c.setProperty(f,g,e.getPropertyPriority(f))})}}
+function fa(a,b){E(a,HTMLSelectElement)&&(b=Array.from(b.children).find(d=>a.value===d.getAttribute("value")))&&b.setAttribute("selected","")}
+function ha(a,b){return t(function*(){var d=a.querySelectorAll?a.querySelectorAll("use"):[];if(d.length===0)return a;var c={};for(var e=0;e<d.length;e++){var f=d[e].getAttribute("xlink:href");if(f){let g=document.querySelector(f);a.querySelector(f)||!g||c[f]||(c[f]=yield P(g,b,!0))}}d=Object.values(c);if(d.length){c=document.createElementNS("http://www.w3.org/1999/xhtml","svg");c.setAttribute("xmlns","http://www.w3.org/1999/xhtml");c.style.position="absolute";c.style.width="0";c.style.height="0";
+c.style.overflow="hidden";c.style.display="none";e=document.createElementNS("http://www.w3.org/1999/xhtml","defs");c.appendChild(e);for(f=0;f<d.length;f++)e.appendChild(d[f]);a.appendChild(c)}return a})}
+function P(a,b,d){return t(function*(){return d||!b.filter||b.filter(a)?Promise.resolve(a).then(c=>ca(c,b)).then(c=>da(a,c,b)).then(c=>{E(c,Element)&&(ea(a,c,b),G(a,c,":before",b),G(a,c,":after",b),E(a,HTMLTextAreaElement)&&(c.textContent=a.value),E(a,HTMLInputElement)&&c.setAttribute("value",a.value),fa(a,c));return c}).then(c=>ha(c,b)):null})};const Q=/url\((['"]?)([^'"]+?)\1\)/g,ia=/url\([^)]+\)\s*format\((["']?)([^"']+)\1\)/g,ja=/src:\s*(?:url\([^)]+\)\s*format\([^)]+\)[,;]\s*)+/g;function ka(a){var b=[];a.replace(Q,(d,c,e)=>{b.push(e);return d});return b.filter(d=>!H(d))}
+function la(a,b,d,c){return t(function*(){try{let e=d?(new URL(b,d||void 0)).toString():b,f;f=yield L(e,M[N(b).toLowerCase()]||"",c);return a.replace(new RegExp(`(url\\(['"]?)(${b.replace(/([.*+?^${}()|\[\]\/\\])/g,"\\$1")})(['"]?\\))`,"g"),`$1${f}$3`)}catch(e){}return a})}function ma(a,{J:b}){return b?a.replace(ja,d=>{for(;;){let [c,,e]=ia.exec(d)||[];if(!e)return"";if(e===b)return`src: ${c};`}}):a}
+function R(a,b,d){return t(function*(){if(a.search(Q)===-1)return a;var c=ma(a,d);return ka(c).reduce((e,f)=>e.then(g=>la(g,f,b,d)),Promise.resolve(c))})};function S(a,b,d){return t(function*(){var c,e=(c=b.style)==null?void 0:c.getPropertyValue(a);return e?(c=yield R(e,null,d),b.style.setProperty(a,c,b.style.getPropertyPriority(a)),!0):!1})}function na(a,b){return t(function*(){(yield S("background",a,b))||(yield S("background-image",a,b));(yield S("mask",a,b))||(yield S("-webkit-mask",a,b))||(yield S("mask-image",a,b))||(yield S("-webkit-mask-image",a,b))})}
+function oa(a,b){return t(function*(){var d=E(a,HTMLImageElement);if(d&&!H(a.src)||E(a,SVGImageElement)&&!H(a.href.baseVal)){var c=d?a.src:a.href.baseVal,e=yield L(c,M[N(c).toLowerCase()]||"",b);yield new Promise((f,g)=>{a.onload=f;a.onerror=b.o?(...k)=>{try{f(b.o(...k))}catch(m){g(m)}}:g;a.decode&&(a.decode=f);a.loading==="lazy"&&(a.loading="eager");d?(a.srcset="",a.src=e):a.href.baseVal=e})}})}
+function pa(a,b){return t(function*(){var d=w(a.childNodes).map(c=>T(c,b));yield Promise.all(d).then(()=>a)})}function T(a,b){return t(function*(){E(a,Element)&&(yield na(a,b),yield oa(a,b),yield pa(a,b))})};const U={};function V(a){return t(function*(){var b=U[a];if(b!=null)return b;b=yield(yield fetch(a)).text();b={url:a,cssText:b};return U[a]=b})}function W(a,b){return t(function*(){var d=a.cssText,c=/url\(["']?([^"')]+)["']?\)/g,e=(d.match(/url\([^)]+\)/g)||[]).map(f=>t(function*(){var g=f.replace(c,"$1");g.startsWith("https://")||(g=(new URL(g,a.url)).href);return I(g,b.j,({result:k})=>{d=d.replace(f,`url(${k})`);return[f,k]})}));return Promise.all(e).then(()=>d)})}
+function X(a){if(a==null)return[];var b=[];a=a.replace(/(\/\*[\s\S]*?\*\/)/gi,"");for(var d=RegExp("((@.*?keyframes [\\s\\S]*?){([\\s\\S]*?}\\s*?)})","gi");;){var c=d.exec(a);if(c===null)break;b.push(c[0])}a=a.replace(d,"");d=/@import[\s\S]*?url\([^)]*\)[\s\S]*?;/gi;for(c=RegExp("((\\s*?(?:\\/\\*[\\s\\S]*?\\*\\/)?\\s*?@media[\\s\\S]*?){([\\s\\S]*?)}\\s*?})|(([\\s\\S]*?){([\\s\\S]*?)})","gi");;){let e=d.exec(a);if(e===null)if(e=c.exec(a),e===null)break;else d.lastIndex=c.lastIndex;else c.lastIndex=
+d.lastIndex;b.push(e[0])}return b}
+function qa(a,b){return t(function*(){var d=[],c=[];a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach((f,g)=>{if(f.type===CSSRule.IMPORT_RULE){let k=g+1;f=V(f.href).then(m=>W(m,b)).then(m=>X(m).forEach(q=>{try{e.insertRule(q,q.startsWith("@import")?k+=1:e.cssRules.length)}catch(Da){}})).catch(()=>{});c.push(f)}})}catch(f){let g=a.find(k=>k.href==null)||document.styleSheets[0];e.href!=null&&c.push(V(e.href).then(k=>W(k,b)).then(k=>X(k).forEach(m=>{g.insertRule(m,g.cssRules.length)})).catch(()=>
+{}))}});return Promise.all(c).then(()=>{a.forEach(e=>{if("cssRules"in e)try{w(e.cssRules||[]).forEach(f=>{d.push(f)})}catch(f){}});return d})})}function ra(a){return a.filter(b=>b.type===CSSRule.FONT_FACE_RULE).filter(b=>b.style.getPropertyValue("src").search(Q)!==-1)}function sa(a,b){return t(function*(){if(a.ownerDocument==null)throw Error("Provided element is not within a Document");var d=w(a.ownerDocument.styleSheets);d=yield qa(d,b);return ra(d)})}
+function ta(a){function b(c){(c.style.fontFamily||getComputedStyle(c).fontFamily).split(",").forEach(e=>{d.add(e.trim().replace(/["']/g,""))});Array.from(c.children).forEach(e=>{e instanceof HTMLElement&&b(e)})}var d=new Set;b(a);return d}function ua(a,b){return t(function*(){var d=yield sa(a,b),c=ta(a);return(yield Promise.all(d.filter(e=>c.has(e.style.fontFamily.trim().replace(/["']/g,""))).map(e=>R(e.cssText,e.parentStyleSheet?e.parentStyleSheet.href:null,b)))).join("\n")})}
+function va(a,b){return t(function*(){var d=b.l!=null?b.l:b.L?null:yield ua(a,b);if(d){let c=document.createElement("style");c.appendChild(document.createTextNode(d));a.firstChild?a.insertBefore(c,a.firstChild):a.appendChild(c)}})};function wa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield P(a,b,!0);yield va(e,b);yield T(e,b);u(e,b);return yield D(e,d,c)})}
+function xa(a,b={}){return t(function*(){var {width:d,height:c}=A(a,b),e=yield wa(a,b);e=yield B(e);var f=document.createElement("canvas"),g=f.getContext("2d"),k=b.H||window.devicePixelRatio||1,m=b.i||d,q=b.h||c;f.width=m*k;f.height=q*k;!b.K&&(f.width>16384||f.height>16384)&&(f.width>16384&&f.height>16384?f.width>f.height?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384):f.width>16384?(f.height*=16384/f.width,f.width=16384):(f.width*=16384/f.height,f.height=16384));
+f.style.width=`${m}`;f.style.height=`${q}`;b.backgroundColor&&(g.fillStyle=b.backgroundColor,g.fillRect(0,0,f.width,f.height));g.drawImage(e,0,0,f.width,f.height);return f})}function ya(a,b={}){return t(function*(){return(yield xa(a,b)).toDataURL()})};const za=["gemini.google.com","corp.google.com","proxy.googlers.com"];function Y(){return document.body.querySelectorAll('[class*="animate"]').length>0}function Z(a){return t(function*(){try{return yield ya(a,{i:a.offsetWidth,h:a.offsetHeight})}catch(d){var b=a.offsetHeight;let c=document.createElement("canvas");c.width=a.offsetWidth;c.height=b;return c.toDataURL("image/png")}})}
+function Aa(){return t(function*(){var a=document.body.offsetWidth,b=document.body.offsetHeight,d=document.body.cloneNode(!0);d.querySelectorAll('[class*="animate"]').forEach(c=>{c.classList.remove(...Array.from(c.classList).filter(e=>e.startsWith("animate")))});d.style.width=`${a}px`;d.style.height=`${b}px`;return d})}
+function Ba(a){return t(function*(){var b=document.body;if(Y()){var d=yield Aa();b=d;document.body.appendChild(d)}d=yield Z(b);Y()&&document.body.removeChild(b);window.parent.postMessage({type:"SEND_SCREENSHOT",image:d,topOffset:document.documentElement.scrollTop},a.origin)})}function Ca(a){return t(function*(){var b={type:"SEND_SCREENSHOT_FOR_DATA_VISUALIZATION",image:yield Z(document.body),topOffset:0};window.parent.postMessage(b,a.origin)})}
+window.addEventListener("message",a=>t(function*(){if(za.some(d=>a.origin.includes(d))){var b=a.data;b&&(b.type==="MAKE_SCREENSHOT"&&(yield Ba(a)),b.type==="MAKE_SCREENSHOT_FOR_DATA_VISUALIZATION"&&(yield Ca(a)))}}));
+})();</script><script data-bard-client-injected="true">(function() {
+  // Ensure this script is executed only once
+  if (window.firebaseAuthBridgeScriptLoaded) {
+    return;
+  }
+  window.firebaseAuthBridgeScriptLoaded = true;
+
+  let nextTokenPromiseId = 0;
+
+  // Stores { resolve, reject } for ongoing token requests
+  const pendingTokenPromises = {};
+
+  // Listen for messages from the Host Application
+  window.addEventListener('message', function(event) {
+
+    const messageData = event.data;
+
+  if (messageData && messageData.type === 'RESOLVE_NEW_FIREBASE_TOKEN') {
+      const { success, token, error, promiseId } = messageData ?? {};
+      if (pendingTokenPromises[promiseId]) {
+        if (success) {
+          pendingTokenPromises[promiseId].resolve(token);
+        } else {
+          pendingTokenPromises[promiseId].reject(new Error(error || 'Token refresh failed from host.'));
+        }
+        delete pendingTokenPromises[promiseId];
+      }
+    }
+  });
+
+  // Expose a function for the Generated App to request a new Firebase token
+  window.requestNewFirebaseToken = function() {
+    const currentPromiseId = nextTokenPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingTokenPromises[currentPromiseId] = { resolve, reject };
+    });
+    if (window.parent && window.parent !== window) {
+      window.parent.postMessage({
+        type: 'REQUEST_NEW_FIREBASE_TOKEN',
+        promiseId: currentPromiseId
+      }, '*');
+    } else {
+      pendingTokenPromises[currentPromiseId].reject(new Error('No parent window to request token from.'));
+      delete pendingTokenPromises[currentPromiseId];
+    }
+    return promise;
+  };
+})();</script><script data-bard-client-injected="true">
+let realOriginalGetUserMedia = null;
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  realOriginalGetUserMedia = navigator.mediaDevices.getUserMedia.bind(navigator.mediaDevices);
+}
+
+(function() {
+  if (navigator.mediaDevices && navigator.mediaDevices.__proto__) {
+    try {
+      Object.defineProperty(navigator.mediaDevices.__proto__, 'getUserMedia', {
+        get: function() {
+          return undefined; // Or throw an error
+        },
+        configurable: false
+      });
+    } catch (error) {
+      console.error("Error defining prototype getter:", error);
+    }
+  }
+})();
+
+(function() {
+  const pendingMediaResolvers = {};
+  let nextMediaPromiseId = 0;
+
+  function requestMediaPermissions(constraints) {
+    const mediaPromiseId = nextMediaPromiseId++;
+    const promise = new Promise((resolve, reject) => {
+      pendingMediaResolvers[mediaPromiseId] = (granted) => {
+        delete pendingMediaResolvers[mediaPromiseId];
+        resolve(granted);
+      };
+    });
+
+    window.parent.postMessage({
+      type: 'requestMediaPermission',
+      constraints: constraints,
+      promiseId: mediaPromiseId,
+    }, '*');
+
+    return promise;
+  }
+
+  let originalGetUserMedia = realOriginalGetUserMedia;
+
+  function interceptGetUserMedia() {
+    if (navigator.mediaDevices) {
+      Object.defineProperty(navigator.mediaDevices, 'getUserMedia', {
+        value: function(constraints) {
+          return requestMediaPermissions(constraints).then((granted) => {
+            if (granted) {
+              if (originalGetUserMedia) {
+                return originalGetUserMedia(constraints);
+              } else {
+                throw new Error("Original getUserMedia not available.");
+              }
+            } else {
+              throw new DOMException('Permission denied', 'NotAllowedError');
+            }
+          });
+        },
+        writable: false,
+        configurable: false
+      });
+    }
+  }
+
+  interceptGetUserMedia();
+
+  const observer = new MutationObserver(function(mutationsList, observer) {
+    for (const mutation of mutationsList) {
+      if (mutation.type === 'reconfigured' && mutation.name === 'getUserMedia' && mutation.object === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'attributes' && mutation.attributeName === 'getUserMedia' && mutation.target === navigator.mediaDevices) {
+        interceptGetUserMedia();
+      } else if (mutation.type === 'childList' && mutation.addedNodes) {
+        mutation.addedNodes.forEach(node => {
+          if (node === navigator.mediaDevices) {
+            interceptGetUserMedia();
+          }
+        });
+      }
+    }
+  });
+
+  function interceptSpeechRecognition() {
+    if (!window.SpeechRecognition && !window.webkitSpeechRecognition) {
+      return;
+    }
+
+    const OriginalSpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    const SpeechRecognitionWrapper = function(...args) {
+      const recognizer = new OriginalSpeechRecognition(...args);
+      const originalStart = recognizer.start.bind(recognizer);
+
+      recognizer.start = function() {
+        requestMediaPermissions({ audio: true }).then(granted => {
+          if (granted) {
+            originalStart();
+          } else {
+            const errorEvent = new SpeechRecognitionErrorEvent('error');
+            errorEvent.error = 'not-allowed'; // This is the standard error for permission denial.
+            recognizer.dispatchEvent(errorEvent);
+          }
+        });
+      };
+
+      return recognizer;
+    };
+
+    SpeechRecognitionWrapper.prototype = OriginalSpeechRecognition.prototype;
+    SpeechRecognitionWrapper.prototype.constructor = SpeechRecognitionWrapper;
+
+    if (window.SpeechRecognition) {
+      window.SpeechRecognition = SpeechRecognitionWrapper;
+    }
+    if (window.webkitSpeechRecognition) {
+      window.webkitSpeechRecognition = SpeechRecognitionWrapper;
+    }
+  }
+
+  interceptSpeechRecognition();
+
+  window.addEventListener('message', function(event) {
+    if (event.data) {
+      if (event.data.type === 'resolveMediaPermission') {
+        const { promiseId, granted } = event.data;
+        if (pendingMediaResolvers[promiseId]) {
+          pendingMediaResolvers[promiseId](granted);
+        }
+      }
+    }
+  });
+
+})();</script><script ws-interception-config="{&quot;parentOrigin&quot;:&quot;https://gemini.google.com&quot;,&quot;proxiedDomains&quot;:[]}" data-bard-client-injected="true">(function(){'use strict';var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,d,e){if(b==Array.prototype||b==Object.prototype)return b;b[d]=e.value;return b};function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var d=0;d<b.length;++d){var e=b[d];if(e&&e.Math==Math)return e}throw Error("Cannot find global object");}var w=v(this);
+function y(b,d){if(d)a:{var e=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var k=b[h];if(!(k in e))break a;e=e[k]}b=b[b.length-1];h=e[b];d=d(h);d!=h&&d!=null&&u(e,b,{configurable:!0,writable:!0,value:d})}}function z(b){function d(h){return b.next(h)}function e(h){return b.throw(h)}return new Promise(function(h,k){function m(n){n.done?h(n.value):Promise.resolve(n.value).then(d,e).then(m,k)}m(b.next())})}y("globalThis",function(b){return b||w});/*
+
+ Copyright The Closure Library Authors.
+ SPDX-License-Identifier: Apache-2.0
+*/
+function A(b,d){function e(){}e.prototype=d.prototype;b.j=d.prototype;b.prototype=new e;b.prototype.constructor=b;b.h=function(h,k,m){for(var n=Array(arguments.length-2),p=2;p<arguments.length;p++)n[p-2]=arguments[p];return d.prototype[k].apply(h,n)}};function B(b,d,e="*"){function h(a){if(typeof a==="string")return F.encode(a).buffer;if(a instanceof ArrayBuffer)return a.slice(0);if(ArrayBuffer.isView(a))return a.buffer.slice(a.byteOffset,a.byteOffset+a.byteLength);throw Error("Invalid data type");}function k(a){a=h(a);var f={type:"send",data:new Uint8Array(a)},g;(g=r)==null||g.postMessage(f,[a])}function m(){if(!r)throw Error("Data port not captured yet.");r.onmessage=a=>{if(a.data.type==="message"){a=new MessageEvent("message",{data:G.decode(a.data.data)});
+let f;(f=c.onmessage)==null||f.call(c,a);c.dispatchEvent(a)}}}function n(){if(!t)throw Error("Control port not captured yet.");t.onmessage=a=>{switch(a.data.type){case "open":l=1;var f=new Event("open"),g;(g=c.onopen)==null||g.call(c,f);c.dispatchEvent(f);q.forEach(H=>{k(H)});q=[];break;case "close":g=a.data;l=3;g=new CloseEvent("close",{code:g.code,reason:g.reason,wasClean:g.wasClean});(f=c.onclose)==null||f.call(c,g);c.dispatchEvent(g);break;case "error":l=3;f=new Event("error");let x;(x=c.onerror)==
+null||x.call(c,f);c.dispatchEvent(f)}}}function p(a){return z(function*(){var f=new MessageChannel;t=f.port1;var g=new MessageChannel;r=g.port1;n();m();window.parent.postMessage({type:"websocket_open",portOrdering:["control","data"],url:b,protocols:a||[],connectionId:I},e,[f.port2,g.port2])}())}var c=Reflect.construct(EventTarget,[],new.target);c.CONNECTING=0;c.OPEN=1;c.CLOSING=2;c.CLOSED=3;c.url=b;c.binaryType="arraybuffer";c.protocol="";c.i="";var l=0,t=null,r=null,q=[],F=new TextEncoder,G=new TextDecoder;
+c.onopen=null;c.onmessage=null;c.onclose=null;c.onerror=null;Object.defineProperty(c,"readyState",{get:()=>l,enumerable:!0,configurable:!0});Object.defineProperty(c,"bufferedAmount",{get:()=>{var a=0;q.forEach(f=>{a+=typeof f==="string"?f.length:f.byteLength});return a},enumerable:!0,configurable:!0});var I=function(){var a;return((a=globalThis.crypto)==null?0:a.randomUUID)?globalThis.crypto.randomUUID():"xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g,f=>{var g=Math.random()*16|0;return(f===
+"x"?g:g&3|8).toString(16)})}();c.send=a=>{if(l===1)a instanceof Blob?a.arrayBuffer().then(f=>{k(f)}):k(a);else if(l===0)if(typeof a==="string")q.push(a);else if(a instanceof ArrayBuffer||ArrayBuffer.isView(a))q.push(h(a));else throw Error("Sending Blob is not supported before the connection is open.");else console.debug("WebSocket send called in CLOSING or CLOSED state; ignored.")};c.close=(a=1E3,f="")=>{if(l!==2&&l!==3){l=2;a={type:"close",code:a,reason:f,wasClean:a===1E3};var g;(g=t)==null||g.postMessage(a)}};
+Promise.resolve().then(()=>p(d));return c}A(B,EventTarget);var C=document.currentScript,D=C==null?void 0:C.getAttribute("ws-interception-config");if(!D)throw Error("WebSocket Interceptor: Missing ws-interception-config attribute in the script tag.");var E=JSON.parse(D);if(!E.parentOrigin||typeof E.parentOrigin!=="string")throw Error("WebSocket Interceptor: Invalid parentOrigin in ws-interception-config");
+(function(b){var d=Object.getOwnPropertyDescriptor(window,"WebSocket");if(!d||d.writable||d.configurable)d=Object.assign(function(e,h){try{let k=(new URL(e)).hostname;if(b.proxiedDomains.some(m=>k===m||k.endsWith(`.${m}`)))return new B(e,h,b.parentOrigin)}catch(k){throw window.parent.postMessage({type:"websocket_blocked",url:e,reason:"blocked_invalid_url"},b.parentOrigin),new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");}window.parent.postMessage({type:"websocket_blocked",
+url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMException(`WebSocket connection to '${e}' is not allowed in Canvas.`,"SecurityError");},{CONNECTING:0,OPEN:1,CLOSING:2,CLOSED:3}),Object.defineProperty(window,"WebSocket",{value:d,writable:!1,configurable:!1})})({proxiedDomains:E.proxiedDomains||[],parentOrigin:E.parentOrigin});}).call(this);
+</script><script data-bard-client-injected="true">((function(modelInformation) {
+  const originalFetch = window.fetch;
+  // TODO: b/421908508 - Move these out of the script and match all generative AI model calls.
+  let googleLlmBaseApiUrls = [
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':streamGenerateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.textModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageEditModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.imageTransformModelName + ':generateContent',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predict',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.videoModelName + ':predictLongRunning',
+    'https://generativelanguage.googleapis.com/v1beta/models/' + modelInformation.ttsModelName + ':generateContent',
+  ];
+  modelInformation.deprecatedTextModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+    );
+  });
+  modelInformation.deprecatedImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predict',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':predictLongRunning',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedGenerateImageModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+  modelInformation.deprecatedImageTransformModelNames.forEach((modelName) => {
+    googleLlmBaseApiUrls.push(
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':generateContent',
+      'https://generativelanguage.googleapis.com/v1beta/models/' + modelName + ':streamGenerateContent',
+    );
+  });
+
+  const pendingFetchResolvers = {};
+  let nextPromiseId = 0;
+
+  function handleStringInput(input, optionsArgument) {
+    const actualUrl = input;
+    const fetchCallArgs = [actualUrl, optionsArgument];
+    const effectiveOptions = optionsArgument || {};
+    const bodyForApiKeyCheck = effectiveOptions.body;
+    const bodyForPostMessage = effectiveOptions.body;
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  function handleRequestInput(input, optionsArgument) {
+    const actualUrl = input.url;
+    const fetchCallArgs = [input, optionsArgument];
+    const effectiveOptions = { method: input.method, headers: new Headers(input.headers) };
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (optionsArgument) {
+      if (optionsArgument.method) effectiveOptions.method = optionsArgument.method;
+      if (optionsArgument.headers) effectiveOptions.headers = new Headers(optionsArgument.headers);
+      if ('body' in optionsArgument) {
+        bodyForApiKeyCheck = optionsArgument.body;
+        bodyForPostMessage = optionsArgument.body;
+      } else {
+        bodyForApiKeyCheck = undefined;
+        bodyForPostMessage = input.body;
+      }
+    } else {
+      bodyForApiKeyCheck = undefined;
+      bodyForPostMessage = input.body;
+    }
+    return { actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage };
+  }
+
+  window.fetch = function(input, optionsArgument) {
+    let actualUrl;
+    let fetchCallArgs;
+    let effectiveOptions = {};
+    let bodyForApiKeyCheck;
+    let bodyForPostMessage;
+
+    if (typeof input === 'string') {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleStringInput(input, optionsArgument));
+    } else if (input instanceof Request) {
+      ({actualUrl, fetchCallArgs, effectiveOptions, bodyForApiKeyCheck, bodyForPostMessage} = handleRequestInput(input, optionsArgument));
+    } else {
+      return originalFetch.apply(window, [input, optionsArgument]);
+    }
+
+    effectiveOptions.method = effectiveOptions.method || 'GET';
+    if (!effectiveOptions.headers) {
+      effectiveOptions.headers = new Headers();
+    }
+
+
+    if (typeof actualUrl === 'string' && googleLlmBaseApiUrls.some((url) => actualUrl.startsWith(url))) {
+      let apiKeyIsNull = true;
+
+      const regex = new RegExp("models/([^:]+)");
+      const modelNameMatch = actualUrl.match(regex);
+      const modelName = modelNameMatch ? modelNameMatch[1] : 'unspecified';
+
+
+      try {
+        const urlObject = new URL(actualUrl);  // Use URL object for robust parsing
+        const apiKeyParam = urlObject.searchParams.get('key');
+        if (apiKeyParam) {
+          apiKeyIsNull = false;
+        }
+      } catch (e) {
+        // Continue checks even if URL parsing fails
+      }
+
+      if (apiKeyIsNull && effectiveOptions.headers) {
+        const h = new Headers(effectiveOptions.headers);
+        const apiKeyHeaderValue = h.get('X-API-Key') || h.get('x-api-key');
+        if (apiKeyHeaderValue) {
+          apiKeyIsNull = false;
+          return originalFetch.apply(window, fetchCallArgs);
+        }
+      }
+
+      if (apiKeyIsNull && effectiveOptions.method && ['POST', 'PUT', 'PATCH'].includes(effectiveOptions.method.toUpperCase()) && typeof bodyForApiKeyCheck === 'string') {
+        try {
+          const bodyData = JSON.parse(bodyForApiKeyCheck);
+          if (bodyData && bodyData.apiKey) {
+            apiKeyIsNull = false;
+            return originalFetch.apply(window, fetchCallArgs);
+          }
+        } catch (e) {
+          // Ignore JSON parsing errors
+        }
+      }
+
+      if(apiKeyIsNull) {
+        const promiseId = nextPromiseId++;
+        const promise = new Promise((resolve) => {
+          pendingFetchResolvers[promiseId] = (resolvedResponse) => {
+            delete pendingFetchResolvers[promiseId];
+            resolve(resolvedResponse);
+          };
+        });
+
+        let serializedBodyForPostMessage;
+        if (typeof bodyForPostMessage === 'string' || bodyForPostMessage == null) {
+            serializedBodyForPostMessage = bodyForPostMessage;
+        } else if (bodyForPostMessage instanceof ReadableStream) {
+            serializedBodyForPostMessage = null;
+        } else {
+            try {
+                serializedBodyForPostMessage = JSON.stringify(bodyForPostMessage);
+            } catch (e) {
+                serializedBodyForPostMessage = null;
+            }
+        }
+
+        const messageOptions = {
+            method: effectiveOptions.method,
+            headers: Object.fromEntries(new Headers(effectiveOptions.headers).entries()),
+            body: serializedBodyForPostMessage
+        };
+
+        window.parent.postMessage({
+          type: 'requestFetch',
+          url: actualUrl,
+          modelName: modelName,
+          options: messageOptions,
+          promiseId: promiseId,
+        }, '*');
+
+        return promise;
+      }
+      return originalFetch.apply(window, fetchCallArgs);
+    }
+    return originalFetch.apply(window, fetchCallArgs);
+  };
+
+  window.addEventListener('message', function(event) {
+    if (event.data && event.data.type === 'resolveFetch') {
+      const { promiseId, response } = event.data;
+      if (pendingFetchResolvers[promiseId]) {
+        try {
+          const reconstructedResponse = new Response(response.body, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: new Headers(response.headers),
+          });
+          pendingFetchResolvers[promiseId](reconstructedResponse);
+        } catch (error) {
+          pendingFetchResolvers[promiseId](new Response(null, { status: 500, statusText: "Interceptor Response Reconstruction Error" }));
+        }
+      }
+    }
+  });
+
+}))({"textModelName":"gemini-3-flash-preview","imageModelName":"imagen-4.0-generate-001","imageEditModelName":"gemini-3.1-flash-image","imageTransformModelName":"gemini-3-pro-image","videoModelName":"veo-2.0-generate-001","ttsModelName":"gemini-2.5-flash-preview-tts","deprecatedTextModelNames":["gemini-2.0-flash","gemini-2.5-flash","gemini-2.5-flash-preview-04-17","gemini-2.5-flash-preview-05-20","gemini-2.5-flash-preview-09-2025"],"deprecatedImageModelNames":["imagen-3.0-generate-001","imagen-3.0-generate-002"],"deprecatedGenerateImageModelNames":["gemini-2.5-flash-image-preview","gemini-2.5-flash-image","gemini-3.1-flash-image-preview"],"deprecatedImageTransformModelNames":["gemini-3-pro-image-preview-11-2025"]})</script><script data-bard-client-injected="true">(function(){'use strict';function a(){window.parent.postMessage({type:"interaction"},"*")}window.addEventListener("click",a,{capture:!0,passive:!0});window.addEventListener("touchstart",a,{capture:!0,passive:!0});window.addEventListener("keydown",a,{capture:!0,passive:!0});}).call(this);
+</script><script data-bard-client-injected="true">(function() {
+  const originalConsoleLog = console.log;
+  const originalConsoleError = console.error;
+
+    /**
+   * Normalizes an error event or a promise rejection reason into a structured error object.
+   * @param {*} errorEventOrReason The error object or reason.
+   * @return {object} Structured error data { message, name, stack }.
+   */
+  function getErrorObject(errorEventOrReason) {
+    if (errorEventOrReason instanceof Error) {
+      return {
+        message: errorEventOrReason.message,
+        name: errorEventOrReason.name,
+        stack: errorEventOrReason.stack,
+      };
+    }
+    // Fallback for non-Error objects.
+    try {
+      return {
+        message: JSON.stringify(errorEventOrReason),
+        name: 'UnknownErrorType',
+        stack: null,
+      };
+    } catch (e) {
+      return {
+        message: String(errorEventOrReason),
+        name: 'UnknownErrorTypeNonStringifiable',
+        stack: null,
+      };
+    }
+  }
+
+  /**
+   * Converts an array of arguments (from log/error) into a single string.
+   * Handles Error objects specially to include their message and stack.
+   * @param {Array<*>} args - Arguments passed to console methods.
+   * @return {string} A string representation of the arguments.
+   */
+  function stringifyArgs(args) {
+    return args
+      .map((arg) => {
+        if (arg instanceof Error) {
+          const {message, stack} = arg;
+          return `Error: ${message}${stack ? ('\nStack: ' + stack) : ''}`;
+        }
+        if (typeof arg === 'object' && arg !== null) {
+          try {
+            return JSON.stringify(arg);
+          } catch (error) {
+            return '[Circular Object]';
+          }
+        } else {
+          return String(arg);
+        }
+      })
+      .join(' ');
+  }
+
+  console.log = function(...args) {
+    const logString = stringifyArgs(args);
+    window.parent.postMessage({ type: 'log', message: logString }, '*');
+    originalConsoleLog.apply(console, args);
+  };
+
+  console.error = function(...args) {
+    let errorData;
+    if (args.length > 0 && args[0] instanceof Error) {
+      const err = args[0];
+      // If the first arg is an Error, capture its details.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        ...getErrorObject(err),
+        rawArgsString: stringifyArgs(args.slice(1)),
+        timestamp: new Date().toISOString(),
+      };
+    } else {
+      // If not an Error object, treat all args as a general error message.
+      errorData = {
+        type: 'error',
+        source: 'CONSOLE_ERROR',
+        message: stringifyArgs(args),
+        name: 'ConsoleLoggedError',
+        stack: null,
+        timestamp: new Date().toISOString(),
+      };
+    }
+    window.parent.postMessage(errorData, '*');
+    originalConsoleError.apply(console, args);
+  };
+
+  // Listen for global unhandled synchronous errors.
+  window.addEventListener('error', function(event) {
+    const errorDetails = event.error ? getErrorObject(event.error) : {
+      message: event.message,
+      name: 'GlobalError',
+      stack: null,
+      filename: event.filename,
+      lineno: event.lineno,
+      colno: event.colno,
+    };
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'global',
+      ...errorDetails,
+      message: errorDetails.message || event.message,
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+  // Listen for unhandled promise rejections (asynchronous errors).
+  window.addEventListener('unhandledrejection', function(event) {
+    const errorDetails = getErrorObject(event.reason);
+
+    window.parent.postMessage({
+      type: 'error',
+      source: 'unhandledrejection',
+      ...errorDetails,
+      message: errorDetails.message || 'Unhandled Promise Rejection',
+      timestamp: new Date().toISOString(),
+    }, '*');
+  });
+
+})();</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brevant: {
+                            DEFAULT: '#E85D04', 
+                            dark: '#C04D03',
+                            light: '#F08542'
+                        },
+                        ganadero: {
+                            DEFAULT: '#15803d',
+                            light: '#dcfce7'
+                        },
+                        slate: {
+                            900: '#1A1A1A', 
+                            800: '#2D2D2D',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" crossorigin="anonymous"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght=300;400;600;700;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        .item-enter { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(-10px); } to { opacity: 1; transform: translateX(0); } }
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.relative{position:relative}.bottom-5{bottom:1.25rem}.left-1\/2{left:50%}.left-\[-9999px\]{left:-9999px}.top-0{top:0px}.z-10{z-index:10}.z-50{z-index:50}.z-\[-1\]{z-index:-1}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-10{margin-bottom:2.5rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1\.5{margin-left:0.375rem}.mr-1{margin-right:0.25rem}.mr-2{margin-right:0.5rem}.mt-1{margin-top:0.25rem}.mt-10{margin-top:2.5rem}.mt-2{margin-top:0.5rem}.mt-3{margin-top:0.75rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-16{height:4rem}.h-2{height:0.5rem}.h-24{height:6rem}.h-5{height:1.25rem}.h-full{height:100%}.max-h-\[300px\]{max-height:300px}.max-h-\[350px\]{max-height:350px}.min-h-screen{min-height:100vh}.min-h-\[500px\]{min-height:500px}.w-2{width:0.5rem}.w-24{width:6rem}.w-5{width:1.25rem}.w-\[650px\]{width:650px}.w-full{width:100%}.max-w-6xl{max-width:72rem}.flex-1{flex:1 1 0%}.shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.translate-y-20{--tw-translate-y:5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.transform{transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes pulse{50%{opacity:.5}}.animate-pulse{animation:pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite}@keyframes spin{to{transform:rotate(360deg)}}.animate-spin{animation:spin 1s linear infinite}.cursor-pointer{cursor:pointer}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-end{align-items:flex-end}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.space-x-2 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.5rem * var(--tw-space-x-reverse));margin-left:calc(0.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-4 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1rem * var(--tw-space-x-reverse));margin-left:calc(1rem * calc(1 - var(--tw-space-x-reverse)))}.space-x-6 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(1.5rem * var(--tw-space-x-reverse));margin-left:calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))}.space-y-1 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.25rem * var(--tw-space-y-reverse))}.space-y-1\.5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.375rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.375rem * var(--tw-space-y-reverse))}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-5 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.25rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.overflow-x-hidden{overflow-x:hidden}.truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-3xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.border{border-width:1px}.border-2{border-width:2px}.border-b{border-bottom-width:1px}.border-b-2{border-bottom-width:2px}.border-b-4{border-bottom-width:4px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-t-2{border-top-width:2px}.border-t-4{border-top-width:4px}.border-t-8{border-top-width:8px}.border-blue-200{--tw-border-opacity:1;border-color:rgb(191 219 254 / var(--tw-border-opacity, 1))}.border-brevant{--tw-border-opacity:1;border-color:rgb(232 93 4 / var(--tw-border-opacity, 1))}.border-emerald-100{--tw-border-opacity:1;border-color:rgb(209 250 229 / var(--tw-border-opacity, 1))}.border-orange-200{--tw-border-opacity:1;border-color:rgb(254 215 170 / var(--tw-border-opacity, 1))}.border-orange-300{--tw-border-opacity:1;border-color:rgb(253 186 116 / var(--tw-border-opacity, 1))}.border-slate-200{--tw-border-opacity:1;border-color:rgb(226 232 240 / var(--tw-border-opacity, 1))}.border-slate-300{--tw-border-opacity:1;border-color:rgb(203 213 225 / var(--tw-border-opacity, 1))}.border-slate-800{--tw-border-opacity:1;border-color:rgb(45 45 45 / var(--tw-border-opacity, 1))}.border-b-brevant{--tw-border-opacity:1;border-bottom-color:rgb(232 93 4 / var(--tw-border-opacity, 1))}.border-b-red-600{--tw-border-opacity:1;border-bottom-color:rgb(220 38 38 / var(--tw-border-opacity, 1))}.border-t-brevant{--tw-border-opacity:1;border-top-color:rgb(232 93 4 / var(--tw-border-opacity, 1))}.bg-slate-100{--tw-bg-opacity:1;background-color:rgb(241 245 249 / var(--tw-bg-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-500{--tw-bg-opacity:1;background-color:rgb(245 158 11 / var(--tw-bg-opacity, 1))}.bg-blue-50{--tw-bg-opacity:1;background-color:rgb(239 246 255 / var(--tw-bg-opacity, 1))}.bg-blue-600{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-emerald-50{--tw-bg-opacity:1;background-color:rgb(236 253 245 / var(--tw-bg-opacity, 1))}.bg-emerald-600{--tw-bg-opacity:1;background-color:rgb(5 150 105 / var(--tw-bg-opacity, 1))}.bg-orange-100{--tw-bg-opacity:1;background-color:rgb(255 237 213 / var(--tw-bg-opacity, 1))}.bg-orange-50{--tw-bg-opacity:1;background-color:rgb(255 247 237 / var(--tw-bg-opacity, 1))}.bg-red-100{--tw-bg-opacity:1;background-color:rgb(254 226 226 / var(--tw-bg-opacity, 1))}.bg-red-800{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.bg-red-950{--tw-bg-opacity:1;background-color:rgb(69 10 10 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-800{--tw-bg-opacity:1;background-color:rgb(45 45 45 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(26 26 26 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-green-100{--tw-bg-opacity:1;background-color:rgb(220 252 231 / var(--tw-bg-opacity, 1))}.bg-green-500{--tw-bg-opacity:1;background-color:rgb(34 197 94 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-emerald-50{--tw-gradient-from:#ecfdf5 var(--tw-gradient-from-position);--tw-gradient-to:rgb(236 253 245 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.to-teal-50{--tw-gradient-to:#f0fdfa var(--tw-gradient-to-position)}.object-contain{object-fit:contain}.p-4{padding:1rem}.p-1{padding:0.25rem}.p-10{padding:2.5rem}.p-12{padding:3rem}.p-2{padding:0.5rem}.p-2\.5{padding:0.625rem}.p-3{padding:0.75rem}.p-3\.5{padding:0.875rem}.p-5{padding:1.25rem}.p-6{padding:1.5rem}.px-1\.5{padding-left:0.375rem;padding-right:0.375rem}.px-2{padding-left:0.5rem;padding-right:0.5rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.py-0\.5{padding-top:0.125rem;padding-bottom:0.125rem}.py-1{padding-top:0.25rem;padding-bottom:0.25rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.pb-2{padding-bottom:0.5rem}.pb-8{padding-bottom:2rem}.pr-2{padding-right:0.5rem}.pt-2{padding-top:0.5rem}.pt-3{padding-top:0.75rem}.pt-4{padding-top:1rem}.text-center{text-align:center}.text-right{text-align:right}.font-sans{font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-5xl{font-size:3rem;line-height:1}.text-\[10px\]{font-size:10px}.text-\[11px\]{font-size:11px}.text-\[13px\]{font-size:13px}.text-\[8px\]{font-size:8px}.text-\[9px\]{font-size:9px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-medium{font-weight:500}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-slate-800{--tw-text-opacity:1;color:rgb(45 45 45 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-blue-600{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-blue-800{--tw-text-opacity:1;color:rgb(30 64 175 / var(--tw-text-opacity, 1))}.text-brevant{--tw-text-opacity:1;color:rgb(232 93 4 / var(--tw-text-opacity, 1))}.text-emerald-700{--tw-text-opacity:1;color:rgb(4 120 87 / var(--tw-text-opacity, 1))}.text-emerald-900{--tw-text-opacity:1;color:rgb(6 78 59 / var(--tw-text-opacity, 1))}.text-emerald-950{--tw-text-opacity:1;color:rgb(2 44 34 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-green-700{--tw-text-opacity:1;color:rgb(21 128 61 / var(--tw-text-opacity, 1))}.text-red-500{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.text-red-600{--tw-text-opacity:1;color:rgb(220 38 38 / var(--tw-text-opacity, 1))}.text-red-700{--tw-text-opacity:1;color:rgb(185 28 28 / var(--tw-text-opacity, 1))}.text-red-800{--tw-text-opacity:1;color:rgb(153 27 27 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-slate-700{--tw-text-opacity:1;color:rgb(51 65 85 / var(--tw-text-opacity, 1))}.text-slate-900{--tw-text-opacity:1;color:rgb(26 26 26 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-green-800{--tw-text-opacity:1;color:rgb(22 101 52 / var(--tw-text-opacity, 1))}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.opacity-0{opacity:0}.opacity-40{opacity:0.4}.opacity-60{opacity:0.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-inner{--tw-shadow:inset 0 2px 4px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:inset 0 2px 4px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-300{transition-duration:300ms}.hover\:border-green-500:hover{--tw-border-opacity:1;border-color:rgb(34 197 94 / var(--tw-border-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-brevant:hover{--tw-bg-opacity:1;background-color:rgb(232 93 4 / var(--tw-bg-opacity, 1))}.hover\:bg-red-700:hover{--tw-bg-opacity:1;background-color:rgb(185 28 28 / var(--tw-bg-opacity, 1))}.hover\:bg-red-800:hover{--tw-bg-opacity:1;background-color:rgb(153 27 27 / var(--tw-bg-opacity, 1))}.hover\:bg-slate-700:hover{--tw-bg-opacity:1;background-color:rgb(51 65 85 / var(--tw-bg-opacity, 1))}.hover\:text-green-600:hover{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.hover\:text-red-400:hover{--tw-text-opacity:1;color:rgb(248 113 113 / var(--tw-text-opacity, 1))}.hover\:text-slate-900:hover{--tw-text-opacity:1;color:rgb(26 26 26 / var(--tw-text-opacity, 1))}.focus\:border-brevant:focus{--tw-border-opacity:1;border-color:rgb(232 93 4 / var(--tw-border-opacity, 1))}.focus\:ring-0:focus{--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)}.focus\:ring-blue-500:focus{--tw-ring-opacity:1;--tw-ring-color:rgb(59 130 246 / var(--tw-ring-opacity, 1))}.active\:scale-95:active{--tw-scale-x:.95;--tw-scale-y:.95;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.disabled\:opacity-50:disabled{opacity:0.5}@media (min-width: 640px){.sm\:flex-row{flex-direction:row}.sm\:space-x-3 > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:0;margin-right:calc(0.75rem * var(--tw-space-x-reverse));margin-left:calc(0.75rem * calc(1 - var(--tw-space-x-reverse)))}.sm\:space-y-0 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0px * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0px * var(--tw-space-y-reverse))}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:col-span-2{grid-column:span 2 / span 2}.md\:mt-0{margin-top:0px}.md\:h-20{height:5rem}.md\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:items-center{align-items:center}.md\:p-8{padding:2rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-sm{font-size:0.875rem;line-height:1.25rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:col-span-5{grid-column:span 5 / span 5}.lg\:col-span-7{grid-column:span 7 / span 7}.lg\:grid-cols-12{grid-template-columns:repeat(12, minmax(0, 1fr))}.lg\:border-b-0{border-bottom-width:0px}.lg\:border-r{border-right-width:1px}}</style></head>
+<body class="bg-slate-100 text-slate-800 antialiased p-4 md:p-8 min-h-screen flex flex-col items-center overflow-x-hidden">
+
+    <div class="max-w-6xl mx-auto space-y-6 w-full">
+        <!-- Header con Identidad DAS e Indicador de Nube -->
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center bg-white p-6 rounded-xl shadow-sm border border-slate-200 border-t-4 border-t-brevant">
+            <div class="flex items-center space-x-4">
+                <img src="rycdas.logo.png" alt="Rindes y Cultivos DAS" class="h-16 md:h-20 object-contain" onerror="this.style.display='none'" style="display: none;">
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <h1 class="text-xl md:text-2xl font-bold text-slate-900 leading-tight">Rindes y Cultivos <span class="text-brevant">DAS</span></h1>
+                        <!-- Indicador de conexión en la nube -->
+                        <span id="cloudStatusBadge" class="bg-green-100 text-green-800 text-[10px] px-2 py-0.5 rounded-full font-black flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-1"></span> Nube Sincronizada</span>
+                    </div>
+                    <p class="text-slate-500 mt-1 text-xs md:text-sm font-medium">Gente de Campo • Julio 2026</p>
+                </div>
+            </div>
+            <div class="mt-4 md:mt-0 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+                <button onclick="downloadSelf()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-black text-[10px] uppercase flex items-center shadow-md transition-all active:scale-95">
+                    <i class="fas fa-save mr-2"></i> Guardar Offline
+                </button>
+                <span class="bg-orange-50 text-brevant px-4 py-2 rounded border border-orange-200 font-bold flex items-center shadow-sm text-[10px] uppercase">
+                    <i class="fas fa-calendar-check mr-2 text-xs"></i> Julio 2026
+                </span>
+            </div>
+        </header>
+
+        <!-- Pestañas de Navegación -->
+        <div class="flex bg-white p-1 rounded-xl shadow-sm border border-slate-200">
+            <button onclick="switchTab('cotizador')" id="tab-cotizador" class="flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all bg-slate-900 text-white flex justify-center items-center">
+                <i class="fas fa-calculator mr-2 text-base"></i> Cotizador Productor
+            </button>
+            <button onclick="switchTab('perdidos')" id="tab-perdidos" class="flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all text-slate-500 hover:text-slate-900 flex justify-center items-center">
+                <i class="fas fa-times-circle mr-2 text-base text-red-500"></i> Negocios Perdidos <span id="cloudDealsCount" class="ml-1.5 bg-red-100 text-red-800 text-[10px] font-black px-1.5 py-0.5 rounded-full">...</span>
+            </button>
+        </div>
+
+        <!-- CONTENIDO TAB 1: COTIZADOR -->
+        <div id="content-cotizador" class="bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+            <div class="p-6 bg-slate-900 text-white border-b-4 border-b-brevant flex justify-between items-center">
+                <h2 class="text-lg md:text-xl font-bold uppercase tracking-wide"><i class="fas fa-seedling mr-2 text-brevant"></i> Armado de Propuesta</h2>
+                <button onclick="clearCart()" class="text-xs font-bold text-slate-400 hover:text-red-400 transition-colors uppercase"><i class="fas fa-trash-alt mr-1"></i> Vaciar</button>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[500px]">
+                <!-- PANEL IZQUIERDO -->
+                <div class="lg:col-span-5 p-6 md:p-8 border-b lg:border-b-0 lg:border-r border-slate-200 bg-white flex flex-col justify-between">
+                    <div class="space-y-5">
+                        <!-- Híbrido -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-700 mb-1 uppercase tracking-wide">Híbrido / Producto</label>
+                            <select id="simHybrid" onchange="toggleSpecialMode(); updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-slate-900 bg-slate-50 text-sm shadow-sm cursor-pointer transition-colors">
+                                <optgroup label="🥩 SEGMENTO GANADERO (Exclusivo Productor)">
+                                    <option value="maiz|120|BRV 8472 PWU|special">BRV 8472 PWU (Ganadero)</option>
+                                </optgroup>
+                                <optgroup label="Maíz (Precios Productor Junio)">
+                                    <option value="maiz|200|NEXT 25.8 PWU">NEXT 25.8 PWU ($200)</option>
+                                    <option value="maiz|190|BRV 8181 PWU">BRV 8181 PWU ($190)</option>
+                                    <option value="maiz|180|BRV 8380 PWUE" selected="">BRV 8380 PWUE ($180)</option>
+                                    <option value="maiz|175|BRV 8421 PWUEN">BRV 8421 PWUEN ($175)</option>
+                                    <option value="maiz|170|NEXT 22.6 PWUE">NEXT 22.6 PWUE ($170)</option>
+                                    <option value="maiz|160|BRV 510 PWUE">BRV 510 PWUE ($160)</option>
+                                    <option value="maiz|150|BRV 510 PWU">BRV 510 PWU ($150)</option>
+                                    <option value="maiz|129|BRV 8472 PWUEN">BRV 8472 PWUEN ($129)</option>
+                                    <option value="maiz|120|RFG 22 RE">RFG 22 RE ($120)</option>
+                                    <option value="maiz|115|RFG 22 RR">RFG 22 RR ($115)</option>
+                                </optgroup>
+                                <optgroup label="Girasol (Costo Base + Margen)">
+                                    <option value="girasol|210|BRV 4225 CL">BRV 4225 CL ($210)</option>
+                                    <option value="girasol|210|BRV L 210 CP">BRV L 210 CP ($210)</option>
+                                    <option value="girasol|210|BRV H 280 CL">BRV H 280 CL ($210)</option>
+                                    <option value="girasol|185|MG 360 CP">MG 360 CP ($185)</option>
+                                    <option value="girasol|175|MG 360">MG 360 ($175)</option>
+                                    <option value="girasol|100|BRV 3304 CPDM">BRV 3304 CPDM ($100)</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <!-- Bonificación TITUS -->
+                        <div id="titusBonusContainer" class="animate-fadeIn bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-3">
+                                    <input type="checkbox" id="simTitus" onchange="updatePreview()" class="w-5 h-5 text-blue-600 rounded focus:ring-blue-500">
+                                    <label for="simTitus" class="text-xs font-black text-blue-800 uppercase cursor-pointer">Bonificación TITUS Herbicida</label>
+                                </div>
+                                <span class="bg-blue-600 text-white text-[10px] font-black px-2 py-0.5 rounded shadow-sm">-$15 USD / bolsa</span>
+                            </div>
+                            <div id="titusCalcInfo" class="mt-2"></div>
+                        </div>
+
+                        <!-- Margen Girasol -->
+                        <div id="sunflowerMarginContainer" class="hidden animate-fadeIn bg-orange-50 border border-orange-200 rounded-lg p-4">
+                            <label class="block text-xs font-bold text-brevant mb-2 uppercase tracking-wide">Margen Comercial Girasol (%)</label>
+                            <input type="number" id="simMargin" value="15" min="0" oninput="updatePreview()" class="w-24 border-2 border-orange-300 rounded-lg p-2 font-black text-slate-900 bg-white">
+                        </div>
+
+                        <!-- Calibre, Bolsas (Facturadas y Sin Cargo) y Densidad -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Calibre</label>
+                                <select id="simCaliber" onchange="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-bold text-slate-800 bg-white text-xs transition-colors shadow-sm"><option value="0">Banda 1 (Base)</option><option value="3">Banda 2 (-$3)</option><option value="6">Banda 3 (-$6)</option></select>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas Fact.</label>
+                                <input type="number" id="simBags" value="50" min="1" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-brevant text-sm bg-white shadow-sm">
+                                <p id="volDiscountNotice" class="text-[8px] text-green-600 font-bold mt-1">Escala Volumen Aplicada (-$3)</p>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas S/C</label>
+                                <input type="number" id="simFreeBags" value="0" min="0" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-green-700 text-sm bg-white shadow-sm">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-slate-700 mb-1 uppercase tracking-tight">Densidad (Sem/Ha)</label>
+                                <input type="number" id="simDensity" value="55000" min="1000" step="1000" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-slate-700 text-sm bg-white shadow-sm">
+                            </div>
+                        </div>
+
+                        <!-- Pago -->
+                        <div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="md:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Condición de Pago</label>
+                                    <select id="simCondition" onchange="toggleDaysInput(); updatePreview();" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-bold text-slate-900 bg-white text-[13px] shadow-sm">
+            <option value="direct|0">Contado (A 30 días) - Sin recargo</option>
+            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - 360 días)">
+                <option value="direct|0">Nera Santander USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Nera Galicia USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Nera Comafi USD (360d - Tasa 0%)</option>
+                <option value="direct|0">AgroNación Préstamo USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Procampo Digital USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Macro USD (360d - Tasa 0%)</option>
+                <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
+            </optgroup>
+            <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
+                <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
+                <option value="direct|0">Préstamo Supervielle (Subsidio hasta 7.5% - Tasa 0% hoy)</option>
+            </optgroup>
+            <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
+                <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
+            </optgroup>
+            <optgroup label="📈 CANJE GRANO PLUS FWD (Tasa 0% hasta 360d | +5% Bono Grano)">
+                <option value="direct|0|0.05">Grano Plus FWD Septiembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Octubre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Noviembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Diciembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Febrero 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Marzo 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Abril 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Mayo 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Junio 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
+            </optgroup>
+            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 5.50% s/ Lista - Sin Plus)">
+                <option value="corteva_tna|0.055|0">Fin. Corteva USD - TNA 5.50% ⚡</option>
+                <option value="direct|0.0092|0">Fin Corteva Vto Septiembre 2026 (+0.92%)</option>
+                <option value="direct|0.0138|0">Fin Corteva Vto Octubre 2026 (+1.38%)</option>
+                <option value="direct|0.0183|0">Fin Corteva Vto Noviembre 2026 (+1.83%)</option>
+                <option value="direct|0.0229|0">Fin Corteva Vto Diciembre 2026 (+2.29%)</option>
+                <option value="direct|0.0275|0">Fin Corteva Vto Enero 2027 (+2.75%)</option>
+                <option value="direct|0.0321|0">Fin Corteva Vto Febrero 2027 (+3.21%)</option>
+                <option value="direct|0.0367|0">Fin Corteva Vto Marzo 2027 (+3.67%)</option>
+                <option value="direct|0.0413|0">Fin Corteva Vto Abril 2027 (+4.13%)</option>
+                <option value="direct|0.0458|0">Fin Corteva Vto Mayo 2027 (+4.58%)</option>
+                <option value="direct|0.0504|0">Fin Corteva Vto Junio 2027 (+5.04%) ⚡</option>
+            </optgroup>
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Subsidio Incluido - Julio 26)">
+                <option value="tna|0.215">AgroNación - Subsidio 7.5% (TNA 21.50% - máx 360d)</option>
+                <option value="procampo_tna|0">Procampo - Subsidio 10% (TNA Variable: 10% - 17% - 20%)</option>
+                <option value="tna|0.31">BBVA - Plataforma Digital (TNA 31.00% - máx 360d)</option>
+            </optgroup>
+        </select>
+                                </div>
+                                <div id="daysContainer" class="md:col-span-1 transition-all duration-300 opacity-40 grayscale">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Plazo (Días)</label>
+                                    <input type="number" id="simDays" value="180" min="1" max="360" disabled="" oninput="updatePreview();" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-brevant text-sm bg-white shadow-sm">
+                                </div>
+                            </div>
+                            <p class="text-[10px] text-slate-500 mt-2 font-medium" id="rateHelperText">Sin recargo.</p>
+                        </div>
+                        
+                        <!-- Mini Preview -->
+                        <div class="bg-slate-50 border border-slate-200 rounded-lg p-4 mt-2 shadow-inner space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="text-slate-500 font-bold">Precio Neto Facturado:</span>
+                                <span class="text-slate-800 font-black" id="previewUnit">$177.00</span>
+                            </div>
+                            <div id="previewAvgRow" class="flex justify-between items-center text-sm hidden">
+                                <span class="text-slate-500 font-bold">Precio Promedio (con S/C):</span>
+                                <span class="text-green-700 font-black" id="previewAvgUnit">$0.00</span>
+                            </div>
+                            <div class="flex justify-between items-center text-sm pt-2 border-t border-slate-200">
+                                <span class="text-slate-500 font-bold">Costo por Hectárea:</span>
+                                <span class="text-lg font-black text-brevant" id="previewCostHa">$121.69</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <button onclick="addToCart()" class="w-full bg-slate-900 hover:bg-brevant text-white font-bold uppercase tracking-wider py-4 px-4 rounded-lg shadow-md transition-all active:scale-95 flex justify-center items-center">
+                            <i class="fas fa-plus-circle mr-2 text-xl"></i> Añadir a Propuesta
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PANEL DERECHO -->
+                <div class="lg:col-span-7 bg-slate-100 p-6 md:p-8 flex flex-col relative justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-4 relative z-10">
+                            <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest"><i class="fas fa-clipboard-list mr-2 text-brevant"></i>Detalle Propuesta</h3>
+                            <span class="text-[10px] font-bold text-brevant bg-orange-100 border border-orange-200 px-2 py-1 rounded" id="globalMaizScaleText">Maíz: 0 b.</span>
+                        </div>
+
+                        <div class="overflow-y-auto custom-scrollbar pr-2 max-h-[300px] relative z-10">
+                            <div class="flex flex-col items-center justify-center h-full text-slate-400 opacity-60 mt-10" id="emptyCartState">
+                                <i class="fas fa-layer-group text-5xl mb-4"></i>
+                                <p class="font-bold text-sm uppercase tracking-wide">La propuesta está vacía</p>
+                            </div>
+                            <div id="cartItemsContainer" class="space-y-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t-2 border-slate-300 relative z-10">
+                        <!-- Apartado promocional Mi Lote en Interfaz -->
+                        <div class="mb-4 bg-emerald-50 rounded-xl p-3 border border-emerald-100 flex items-center space-x-3">
+                            <div class="bg-emerald-600 text-white p-2 rounded-lg text-sm shrink-0">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="text-[11px] leading-tight">
+                                <p class="font-bold text-emerald-900">¿Sabías que tu compra incluye Mi Lote?</p>
+                                <p class="text-emerald-700">Obtené tu prescripción inteligente variable con OneSoil.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-900 rounded-xl p-5 shadow-lg border border-slate-800">
+                            <div class="flex justify-between items-center mb-2 text-slate-400">
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Total de Bolsas</span>
+                                <span class="text-lg font-black text-white" id="grandTotalBags">0</span>
+                            </div>
+                            <!-- SEPARACIÓN DE PROMEDIOS DENTRO DEL CONTENEDOR DE TOTALES -->
+                            <div class="flex flex-col mb-3 text-slate-400 border-b border-slate-800 pb-2 space-y-1" id="grandTotalAvgContainer">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Precio Promedio x Bolsa</span>
+                                    <span class="text-lg font-black text-white">$0.00</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-end">
+                                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Inversión Total Estimada</span>
+                                <span class="text-3xl md:text-4xl font-black text-brevant" id="grandTotalUSD">$0</span>
+                            </div>
+                        </div>
+                        <div class="mt-4 grid grid-cols-2 gap-3">
+                            <button id="btnImage" onclick="downloadImage()" disabled="" class="bg-slate-800 hover:bg-slate-700 text-white font-bold uppercase py-3 rounded-lg shadow-md transition-all active:scale-95 text-[10px] disabled:opacity-50">
+                                <i class="fas fa-image mr-2 text-sm"></i> Generar Imagen
+                            </button>
+                            <button id="btnCopy" onclick="copyToClipboard()" disabled="" class="bg-white border-2 border-slate-300 hover:border-green-500 hover:text-green-600 text-slate-600 font-bold uppercase py-3 rounded-lg shadow-md transition-all active:scale-95 text-[10px] disabled:opacity-50">
+                                <i class="fab fa-whatsapp mr-2 text-sm"></i> Copiar WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONTENIDO TAB 2: NEGOCIOS PERDIDOS -->
+        <div id="content-perdidos" class="hidden bg-white rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+            <div class="p-6 bg-red-950 text-white border-b-4 border-b-red-600 flex justify-between items-center">
+                <h2 class="text-lg md:text-xl font-bold uppercase tracking-wide">
+                    <i class="fas fa-cloud mr-2 text-red-500"></i> Historial en la Nube de DAS
+                </h2>
+                <button onclick="exportLostDealsToCSV()" class="text-xs font-black bg-red-800 hover:bg-red-700 text-white px-3 py-1.5 rounded transition-colors uppercase"><i class="fas fa-file-excel mr-1"></i> Exportar Excel (CSV)</button>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12">
+                <!-- FORMULARIO DE CARGA -->
+                <div class="lg:col-span-5 p-6 md:p-8 border-r border-slate-200 bg-white">
+                    <h3 class="text-sm font-black text-slate-700 uppercase tracking-wider mb-4 border-b pb-2"><i class="fas fa-plus mr-1 text-red-500"></i> Registrar Pérdida</h3>
+                    <form id="lostDealForm" onsubmit="saveLostDeal(event)" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Material RYC Ofrecido</label>
+                            <select id="lostOurProduct" required="" class="w-full border-2 border-slate-300 rounded-lg p-2.5 text-sm bg-slate-50 font-bold">
+                                <option value="NEXT 25.8 PWU">NEXT 25.8 PWU</option>
+                                <option value="BRV 8181 PWU">BRV 8181 PWU</option>
+                                <option value="BRV 8380 PWUE">BRV 8380 PWUE</option>
+                                <option value="BRV 8421 PWUEN">BRV 8421 PWUEN</option>
+                                <option value="BRV 8472 PWU">BRV 8472 PWU</option>
+                                <option value="BRV 4225 CL">BRV 4225 CL (Girasol)</option>
+                                <option value="BRV L 210 CP">BRV L 210 CP (Girasol)</option>
+                                <option value="Otro Maiz/Girasol">Otro Material</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Bolsas en Juego</label>
+                                <input type="number" id="lostBags" required="" min="1" class="w-full border-2 border-slate-300 rounded-lg p-2 text-sm font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Nuestra Oferta (USD)</label>
+                                <input type="number" id="lostOurPrice" required="" min="1" step="0.01" class="w-full border-2 border-slate-300 rounded-lg p-2 text-sm font-bold">
+                            </div>
+                        </div>
+
+                        <div class="border-t pt-3 space-y-4">
+                            <h4 class="text-xs font-black text-red-700 uppercase tracking-widest">Información Ganadora</h4>
+                            
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Competidor</label>
+                                    <select id="lostCompetitor" required="" class="w-full border-2 border-slate-300 rounded-lg p-2 text-xs bg-white font-bold">
+                                        <option value="Dekalb">Dekalb (Bayer)</option>
+                                        <option value="Pioneer">Pioneer (Corteva)</option>
+                                        <option value="NK">NK Semillas</option>
+                                        <option value="KWS">KWS</option>
+                                        <option value="Don Mario">Don Mario</option>
+                                        <option value="Nuseed">Nuseed</option>
+                                        <option value="Syngenta">Syngenta</option>
+                                        <option value="Otros">Otros / Genéricos</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Híbrido Rival</label>
+                                    <input type="text" id="lostCompProduct" placeholder="Ej: DK 72-10" required="" class="w-full border-2 border-slate-300 rounded-lg p-2 text-xs font-bold">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Precio Rival (USD)</label>
+                                    <input type="number" id="lostCompPrice" required="" min="1" step="0.01" class="w-full border-2 border-slate-300 rounded-lg p-2 text-xs font-bold">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Motivo Principal</label>
+                                    <select id="lostReason" required="" class="w-full border-2 border-slate-300 rounded-lg p-2 text-xs bg-white font-bold">
+                                        <option value="Precio">Precio de la bolsa</option>
+                                        <option value="Financiación">Financiación / Plazo largo</option>
+                                        <option value="Canje">Condiciones de Canje</option>
+                                        <option value="Relación">Relación Comercial / Distribuidor</option>
+                                        <option value="Tecnología">Tecnología (VT3P, Trecepta, etc)</option>
+                                        <option value="Disponibilidad">Disponibilidad de calibre</option>
+                                        <option value="Otro">Otro Motivo</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-slate-700 mb-1 uppercase">Observaciones / Detalles</label>
+                            <textarea id="lostNotes" rows="2" placeholder="Ej: Cerró con tarjeta Galicia a tasa 0%..." class="w-full border-2 border-slate-300 rounded-lg p-2 text-xs font-medium"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-red-950 hover:bg-red-800 text-white font-bold uppercase tracking-wider py-3 rounded-lg transition-colors shadow-md flex justify-center items-center">
+                            <i class="fas fa-cloud-upload-alt mr-2"></i> Subir a la Nube DAS
+                        </button>
+                    </form>
+                </div>
+
+                <!-- DASHBOARD Y LISTA -->
+                <div class="lg:col-span-7 p-6 md:p-8 bg-slate-50 flex flex-col justify-between">
+                    <div>
+                        <!-- KPIs -->
+                        <div class="grid grid-cols-3 gap-3 mb-6">
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <span class="text-[9px] uppercase font-bold text-slate-400 block mb-1">Bolsas Perdidas (Nube)</span>
+                                <span class="text-xl font-black text-red-600" id="kpiLostBags">0</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <span class="text-[9px] uppercase font-bold text-slate-400 block mb-1">Rival Principal</span>
+                                <span class="text-xs font-black text-slate-800 block truncate" id="kpiTopCompetitor">-</span>
+                            </div>
+                            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm text-center">
+                                <span class="text-[9px] uppercase font-bold text-slate-400 block mb-1">Principal Motivo</span>
+                                <span class="text-xs font-black text-slate-800 block truncate" id="kpiTopReason">-</span>
+                            </div>
+                        </div>
+
+                        <!-- Lista de Registros -->
+                        <h3 class="text-xs font-black text-slate-800 uppercase tracking-widest mb-3"><i class="fas fa-sync-alt mr-1 text-slate-500 animate-spin"></i> Historial en Vivo (12 Asesores)</h3>
+                        <div class="overflow-y-auto custom-scrollbar max-h-[350px] space-y-2 pr-2" id="lostDealsContainer">
+                            <!-- Inyectado por Firebase -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TICKET INVISIBLE PARA DESCARGA (RENDEREADO EN ALTA RESOLUCIÓN) -->
+    <div id="receipt-container" class="fixed left-[-9999px] top-0 bg-white w-[650px] p-12 font-sans text-slate-800 z-[-1] border-t-8 border-brevant rounded-xl shadow-2xl">
+        <div class="flex justify-between items-center border-b-2 border-slate-200 pb-8 mb-10">
+            <div class="flex items-center space-x-6">
+                <img src="rycdas.logo.png" alt="Rindes DAS" class="h-24 object-contain" onerror="this.style.display='none'" style="display: none;">
+                <div>
+                    <h2 class="text-3xl font-black text-slate-900 leading-none">Rindes y Cultivos <span class="text-brevant">DAS</span></h2>
+                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mt-3">Gente de Campo • Propuesta Julio 2026</p>
+                </div>
+            </div>
+            <div class="text-right">
+                <p class="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Comercial</p>
+                <p class="text-base font-black text-slate-900">DAS SEMILLAS</p>
+            </div>
+        </div>
+        
+        <!-- Detalle de productos -->
+        <div id="receiptItems" class="space-y-8 mb-8"></div>
+        
+        <!-- Apartado Informativo de MILOTE -->
+        <div class="mb-10 p-6 bg-gradient-to-r from-emerald-50 to-teal-50 rounded-2xl border-2 border-emerald-100 flex items-center space-x-4 shadow-sm">
+            <div class="bg-emerald-600 text-white p-3.5 rounded-xl shadow-md shrink-0">
+                <i class="fas fa-map-marked-alt text-2xl"></i>
+            </div>
+            <div class="leading-tight">
+                <h4 class="font-black text-emerald-950 text-sm tracking-tight mb-1">🌱 Prescripción Personalizada con Tecnología de Precisión</h4>
+                <p class="text-[11px] text-emerald-700 font-medium leading-relaxed">
+                    Acercate a tu <strong class="text-emerald-900">Red Comercial Brevant (RTC)</strong> para obtener tu prescripción personalizada con tecnología <strong class="text-emerald-900">OneSoil</strong> a través de <strong class="text-emerald-900">Mi Lote by Corteva</strong>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tarjeta de totales -->
+        <div class="bg-slate-900 p-10 rounded-3xl text-white shadow-xl">
+            <div class="flex justify-between items-end">
+                <div>
+                    <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-2">Total de Bolsas</p>
+                    <p class="text-2xl font-black" id="receiptTotalBags">0 bolsas</p>
+                </div>
+                <!-- SEPARACIÓN DE PROMEDIOS EN TICKET DE IMAGEN -->
+                <div class="text-center space-y-1.5" id="receiptAvgPriceContainer">
+                    <!-- Dinámicamente poblado con el promedio de Maíz y/o Girasol por separado -->
+                </div>
+                <div class="text-right">
+                    <p class="text-[10px] text-brevant uppercase font-black tracking-widest mb-2">Inversión Total Julio</p>
+                    <p class="text-5xl font-black text-brevant" id="receiptGrandTotal">$0</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-10 text-center">
+            <p class="text-[10px] text-slate-600 font-bold italic leading-relaxed">Valores USD sin IVA. Operaciones diferidas deben realizarse exclusivamente con *ECHEQS*.</p>
+        </div>
+    </div>
+
+    <!-- UI Notification Toast -->
+    <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-slate-800 text-white px-6 py-3 rounded-xl shadow-2xl font-bold text-sm transform transition-all duration-300 translate-y-20 opacity-0 z-50 flex items-center">
+        <span id="toastMsg"></span>
+    </div>
+
+    <!-- Firebase SDK Modules (MANDATORY setup) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, addDoc, onSnapshot, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+        const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        let lostDeals = [];
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const cloudStatusBadge = document.getElementById('cloudStatusBadge');
+
+        function setCloudStatus(status, text) {
+            if (!cloudStatusBadge) return;
+            if (status === 'synced') {
+                cloudStatusBadge.className = "bg-green-100 text-green-800 text-[10px] px-2 py-0.5 rounded-full font-black flex items-center";
+                cloudStatusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-green-500 mr-1"></span> ${text}`;
+            } else if (status === 'error') {
+                cloudStatusBadge.className = "bg-red-100 text-red-800 text-[10px] px-2 py-0.5 rounded-full font-black flex items-center";
+                cloudStatusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-red-500 mr-1"></span> ${text}`;
+            } else {
+                cloudStatusBadge.className = "bg-amber-100 text-amber-800 text-[10px] px-2 py-0.5 rounded-full font-black flex items-center";
+                cloudStatusBadge.innerHTML = `<span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse mr-1"></span> ${text}`;
+            }
+        }
+
+        if (typeof __firebase_config !== 'undefined' && __firebase_config) {
+            try {
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                const initAuth = async () => {
+                    if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                        await signInWithCustomToken(auth, __initial_auth_token);
+                    } else {
+                        await signInAnonymously(auth);
+                    }
+                };
+
+                initAuth().then(() => {
+                    onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            currentUser = user;
+                            setCloudStatus('synced', 'Nube Sincronizada');
+                            setupCloudSync();
+                            syncPendingDeals(); 
+                        } else {
+                            setCloudStatus('error', 'Error de Conexión');
+                        }
+                    });
+                }).catch(e => {
+                    console.error("Auth process error", e);
+                    setCloudStatus('error', 'Modo Local');
+                });
+
+            } catch (e) {
+                console.error("Firebase startup error", e);
+                setCloudStatus('error', 'Modo Local (Error Config)');
+            }
+        } else {
+            setCloudStatus('error', 'Modo Local (Sin Config)');
+        }
+
+        window.addEventListener('online', () => {
+            if (currentUser) {
+                setCloudStatus('synced', 'Nube Conectada');
+                syncPendingDeals();
+            }
+        });
+
+        function setupCloudSync() {
+            if (!db || !currentUser) return;
+            const publicCollectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'lostDeals');
+
+            onSnapshot(publicCollectionRef, (snapshot) => {
+                lostDeals = [];
+                snapshot.forEach(doc => {
+                    lostDeals.push({ id: doc.id, ...doc.data() });
+                });
+                lostDeals.sort((a, b) => b.id.localeCompare(a.id));
+                
+                const countBadge = document.getElementById('cloudDealsCount');
+                if (countBadge) {
+                    const pendingCount = JSON.parse(localStorage.getItem('ryc_pending_lost_deals') || '[]').length;
+                    countBadge.textContent = lostDeals.length + (pendingCount > 0 ? ` (+${pendingCount})` : '');
+                }
+                renderLostDeals();
+            }, (error) => {
+                console.error("Firestore sync error:", error);
+                setCloudStatus('error', 'Fallo Sinc.');
+            });
+        }
+
+        async function syncPendingDeals() {
+            if (!db || !currentUser) return;
+            const pendingStr = localStorage.getItem('ryc_pending_lost_deals');
+            if (!pendingStr) return;
+            
+            const pendingDealsArray = JSON.parse(pendingStr);
+            if (pendingDealsArray.length === 0) return;
+
+            setCloudStatus('syncing', `Subiendo ${pendingDealsArray.length} items...`);
+            const publicCollectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'lostDeals');
+            
+            let successIds = [];
+            for (const deal of pendingDealsArray) {
+                try {
+                    const dealToUpload = { ...deal };
+                    delete dealToUpload.pending;
+                    await addDoc(publicCollectionRef, dealToUpload);
+                    successIds.push(deal.id);
+                } catch (e) {
+                    console.error("Error syncing deal:", e);
+                }
+            }
+
+            if (successIds.length > 0) {
+                const remaining = pendingDealsArray.filter(d => !successIds.includes(d.id));
+                if (remaining.length === 0) {
+                    localStorage.removeItem('ryc_pending_lost_deals');
+                } else {
+                    localStorage.setItem('ryc_pending_lost_deals', JSON.stringify(remaining));
+                }
+                showToast(`¡${successIds.length} registros offline sincronizados! ☁️`);
+            }
+            setCloudStatus('synced', 'Nube Sincronizada');
+            renderLostDeals();
+        }
+        window.syncPendingDeals = syncPendingDeals;
+
+        async function saveLostDeal(event) {
+            event.preventDefault();
+            const newItem = {
+                id: Date.now().toString(),
+                date: new Date().toLocaleDateString('es-AR'),
+                ourProduct: document.getElementById('lostOurProduct').value,
+                bags: parseInt(document.getElementById('lostBags').value) || 0,
+                ourPrice: parseFloat(document.getElementById('lostOurPrice').value) || 0,
+                competitor: document.getElementById('lostCompetitor').value,
+                compProduct: document.getElementById('lostCompProduct').value,
+                compPrice: parseFloat(document.getElementById('lostCompPrice').value) || 0,
+                reason: document.getElementById('lostReason').value,
+                notes: document.getElementById('lostNotes').value,
+                agent: "Asesor DAS"
+            };
+
+            if (!db || !currentUser) {
+                const pending = JSON.parse(localStorage.getItem('ryc_pending_lost_deals') || '[]');
+                pending.push(newItem);
+                localStorage.setItem('ryc_pending_lost_deals', JSON.stringify(pending));
+                document.getElementById('lostDealForm').reset();
+                showToast("Guardado localmente (Offline) ⏳. Se subirá al recuperar señal.");
+                renderLostDeals();
+                return;
+            }
+
+            try {
+                const publicCollectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'lostDeals');
+                await addDoc(publicCollectionRef, newItem);
+                document.getElementById('lostDealForm').reset();
+                showToast("¡Registrado y Sincronizado en la Nube! ⚡");
+            } catch (e) {
+                console.error("Error writing document: ", e);
+                const pending = JSON.parse(localStorage.getItem('ryc_pending_lost_deals') || '[]');
+                pending.push(newItem);
+                localStorage.setItem('ryc_pending_lost_deals', JSON.stringify(pending));
+                document.getElementById('lostDealForm').reset();
+                showToast("Fallo de red. Guardado local (Offline) ⏳");
+                renderLostDeals();
+            }
+        }
+
+        async function deleteLostDeal(id) {
+            if (!db || !currentUser) return;
+            try {
+                const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'lostDeals', id);
+                await deleteDoc(docRef);
+                showToast("Registro eliminado de la nube");
+            } catch (e) {
+                showToast("No se pudo eliminar de la nube");
+            }
+        }
+
+        function deletePendingDeal(id) {
+            let pending = JSON.parse(localStorage.getItem('ryc_pending_lost_deals') || '[]');
+            pending = pending.filter(d => d.id !== id);
+            localStorage.setItem('ryc_pending_lost_deals', JSON.stringify(pending));
+            showToast("Registro pendiente eliminado");
+            renderLostDeals();
+        }
+
+        window.saveLostDeal = saveLostDeal;
+        window.deleteLostDeal = deleteLostDeal;
+        window.deletePendingDeal = deletePendingDeal;
+
+        function renderLostDeals() {
+            const container = document.getElementById('lostDealsContainer');
+            if (!container) return;
+            container.innerHTML = '';
+
+            const pending = JSON.parse(localStorage.getItem('ryc_pending_lost_deals') || '[]');
+            const combinedDeals = [...pending.map(d => ({ ...d, pending: true })), ...lostDeals];
+
+            let totalBags = 0;
+            let compCounts = {};
+            let reasonCounts = {};
+
+            if (combinedDeals.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-10 text-slate-400 font-bold text-sm">
+                        <i class="fas fa-folder-open text-4xl mb-2"></i>
+                        <p>No hay pérdidas registradas en la nube aún</p>
+                    </div>
+                `;
+                document.getElementById('kpiLostBags').textContent = "0";
+                document.getElementById('kpiTopCompetitor').textContent = "-";
+                document.getElementById('kpiTopReason').textContent = "-";
+                return;
+            }
+
+            combinedDeals.forEach(item => {
+                totalBags += item.bags;
+                compCounts[item.competitor] = (compCounts[item.competitor] || 0) + 1;
+                reasonCounts[item.reason] = (reasonCounts[item.reason] || 0) + 1;
+
+                const div = document.createElement('div');
+                div.className = "bg-white p-4 rounded-xl border border-slate-200 relative item-enter shadow-sm transition-all hover:border-red-300 " + (item.pending ? "border-amber-400 bg-amber-50/10 shadow-inner" : "");
+                
+                const deleteAction = item.pending ? `deletePendingDeal('${item.id}')` : `deleteLostDeal('${item.id}')`;
+                const pendingBadge = item.pending 
+                    ? `<span class="bg-amber-100 text-amber-800 text-[8px] px-2 py-0.5 rounded font-black uppercase inline-flex items-center"><i class="fas fa-clock mr-1 animate-pulse"></i>Pendiente</span>` 
+                    : `<span class="bg-green-100 text-green-800 text-[8px] px-2 py-0.5 rounded font-black uppercase inline-flex items-center"><i class="fas fa-check-circle mr-1"></i>Sincronizado</span>`;
+
+                div.innerHTML = `
+                    <button onclick="${deleteAction}" class="absolute top-2 right-2 text-slate-300 hover:text-red-500 transition-colors">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <div class="flex justify-between items-start mb-2 pr-6">
+                        <div>
+                            <span class="text-[9px] text-slate-400 font-black uppercase">${item.date}</span>
+                            <div class="flex items-center space-x-2 mt-0.5">
+                                <h4 class="font-black text-slate-800 text-xs">Ofrecido: ${item.ourProduct}</h4>
+                                ${pendingBadge}
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="text-[9px] text-slate-400 font-black uppercase">Volumen</span>
+                            <span class="font-black text-red-600 block text-sm">${item.bags} b.</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 bg-red-50 p-2.5 rounded-lg text-[11px] mb-2 border border-red-100/50">
+                        <div>
+                            <p class="text-red-800 font-bold">DAS: ${exactFormatter.format(item.ourPrice)}</p>
+                            <p class="text-slate-500 font-medium">Motivo: <b>${item.reason}</b></p>
+                        </div>
+                        <div class="text-right border-l pl-2 border-red-200">
+                            <p class="text-slate-700 font-black">${item.competitor} (${item.compProduct})</p>
+                            <p class="text-red-700 font-black">Precio Rival: ${exactFormatter.format(item.compPrice)}</p>
+                        </div>
+                    </div>
+                    ${item.notes ? `<p class="text-[10px] text-slate-500 bg-slate-50 p-1.5 rounded italic border-l-2 border-slate-300">${item.notes}</p>` : ''}
+                `;
+                container.appendChild(div); 
+            });
+
+            document.getElementById('kpiLostBags').textContent = totalBags.toLocaleString();
+            const topComp = Object.keys(compCounts).reduce((a, b) => compCounts[a] > compCounts[b] ? a : b, '-');
+            const topReason = Object.keys(reasonCounts).reduce((a, b) => reasonCounts[a] > reasonCounts[b] ? a : b, '-');
+            document.getElementById('kpiTopCompetitor').textContent = topComp;
+            document.getElementById('kpiTopReason').textContent = topReason;
+        }
+
+        function exportLostDealsToCSV() {
+            if (lostDeals.length === 0) return;
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Fecha,Material DAS,Bolsas,Nuestra Oferta,Competidor,Hibrido Rival,Precio Rival,Motivo,Notas\r\n";
+            
+            lostDeals.forEach(item => {
+                const notesClean = item.notes ? item.notes.replace(/,/g, " ") : "";
+                const row = `"${item.date}","${item.ourProduct}",${item.bags},${item.ourPrice},"${item.competitor}","${item.compProduct}",${item.compPrice},"${item.reason}","${notesClean}"`;
+                csvContent += row + "\r\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", `Perdidas_RYC_DAS_Compartido_Julio.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            showToast("Reporte CSV descargado");
+        }
+        window.exportLostDealsToCSV = exportLostDealsToCSV;
+    </script>
+
+    <!-- General Application Logic -->
+    <script>
+        const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+        const standardConditions = `
+            <option value="direct|0">Contado (A 30 días) - Sin recargo</option>
+            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - 360 días)">
+                <option value="direct|0">Nera Santander USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Nera Galicia USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Nera Comafi USD (360d - Tasa 0%)</option>
+                <option value="direct|0">AgroNación Préstamo USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Procampo Digital USD (360d - Tasa 0%)</option>
+                <option value="direct|0">Macro USD (360d - Tasa 0%)</option>
+                <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
+            </optgroup>
+            <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
+                <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
+                <option value="direct|0">Préstamo Supervielle (Subsidio hasta 7.5% - Tasa 0% hoy)</option>
+            </optgroup>
+            <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
+                <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
+            </optgroup>
+            <optgroup label="📈 CANJE GRANO PLUS FWD (Tasa 0% hasta 360d | +5% Bono Grano)">
+                <option value="direct|0|0.05">Grano Plus FWD Septiembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Octubre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Noviembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Diciembre 26 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Febrero 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Marzo 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Abril 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Mayo 27 (Tasa 0% | +5% Bono Grano)</option>
+                <option value="direct|0|0.05">Grano Plus FWD Junio 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
+            </optgroup>
+            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 5.50% s/ Lista - Sin Plus)">
+                <option value="corteva_tna|0.055|0">Fin. Corteva USD - TNA 5.50% ⚡</option>
+                <option value="direct|0.0092|0">Fin Corteva Vto Septiembre 2026 (+0.92%)</option>
+                <option value="direct|0.0138|0">Fin Corteva Vto Octubre 2026 (+1.38%)</option>
+                <option value="direct|0.0183|0">Fin Corteva Vto Noviembre 2026 (+1.83%)</option>
+                <option value="direct|0.0229|0">Fin Corteva Vto Diciembre 2026 (+2.29%)</option>
+                <option value="direct|0.0275|0">Fin Corteva Vto Enero 2027 (+2.75%)</option>
+                <option value="direct|0.0321|0">Fin Corteva Vto Febrero 2027 (+3.21%)</option>
+                <option value="direct|0.0367|0">Fin Corteva Vto Marzo 2027 (+3.67%)</option>
+                <option value="direct|0.0413|0">Fin Corteva Vto Abril 2027 (+4.13%)</option>
+                <option value="direct|0.0458|0">Fin Corteva Vto Mayo 2027 (+4.58%)</option>
+                <option value="direct|0.0504|0">Fin Corteva Vto Junio 2027 (+5.04%) ⚡</option>
+            </optgroup>
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Subsidio Incluido - Julio 26)">
+                <option value="tna|0.215">AgroNación - Subsidio 7.5% (TNA 21.50% - máx 360d)</option>
+                <option value="procampo_tna|0">Procampo - Subsidio 10% (TNA Variable: 10% - 17% - 20%)</option>
+                <option value="tna|0.31">BBVA - Plataforma Digital (TNA 31.00% - máx 360d)</option>
+            </optgroup>
+        `;
+
+        const ganaderoConditions = `
+            <option value="special_contado">Contado ($95 Ganadero)</option>
+            <option value="special_fwd">Forward Enero / Canje ($99 Ganadero)</option>
+            <option value="special_cheques6">6 ECHEQS ($110 Ganadero)</option>
+            <option value="special_cheque1">1 ECHEQ (180 días) / Tarjeta ($117 Ganadero)</option>
+        `;
+
+        let cart = [];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            toggleSpecialMode();
+            updatePreview();
+        });
+
+        function switchTab(tab) {
+            const cCotizador = document.getElementById('content-cotizador');
+            const cPerdidos = document.getElementById('content-perdidos');
+            const tCotizador = document.getElementById('tab-cotizador');
+            const tPerdidos = document.getElementById('tab-perdidos');
+
+            if (tab === 'cotizador') {
+                cCotizador.classList.remove('hidden');
+                cPerdidos.classList.add('hidden');
+                tCotizador.className = "flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all bg-slate-900 text-white flex justify-center items-center";
+                tPerdidos.className = "flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all text-slate-500 hover:text-slate-900 flex justify-center items-center";
+            } else {
+                cCotizador.classList.add('hidden');
+                cPerdidos.classList.remove('hidden');
+                tCotizador.className = "flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all text-slate-500 hover:text-slate-900 flex justify-center items-center";
+                tPerdidos.className = "flex-1 py-3 px-4 rounded-lg font-bold text-sm text-center transition-all bg-slate-900 text-white flex justify-center items-center";
+            }
+        }
+        window.switchTab = switchTab;
+
+        function getVolumeDiscount(totalMaizBags) {
+            if (totalMaizBags >= 3001) return 18;
+            if (totalMaizBags >= 1301) return 15;
+            if (totalMaizBags >= 901)  return 12;
+            if (totalMaizBags >= 601)  return 9;
+            if (totalMaizBags >= 301)  return 6;
+            if (totalMaizBags >= 3)    return 3;
+            return 0;
+        }
+
+        function toggleSpecialMode() {
+            const hybridSel = document.getElementById('simHybrid');
+            const data = (hybridSel.value || "").split('|');
+            const cropType = data[0];
+            const isSpecial = data[3] === 'special';
+            const hybridName = data[2];
+            
+            const marginContainer = document.getElementById('sunflowerMarginContainer');
+            const titusContainer = document.getElementById('titusBonusContainer');
+            const caliberInput = document.getElementById('simCaliber');
+            const condSelect = document.getElementById('simCondition');
+            const daysContainer = document.getElementById('daysContainer');
+
+            marginContainer.classList.add('hidden');
+            titusContainer.classList.add('hidden');
+            caliberInput.disabled = false;
+            caliberInput.classList.remove('bg-slate-50', 'opacity-50');
+
+            if (cropType === 'girasol') {
+                caliberInput.innerHTML = `<option value="0">Banda 1 (G1 y G2)</option><option value="10">Banda 2 (G3 y G3E) (-$10)</option>`;
+                marginContainer.classList.remove('hidden');
+                document.getElementById('simDensity').value = '45000';
+            } else {
+                caliberInput.innerHTML = `<option value="0">Banda 1 (Base)</option><option value="3">Banda 2 (-$3)</option><option value="6">Banda 3 (-$6)</option>`;
+                document.getElementById('simDensity').value = '55000';
+                if (hybridName && !hybridName.includes('RFG') && !isSpecial) titusContainer.classList.remove('hidden');
+            }
+
+            if (isSpecial) {
+                caliberInput.disabled = true;
+                caliberInput.classList.add('bg-slate-50', 'opacity-50');
+                caliberInput.value = "0";
+                condSelect.innerHTML = ganaderoConditions;
+                daysContainer.classList.add('hidden');
+            } else {
+                condSelect.innerHTML = standardConditions;
+                daysContainer.classList.remove('hidden');
+            }
+            toggleDaysInput();
+        }
+        window.toggleSpecialMode = toggleSpecialMode;
+
+        function toggleDaysInput() {
+            const condSel = document.getElementById('simCondition');
+            const condData = (condSel.value || "").split('|');
+            const type = condData[0];
+            const rate = parseFloat(condData[1]);
+            const bonus = parseFloat(condData[2]) || 0;
+            const daysContainer = document.getElementById('daysContainer');
+            const simDays = document.getElementById('simDays');
+            const helper = document.getElementById('rateHelperText');
+            const condText = condSel.options[condSel.selectedIndex] ? condSel.options[condSel.selectedIndex].text : "";
+
+            if (type === 'tna' || type === 'corteva_tna' || type === 'procampo_tna') {
+                daysContainer.classList.remove('opacity-40', 'grayscale');
+                simDays.disabled = false;
+                if (type === 'tna') {
+                    const effective = (rate * (simDays.value / 360) * 100).toFixed(2);
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)`;
+                } else if (type === 'procampo_tna') {
+                    const totalDays = parseInt(simDays.value) || 180;
+                    let currentRate = 0.20;
+                    if (totalDays <= 180) currentRate = 0.10;
+                    else if (totalDays <= 270) currentRate = 0.17;
+                    const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong>`;
+                } else {
+                    const totalDays = parseInt(simDays.value) || 180;
+                    const effective = (rate * (totalDays / 360) * 100).toFixed(2);
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Fin. Corteva USD (Sin Plus): TNA 5.50%. Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${totalDays} d)`;
+                }
+            } else if (type === 'direct') {
+                daysContainer.classList.add('opacity-40', 'grayscale');
+                simDays.disabled = true;
+                if (condText.includes("360d") || condText.includes("360 días")) {
+                    helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
+                } else if (rate < 0) {
+                    let extra = bonus > 0 ? ` y +${bonus*100}% de Bono Extra en Grano` : '';
+                    helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Beneficio factura: <strong>${(rate*100).toFixed(0)}%</strong>${extra}.`;
+                } else if (rate > 0) {
+                    let extra = bonus > 0 ? ` y +${bonus*100}% de Bono Grano (Granos Plus)` : '';
+                    helper.innerHTML = `<i class="fas fa-fire-alt text-orange-600 mr-1"></i> Tasa Directa: <strong>+${(rate*100).toFixed(2)}%</strong>${extra}.`;
+                } else {
+                    helper.innerHTML = bonus > 0 ? `<i class="fas fa-gift text-green-600 mr-1"></i> Bono Grano: <strong>+${bonus*100}% por fuera</strong>` : "Sin recargo.";
+                }
+            } else {
+                helper.innerHTML = "";
+            }
+        }
+        window.toggleDaysInput = toggleDaysInput;
+
+        function getCurrentFormValues() {
+            const hybridSel = document.getElementById('simHybrid');
+            const data = (hybridSel.value || "").split('|');
+            const cropType = data[0];
+            const baseCost = parseFloat(data[1]);
+            const hybridName = data[2];
+            const isSpecial = data[3] === 'special';
+            const bags = parseInt(document.getElementById('simBags').value) || 0;
+            const freeBags = parseInt(document.getElementById('simFreeBags').value) || 0;
+            const density = parseInt(document.getElementById('simDensity').value) || 0;
+            const titusActive = document.getElementById('simTitus').checked && !document.getElementById('titusBonusContainer').classList.contains('hidden');
+            const condSel = document.getElementById('simCondition');
+            const condVal = condSel.value || "";
+            const condText = condSel.options[condSel.selectedIndex] ? condSel.options[condSel.selectedIndex].text : "";
+            const condData = condVal.split('|');
+            const condType = condData[0];
+            const condRate = parseFloat(condData[1]) || 0;
+            const grainBonus = parseFloat(condData[2]) || 0;
+
+            const caliberSel = document.getElementById('simCaliber');
+            const caliberDiscount = parseFloat(caliberSel.value) || 0;
+            const caliberName = caliberSel.options[caliberSel.selectedIndex] ? caliberSel.options[caliberSel.selectedIndex].text : "Banda 1 (Base)";
+            const appliedMargin = parseFloat(document.getElementById('simMargin').value) || 0;
+            const days = parseInt(document.getElementById('simDays').value) || 180;
+
+            // PARSEO REVOLUCIONARIO DE PLAZOS Y VENCIMIENTO SINCRO (SOPORTE DE CANJE Y FINANCIACIÓN)
+            let plazoText = "30 días (Contado)";
+            if (isSpecial) {
+                if (condVal === 'special_contado') plazoText = "Contado (A 30 días)";
+                else if (condVal === 'special_fwd') plazoText = "Forward Enero 2027 / Cosecha (Canje)";
+                else if (condVal === 'special_cheques6') plazoText = "6 ECHEQs (Financiación 30 a 180 d)";
+                else if (condVal === 'special_cheque1') plazoText = "180 días (1 ECHEQ / Tarjeta)";
+            } else {
+                if (condText.includes("Nera Santander")) {
+                    plazoText = "360 días (Nera Santander USD Tasa 0%)";
+                } else if (condText.includes("Nera Galicia")) {
+                    plazoText = "360 días (Nera Galicia USD Tasa 0%)";
+                } else if (condText.includes("Nera Comafi")) {
+                    plazoText = "360 días (Nera Comafi USD Tasa 0%)";
+                } else if (condText.includes("AgroNación Préstamo USD")) {
+                    plazoText = "360 días (AgroNación USD Tasa 0%)";
+                } else if (condText.includes("Procampo Digital USD")) {
+                    plazoText = "360 días (Procampo Digital USD Tasa 0%)";
+                } else if (condText.includes("Macro USD")) {
+                    plazoText = "360 días (Macro USD Tasa 0%)";
+                } else if (condText.includes("BBVA USD")) {
+                    plazoText = "360 días (BBVA USD Tasa 0%)";
+                } else if (condText.includes("Convenio SGR")) {
+                    plazoText = "360 días (Convenio SGR)";
+                } else if (condText.includes("Supervielle")) {
+                    plazoText = "360 días (Préstamo Supervielle Tasa 0%)";
+                } else if (condText.includes("Canje Granos Disponible")) {
+                    plazoText = "Disponible (Plazo Máx 30 días)";
+                } else if (condText.includes("Grano Plus FWD")) {
+                    const match = condText.match(/Grano Plus FWD\s+([A-Za-z]+)\s+(\d+)/i);
+                    if (match) {
+                        const mes = match[1];
+                        const anio = match[2] === "26" ? "2026" : "2027";
+                        plazoText = `FWD ${mes} ${anio} (Canje de Granos)`;
+                    } else {
+                        plazoText = "Forward (Canje de Granos)";
+                    }
+                } else if (condType === 'corteva_tna') {
+                    plazoText = `${days} días (Fin. Corteva USD - TNA 5.50%)`;
+                } else if (condText.includes("Fin Corteva Vto")) {
+                    const match = condText.match(/Vto\s+([A-Za-z]+)\s+(\d+)/i);
+                    if (match) {
+                        const mes = match[1];
+                        const anio = match[2];
+                        plazoText = `Vto ${mes} ${anio} (Fin. Corteva)`;
+                    } else {
+                        plazoText = "Vto Cosecha (Fin. Corteva)";
+                    }
+                } else if (condType === 'procampo_tna') {
+                    let procampoRate = 0.20;
+                    if (days <= 180) procampoRate = 0.10;
+                    else if (days <= 270) procampoRate = 0.17;
+                    plazoText = `${days} días (Tarjeta Procampo Pesos TNA ${(procampoRate*100).toFixed(0)}%)`;
+                } else if (condText.includes("AgroNación - Subsidio")) {
+                    plazoText = `${days} días (Tarjeta AgroNación Pesos TNA 21.50%)`;
+                } else if (condText.includes("BBVA - Plataforma Digital")) {
+                    plazoText = `${days} días (Tarjeta BBVA Pesos TNA 31.00%)`;
+                } else if (condVal === 'direct|0.105|0.05') {
+                    plazoText = "360 días (Forward Enero 2027 / Financiación USD)";
+                } else {
+                    plazoText = "Contado (A 30 días)";
+                }
+            }
+
+            return {
+                cropType,
+                baseCost,
+                hybridName,
+                isSpecial,
+                bags,
+                freeBags,
+                density,
+                titusActive,
+                condVal,
+                conditionName: condText,
+                condType,
+                condRate,
+                grainBonus,
+                caliberDiscount,
+                caliberName,
+                appliedMargin,
+                days,
+                plazoText
+            };
+        }
+
+        function calculateItemNet(item, globalMaizBags) {
+            let priceBeforeFinancing = item.baseCost;
+
+            if (item.isSpecial) {
+                if (item.condVal === 'special_contado') return 95;
+                if (item.condVal === 'special_fwd') return 99;
+                if (item.condVal === 'special_cheques6') return 110;
+                if (item.condVal === 'special_cheque1') return 117;
+                return 95;
+            }
+
+            if (item.cropType === 'girasol') {
+                priceBeforeFinancing = item.baseCost * (1 + (item.appliedMargin / 100));
+            }
+
+            // REGLA: El volumen de descuento SOLO aplica para Contado (direct|0)
+            const isContado = item.condVal === 'direct|0' && item.conditionName.includes("Contado");
+            const volDiscount = (item.cropType === 'maiz' && isContado) ? getVolumeDiscount(globalMaizBags) : 0;
+            
+            const titusDiscount = item.titusActive ? 15 : 0;
+            const baseNet = priceBeforeFinancing - item.caliberDiscount - volDiscount - titusDiscount;
+
+            let effectiveRate = item.condRate;
+            if (item.condType === 'procampo_tna') {
+                if (item.days <= 180) effectiveRate = 0.10;
+                else if (item.days <= 270) effectiveRate = 0.17;
+                else effectiveRate = 0.20;
+            }
+
+            if (item.condType === 'tna' || item.condType === 'corteva_tna' || item.condType === 'procampo_tna') {
+                return baseNet * (1 + (effectiveRate * (item.days / 360)));
+            } else if (item.condType === 'direct') {
+                return baseNet * (1 + effectiveRate);
+            }
+            return baseNet;
+        }
+
+        function updatePreview() {
+            const vals = getCurrentFormValues();
+            const seedsPerBag = vals.cropType === 'maiz' ? 80000 : 150000;
+            const totalItemBags = vals.bags + vals.freeBags;
+            
+            const totalMaizBagsInCart = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
+            const projectedMaizBags = vals.cropType === 'maiz' ? totalMaizBagsInCart + vals.bags : totalMaizBagsInCart;
+            
+            const finalUnitPrice = calculateItemNet(vals, projectedMaizBags);
+            const effectiveUnitPrice = totalItemBags > 0 ? (finalUnitPrice * vals.bags) / totalItemBags : finalUnitPrice;
+            const costPerHa = effectiveUnitPrice * (vals.density / seedsPerBag);
+
+            document.getElementById('previewUnit').textContent = exactFormatter.format(finalUnitPrice);
+            
+            const previewAvgRow = document.getElementById('previewAvgRow');
+            const previewAvgUnit = document.getElementById('previewAvgUnit');
+            if (vals.freeBags > 0 && previewAvgRow && previewAvgUnit) {
+                previewAvgRow.classList.remove('hidden');
+                previewAvgUnit.textContent = exactFormatter.format(effectiveUnitPrice);
+            } else if (previewAvgRow) {
+                previewAvgRow.classList.add('hidden');
+            }
+
+            document.getElementById('previewCostHa').textContent = exactFormatter.format(costPerHa);
+            
+            const vd = getVolumeDiscount(projectedMaizBags);
+            const notice = document.getElementById('volDiscountNotice');
+            const isContado = vals.condVal === 'direct|0' && vals.conditionName.includes("Contado");
+            if (vd > 0 && vals.cropType === 'maiz' && !vals.isSpecial && isContado) {
+                notice.classList.remove('hidden');
+                notice.textContent = `Escala Volumen Aplicada (-$${vd})`;
+            } else {
+                notice.classList.add('hidden');
+            }
+
+            const titusCalcInfo = document.getElementById('titusCalcInfo');
+            if (vals.titusActive && titusCalcInfo) {
+                const totalHa = vals.bags * (seedsPerBag / vals.density);
+                const drumsNeeded = Math.ceil((totalHa * 0.1) / 2.5);
+                titusCalcInfo.innerHTML = `<p class="text-[9px] text-blue-700 font-black"><i class="fas fa-flask mr-1"></i>Compra Titus: ${(drumsNeeded * 2.5).toFixed(1)} Kg (${drumsNeeded} bidones)</p>`;
+            } else if (titusCalcInfo) {
+                titusCalcInfo.innerHTML = "";
+            }
+            toggleDaysInput();
+        }
+        window.updatePreview = updatePreview;
+
+        function addToCart() {
+            const vals = getCurrentFormValues();
+            if (vals.bags <= 0) return;
+            cart.push({ id: Date.now().toString(), ...vals });
+            recalculateAndRender();
+            showToast("Añadido a propuesta");
+        }
+        window.addToCart = addToCart;
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            recalculateAndRender();
+        }
+        window.removeFromCart = removeFromCart;
+
+        function clearCart() {
+            cart = [];
+            recalculateAndRender();
+        }
+        window.clearCart = clearCart;
+
+        function recalculateAndRender() {
+            const totalMaizBags = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
+            const volDiscount = getVolumeDiscount(totalMaizBags);
+            document.getElementById('globalMaizScaleText').textContent = `Maíz: ${totalMaizBags} b. (-$${volDiscount})`;
+
+            const container = document.getElementById('cartItemsContainer');
+            const emptyState = document.getElementById('emptyCartState');
+            container.innerHTML = '';
+            
+            if (cart.length === 0) {
+                if(emptyState) emptyState.style.display = 'flex';
+                document.getElementById('grandTotalBags').textContent = "0";
+                document.getElementById('grandTotalAvgContainer').innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Precio Promedio x Bolsa</span>
+                        <span class="text-lg font-black text-white">$0.00</span>
+                    </div>
+                `;
+                document.getElementById('grandTotalUSD').textContent = "$0";
+                document.getElementById('btnCopy').disabled = true;
+                document.getElementById('btnImage').disabled = true;
+                return;
+            }
+
+            if(emptyState) emptyState.style.display = 'none';
+            document.getElementById('btnCopy').disabled = false;
+            document.getElementById('btnImage').disabled = false;
+
+            let grandTotalUSD = 0;
+            let totalBags = 0;
+
+            let maizBags = 0;
+            let maizUSD = 0;
+            let girasolBags = 0;
+            let girasolUSD = 0;
+
+            cart.forEach(item => {
+                const finalUnitPrice = calculateItemNet(item, totalMaizBags);
+                const totalLine = finalUnitPrice * item.bags;
+                const totalItemBags = item.bags + item.freeBags;
+                grandTotalUSD += totalLine;
+                totalBags += totalItemBags;
+
+                if (item.cropType === 'maiz') {
+                    maizBags += totalItemBags;
+                    maizUSD += totalLine;
+                } else if (item.cropType === 'girasol') {
+                    girasolBags += totalItemBags;
+                    girasolUSD += totalLine;
+                }
+
+                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
+                const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                
+                const effectivePrice = totalItemBags > 0 ? totalLine / totalItemBags : finalUnitPrice;
+                const costHa = effectivePrice * (item.density / seedsPerBag);
+
+                const div = document.createElement('div');
+                div.className = "bg-white p-5 rounded-xl border shadow-sm relative item-enter border-l-4 " + (item.isSpecial ? "border-l-ganadero" : "border-l-brevant");
+                
+                let discountsText = '';
+                const isContado = item.condVal === 'direct|0';
+                const actualVolDiscount = (item.cropType === 'maiz' && !item.isSpecial && isContado) ? volDiscount : 0;
+                if (actualVolDiscount > 0) {
+                    discountsText += `<span class="bg-green-100 text-green-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 uppercase">Escala Volumen -$${actualVolDiscount}</span>`;
+                }
+                if (item.titusActive) {
+                    discountsText += `<span class="bg-blue-100 text-blue-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 uppercase">Pack TITUS -$15</span>`;
+                }
+                if (item.freeBags > 0) {
+                    discountsText += `<span class="bg-emerald-100 text-emerald-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 uppercase">Bonif: +${item.freeBags} S/C</span>`;
+                }
+                if (item.grainBonus > 0) {
+                    discountsText += `<span class="bg-amber-100 text-amber-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 border border-amber-200 uppercase tracking-wider">Granos Plus +${item.grainBonus * 100}%</span>`;
+                }
+                if (!item.isSpecial) {
+                    discountsText += `<span class="bg-slate-100 text-slate-700 text-[8px] px-2 py-0.5 rounded font-black mr-1 border border-slate-200 uppercase tracking-wider"><i class="fas fa-tag mr-1 text-brevant"></i>${item.caliberName}</span>`;
+                }
+
+                let bonusInfo = '';
+                if (item.titusActive) {
+                    const drums = Math.ceil((item.bags * (seedsPerBag / item.density) * 0.1) / 2.5);
+                    bonusInfo = `<div class="mt-2 text-[9px] text-blue-800 font-bold bg-blue-50 p-2 rounded border border-blue-100 flex justify-between"><span><i class="fas fa-flask mr-1"></i>Titus: ${drums * 2.5} Kg (${drums} bid.)</span><span>-$${item.bags * 15} USD</span></div>`;
+                }
+
+                let bagsQtyText = `${item.bags} b.`;
+                if (item.freeBags > 0) {
+                    bagsQtyText = `${item.bags} b. + ${item.freeBags} S/C`;
+                }
+
+                div.innerHTML = `
+                    <button onclick="removeFromCart('${item.id}')" class="absolute top-2 right-2 text-slate-300 hover:text-red-500 transition-colors"><i class="fas fa-times-circle"></i></button>
+                    <h4 class="font-black text-slate-800 text-sm"><span class="mr-2">${emoj}</span> ${item.hybridName}</h4>
+                    <p class="text-[9px] text-slate-500 font-black mt-1 uppercase">${item.conditionName}</p>
+                    <div class="mt-2 flex flex-wrap gap-1 items-center">
+                        ${discountsText}
+                        <span class="bg-slate-100 text-slate-700 text-[8px] px-2 py-0.5 rounded font-black border border-slate-200 uppercase tracking-wider"><i class="fas fa-calendar-alt mr-1 text-brevant"></i>Vto: ${item.plazoText}</span>
+                    </div>
+                    ${bonusInfo}
+                    <div class="mt-4 grid grid-cols-3 gap-2 border-t pt-3 border-slate-100">
+                        <div>
+                            <span class="block text-[8px] uppercase font-black text-slate-400">P. Bolsa</span>
+                            <span class="font-black text-slate-700 text-sm">${exactFormatter.format(finalUnitPrice)}</span>
+                            ${item.freeBags > 0 ? `<span class="block text-[8px] text-emerald-600 font-bold">Prom: ${exactFormatter.format(effectivePrice)}</span>` : ''}
+                        </div>
+                        <div><span class="block text-[8px] uppercase font-black text-slate-400">Costo Ha</span><span class="font-black text-brevant text-sm">${exactFormatter.format(costHa)}</span></div>
+                        <div class="text-right"><span class="block text-[8px] uppercase font-black text-slate-400">Línea (${bagsQtyText})</span><span class="font-black text-slate-900 text-base">${usdFormatter.format(totalLine)}</span></div>
+                    </div>
+                `;
+                container.appendChild(div);
+
+                item.calculatedPrice = finalUnitPrice;
+                item.calculatedTotal = totalLine;
+                item.calculatedCostHa = costHa;
+            });
+            
+            // SE DETALLA EL PROMEDIO SEPARADO POR CULTIVO EN EL RESUMEN DEL COTIZADOR
+            const avgContainer = document.getElementById('grandTotalAvgContainer');
+            let avgHtml = '';
+            
+            if (maizBags > 0) {
+                const maizAvg = maizUSD / maizBags;
+                avgHtml += `
+                    <div class="flex justify-between items-center text-xs">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Promedio Bolsa Maíz 🌽</span>
+                        <span class="text-base font-black text-white">${exactFormatter.format(maizAvg)}</span>
+                    </div>
+                `;
+            }
+            if (girasolBags > 0) {
+                const girasolAvg = girasolUSD / girasolBags;
+                avgHtml += `
+                    <div class="flex justify-between items-center text-xs pt-1 border-t border-slate-800/50 mt-1">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Promedio Bolsa Girasol 🌻</span>
+                        <span class="text-base font-black text-white">${exactFormatter.format(girasolAvg)}</span>
+                    </div>
+                `;
+            }
+            if (maizBags === 0 && girasolBags === 0) {
+                avgHtml = `
+                    <div class="flex justify-between items-center">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Precio Promedio x Bolsa</span>
+                        <span class="text-lg font-black text-white">$0.00</span>
+                    </div>
+                `;
+            }
+            
+            avgContainer.innerHTML = avgHtml;
+            
+            document.getElementById('grandTotalBags').textContent = totalBags;
+            document.getElementById('grandTotalUSD').textContent = usdFormatter.format(grandTotalUSD);
+        }
+        window.recalculateAndRender = recalculateAndRender;
+
+        function downloadImage() {
+            const receiptItems = document.getElementById('receiptItems');
+            receiptItems.innerHTML = '';
+            const totalMaizBags = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
+            const volDiscount = getVolumeDiscount(totalMaizBags);
+
+            let totalBags = 0;
+            let grandTotalUSD = 0;
+            let maizBags = 0;
+            let maizUSD = 0;
+            let girasolBags = 0;
+            let girasolUSD = 0;
+
+            cart.forEach(item => {
+                const totalItemBags = item.bags + item.freeBags;
+                totalBags += totalItemBags;
+                grandTotalUSD += item.calculatedTotal;
+
+                if (item.cropType === 'maiz') {
+                    maizBags += totalItemBags;
+                    maizUSD += item.calculatedTotal;
+                } else if (item.cropType === 'girasol') {
+                    girasolBags += totalItemBags;
+                    girasolUSD += item.calculatedTotal;
+                }
+
+                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
+                const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                const costHa = item.calculatedCostHa;
+                
+                let titusRow = "";
+                if (item.titusActive) {
+                    const drums = Math.ceil((item.bags * (seedsPerBag / item.density) * 0.1) / 2.5);
+                    titusRow = `
+                        <div class="mt-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                            <p class="text-[10px] text-blue-900 font-black uppercase tracking-widest"><i class="fas fa-gift mr-1 text-xs"></i>Venta con Pack TITUS</p>
+                            <p class="text-[11px] text-blue-700 font-medium mt-1">Compra requerida herbicida: <b>${(drums * 2.5).toFixed(1)} Kg (${drums} bidones x 2,5kg)</b></p>
+                        </div>
+                    `;
+                }
+
+                let volScaleRow = "";
+                const isContado = item.condVal === 'direct|0' && item.conditionName.includes("Contado");
+                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
+                    volScaleRow = `
+                        <p class="text-[10px] text-green-700 font-black uppercase tracking-widest mt-2"><i class="fas fa-tags mr-1"></i>Escala Volumen Maíz: -$${volDiscount} USD por bolsa</p>
+                    `;
+                }
+
+                let freeBagsRow = "";
+                if (item.freeBags > 0) {
+                    freeBagsRow = `
+                        <p class="text-[10px] text-emerald-700 font-black uppercase tracking-widest mt-1"><i class="fas fa-gift mr-1"></i>Bolsas Sin Cargo (S/C): +${item.freeBags} b. de regalo</p>
+                    `;
+                }
+
+                let grainBonusRow = "";
+                if (item.grainBonus > 0) {
+                    grainBonusRow = `
+                        <p class="text-[10px] text-amber-700 font-black uppercase tracking-widest mt-1"><i class="fas fa-seedling mr-1"></i>Beneficio Granos Plus: +${item.grainBonus * 100}% Bono Grano por fuera</p>
+                    `;
+                }
+
+                let bagsDesc = `${item.bags} b. facturadas`;
+                if (item.freeBags > 0) {
+                    bagsDesc = `${item.bags} b. fact. + ${item.freeBags} S/C (${totalItemBags} b. totales)`;
+                }
+
+                // DETALLE DEL CALIBRE SELECCIONADO EN EL TICKET DE IMAGEN
+                let caliberDetails = "";
+                if (!item.isSpecial) {
+                    caliberDetails = `<span class="flex items-center text-slate-700"><i class="fas fa-tag text-brevant/50 mr-2 w-4"></i>Calibre: ${item.caliberName}</span>`;
+                }
+
+                receiptItems.innerHTML += `
+                    <div class="border-b-2 border-slate-100 pb-8">
+                        <div class="flex justify-between items-start">
+                            <div class="w-3/5">
+                                <div class="flex items-center space-x-3 mb-3"><span class="text-3xl">${emoj}</span><p class="font-black text-2xl text-slate-900 tracking-tight">${item.hybridName} ${item.isSpecial ? '🥩' : ''}</p></div>
+                                <p class="text-[11px] text-slate-500 font-black tracking-widest uppercase mb-4 leading-tight">${item.conditionName}</p>
+                                <div class="flex flex-col space-y-1.5 text-[11px] text-slate-400 font-black uppercase mt-1">
+                                    <span class="flex items-center"><i class="fas fa-boxes text-brevant/50 mr-2 w-4"></i>${bagsDesc}</span>
+                                    <span class="flex items-center"><i class="fas fa-seedling text-ganadero/50 mr-2 w-4"></i>Dens. ${item.density/1000}k</span>
+                                    <span class="flex items-center text-slate-700"><i class="fas fa-calendar-alt text-brevant/50 mr-2 w-4"></i>Vto: ${item.plazoText}</span>
+                                    ${caliberDetails}
+                                </div>
+                                ${volScaleRow}
+                                ${freeBagsRow}
+                                ${grainBonusRow}
+                            </div>
+                            <div class="text-right w-2/5">
+                                <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Costo por Hectárea</p>
+                                <p class="font-black text-3xl text-ganadero mb-2">${item.calculatedCostHa ? exactFormatter.format(item.calculatedCostHa) : '$0.00'}</p>
+                                <p class="text-sm text-slate-500 font-bold">P. Bolsa: ${exactFormatter.format(item.calculatedPrice)}</p>
+                                ${item.freeBags > 0 ? `<p class="text-xs text-emerald-700 font-bold">Promedio: ${exactFormatter.format(item.calculatedTotal / totalItemBags)}</p>` : ''}
+                            </div>
+                        </div>
+                        ${titusRow}
+                    </div>
+                `;
+            });
+
+            // RENDEREADO DE PROMEDIOS SEPARADOS EN LA TARJETA DE TOTALES DEL TICKET
+            const receiptAvgPriceContainer = document.getElementById('receiptAvgPriceContainer');
+            let receiptAvgHtml = '';
+            
+            if (maizBags > 0) {
+                const maizAvg = maizUSD / maizBags;
+                receiptAvgHtml += `
+                    <div>
+                        <p class="text-[9px] text-slate-400 uppercase font-black tracking-widest leading-none">Prom. Maíz 🌽</p>
+                        <p class="text-lg font-black text-white">${exactFormatter.format(maizAvg)}</p>
+                    </div>
+                `;
+            }
+            if (girasolBags > 0) {
+                const girasolAvg = girasolUSD / girasolBags;
+                receiptAvgHtml += `
+                    <div class="${maizBags > 0 ? 'mt-2 border-t border-slate-800 pt-1.5' : ''}">
+                        <p class="text-[9px] text-slate-400 uppercase font-black tracking-widest leading-none">Prom. Girasol 🌻</p>
+                        <p class="text-lg font-black text-white">${exactFormatter.format(girasolAvg)}</p>
+                    </div>
+                `;
+            }
+            if (maizBags === 0 && girasolBags === 0) {
+                receiptAvgHtml = `
+                    <div>
+                        <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-2">Promedio Bolsa</p>
+                        <p class="text-2xl font-black text-white">$0.00</p>
+                    </div>
+                `;
+            }
+
+            receiptAvgPriceContainer.innerHTML = receiptAvgHtml;
+
+            document.getElementById('receiptTotalBags').textContent = totalBags + " bolsas";
+            document.getElementById('receiptGrandTotal').textContent = usdFormatter.format(grandTotalUSD);
+            
+            // LÓGICA DE CAPTURA ROBUSTA: Movemos el contenedor oculto temporalmente a la pantalla para evitar fallos de html2canvas
+            const container = document.getElementById('receipt-container');
+            container.style.left = '0px';
+            container.style.top = '0px';
+            container.style.zIndex = '-100';
+
+            html2canvas(container, { 
+                scale: 2, 
+                useCORS: true, 
+                allowTaint: true,
+                backgroundColor: "#ffffff",
+                logging: false
+            }).then(canvas => {
+                // Restauramos inmediatamente la invisibilidad del contenedor
+                container.style.left = '-9999px';
+                container.style.top = '0px';
+                container.style.zIndex = '-1';
+
+                const link = document.createElement('a');
+                link.download = `Propuesta_Rindes_DAS_Julio.png`;
+                link.href = canvas.toDataURL("image/png");
+                
+                // Forzamos el append en el DOM del iframe para evadir la seguridad del sandbox
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                showToast("¡Imagen generada!");
+            }).catch(err => {
+                // Fallback de restauración en caso de error
+                container.style.left = '-9999px';
+                container.style.top = '0px';
+                container.style.zIndex = '-1';
+                console.error("Error al generar imagen", err);
+                showToast("Error al generar la imagen");
+            });
+        }
+        window.downloadImage = downloadImage;
+
+        function copyToClipboard() {
+            let text = `*RINDES Y CULTIVOS DAS* 🚜🌾🤝\n_Gente de Campo • Propuesta Julio 2026_\n\n`;
+            const totalMaizBags = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
+            const volDiscount = getVolumeDiscount(totalMaizBags);
+
+            let totalBags = 0;
+            let grandTotalUSD = 0;
+            let maizBags = 0;
+            let maizUSD = 0;
+            let girasolBags = 0;
+            let girasolUSD = 0;
+
+            cart.forEach((item, index) => {
+                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
+                const totalItemBags = item.bags + item.freeBags;
+                totalBags += totalItemBags;
+                grandTotalUSD += item.calculatedTotal;
+
+                if (item.cropType === 'maiz') {
+                    maizBags += totalItemBags;
+                    maizUSD += item.calculatedTotal;
+                } else if (item.cropType === 'girasol') {
+                    girasolBags += totalItemBags;
+                    girasolUSD += item.calculatedTotal;
+                }
+
+                text += `*${index+1}. ${item.hybridName}* ${emoj} ${item.isSpecial ? '🥩' : ''}\n`;
+                
+                let bagsQtyText = `${item.bags} bolsas facturadas`;
+                if (item.freeBags > 0) {
+                    bagsQtyText = `${item.bags} b. facturadas + ${item.freeBags} Sin Cargo (${totalItemBags} b. totales)`;
+                }
+                text += `  🔹 Cantidad: ${bagsQtyText}\n`;
+                text += `  🔹 Pago: ${item.conditionName}\n`;
+                text += `  📅 *Plazo / Vto:* ${item.plazoText}\n`;
+                // DETALLE DEL CALIBRE SELECCIONADO EN EL TEXTO DE WHATSAPP
+                if (!item.isSpecial) {
+                    text += `  🏷️ *Calibre / Banda:* ${item.caliberName}\n`;
+                }
+                if (item.grainBonus > 0) {
+                    text += `  🌾 *Beneficio Granos Plus:* +${item.grainBonus * 100}% Bono Grano (por fuera) 🎁\n`;
+                }
+                const isContado = item.condVal === 'direct|0' && item.conditionName.includes("Contado");
+                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
+                    text += `  📈 *Escala Volumen Maíz:* -$${volDiscount} USD/bolsa aplicado ✅\n`;
+                }
+                if (item.titusActive) {
+                    const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                    const totalHa = item.bags * (seedsPerBag / item.density);
+                    const drums = Math.ceil((totalHa * 0.1) / 2.5);
+                    text += `  🔥 *Beneficio TITUS:* Descuento -$15/bolsa aplicado 🎁\n`;
+                    text += `  📦 *Logística Titus:* ${(drums * 2.5).toFixed(1)} Kg (${drums} bidones)\n`;
+                }
+                text += `  👉 *Precio Bolsa:* ${exactFormatter.format(item.calculatedPrice)}\n`;
+                if (item.freeBags > 0) {
+                    text += `  👉 *Precio Promedio c/ SC:* ${exactFormatter.format(item.calculatedTotal / totalItemBags)}\n`;
+                }
+                text += `  👉 *Costo por Ha:* ${exactFormatter.format(item.calculatedCostHa)} (Dens. ${item.density/1000}k)\n\n`;
+            });
+
+            text += `*--- RESUMEN DE INVERSIÓN ---*\n`;
+            text += `📊 *Bolsas Totales:* ${totalBags} bolsas\n`;
+            
+            // SE SEPARAN LOS PROMEDIOS DE MAÍZ Y GIRASOL EN EL MENSAJE DE WHATSAPP
+            if (maizBags > 0) {
+                const maizAvg = maizUSD / maizBags;
+                text += `🌽 *Precio Promedio Maíz:* ${exactFormatter.format(maizAvg)} / bolsa\n`;
+            }
+            if (girasolBags > 0) {
+                const girasolAvg = girasolUSD / girasolBags;
+                text += `🌻 *Precio Promedio Girasol:* ${exactFormatter.format(girasolAvg)} / bolsa\n`;
+            }
+            
+            text += `💰 *INVERSIÓN ESTIMADA:* ${usdFormatter.format(grandTotalUSD)}\n\n`;
+            text += `⚠️ *Importante:* Toda operación con cheques debe realizarse exclusivamente mediante formato *ECHEQ*.\n\n`;
+            text += `*Rindes y Cultivos DAS* 🤝🌾`;
+            
+            const textToCopy = text;
+            fallbackCopyText(textToCopy);
+        }
+        window.copyToClipboard = copyToClipboard;
+
+        function fallbackCopyText(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed"; textArea.style.top = "0"; textArea.style.left = "0"; textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus(); textArea.select();
+            try {
+                document.execCommand('copy');
+                showToast("📋 ¡Copiado para WhatsApp!");
+            } catch (e) {
+                showToast("Fallo al copiar.");
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function downloadSelf() {
+            const htmlContent = document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: 'text/html' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url; a.download = 'cotizador_agosto_rindes_das.html';
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        window.downloadSelf = downloadSelf;
+    </script>
+
+</body></html>
