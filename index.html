@@ -1430,11 +1430,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         `;
 
         const ganaderoConditions = `
-            <option value="special_contado">Contado ($95 Ganadero)</option>
-            <option value="special_fwd">Forward Enero / Canje ($99 Ganadero)</option>
-            <option value="special_cheques6">6 ECHEQS ($110 Ganadero)</option>
-            <option value="special_cheque1">1 ECHEQ (180 días) / Tarjeta ($117 Ganadero)</option>
-        `;
+            <optgroup label="🥩 CONDICIONES GANADERO (Precio Fijo por Bolsa)">
+                <option value="special_contado">Contado ($95 Ganadero)</option>
+                <option value="special_fwd">Forward Enero / Canje ($99 Ganadero)</option>
+                <option value="special_cheques6">6 ECHEQS ($110 Ganadero)</option>
+                <option value="special_cheque1">1 ECHEQ (180 días) / Tarjeta ($117 Ganadero)</option>
+            </optgroup>
+        ` + standardConditions;
 
         let cart = [];
 
@@ -1506,7 +1508,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 caliberInput.classList.add('bg-slate-50', 'opacity-50');
                 caliberInput.value = "0";
                 condSelect.innerHTML = ganaderoConditions;
-                daysContainer.classList.add('hidden');
             } else {
                 condSelect.innerHTML = standardConditions;
                 daysContainer.classList.remove('hidden');
@@ -1572,6 +1573,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else {
                     helper.innerHTML = bonus > 0 ? `<i class="fas fa-gift text-green-600 mr-1"></i> Bono Grano: <strong>+${bonus*100}% por fuera</strong>` : "Sin recargo.";
                 }
+            } else if (type.startsWith('special_')) {
+                daysContainer.classList.add('opacity-40', 'grayscale');
+                simDays.disabled = true;
+                helper.innerHTML = `<i class="fas fa-tag text-ganadero mr-1"></i> Precio fijo Ganadero — no aplican días de financiación.`;
             } else {
                 helper.innerHTML = "";
             }
@@ -1605,7 +1610,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
             // PARSEO REVOLUCIONARIO DE PLAZOS Y VENCIMIENTO SINCRO (SOPORTE DE CANJE Y FINANCIACIÓN)
             let plazoText = "30 días (Contado)";
-            if (isSpecial) {
+            if (isSpecial && condVal.startsWith('special_')) {
                 if (condVal === 'special_contado') plazoText = "Contado (A 30 días)";
                 else if (condVal === 'special_fwd') plazoText = "Forward Enero 2027 / Cosecha (Canje)";
                 else if (condVal === 'special_cheques6') plazoText = "6 ECHEQs (Financiación 30 a 180 d)";
@@ -1700,21 +1705,20 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         function calculateItemNet(item, globalMaizBags) {
             let priceBeforeFinancing = item.baseCost;
 
-            if (item.isSpecial) {
+            if (item.isSpecial && item.condVal && item.condVal.startsWith('special_')) {
                 if (item.condVal === 'special_contado') return 95;
                 if (item.condVal === 'special_fwd') return 99;
                 if (item.condVal === 'special_cheques6') return 110;
                 if (item.condVal === 'special_cheque1') return 117;
-                return 95;
             }
 
             if (item.cropType === 'girasol') {
                 priceBeforeFinancing = item.baseCost * (1 + (item.appliedMargin / 100));
             }
 
-            // REGLA: El volumen de descuento SOLO aplica para Contado (direct|-0.05)
+            // REGLA: El volumen de descuento SOLO aplica para Contado (direct|-0.05), y nunca para materiales de precio fijo (Ganadero)
             const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
-            const volDiscount = (item.cropType === 'maiz' && isContado) ? getVolumeDiscount(globalMaizBags) : 0;
+            const volDiscount = (item.cropType === 'maiz' && !item.isSpecial && isContado) ? getVolumeDiscount(globalMaizBags) : 0;
             
             const titusDiscount = item.titusActive ? 15 : 0;
             const baseNet = priceBeforeFinancing - item.caliberDiscount - volDiscount - titusDiscount;
@@ -1769,7 +1773,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             
             const vd = getVolumeDiscount(projectedMaizBags);
             const notice = document.getElementById('volDiscountNotice');
-            const isContado = vals.condVal === 'direct|0' && vals.conditionName.includes("Contado");
+            const isContado = vals.condVal === 'direct|-0.05' && vals.conditionName.includes("Contado");
             if (vd > 0 && vals.cropType === 'maiz' && !vals.isSpecial && isContado) {
                 notice.classList.remove('hidden');
                 notice.textContent = `Escala Volumen Aplicada (-$${vd})`;
@@ -1871,7 +1875,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 div.className = "bg-white p-5 rounded-xl border shadow-sm relative item-enter border-l-4 " + (item.isSpecial ? "border-l-ganadero" : "border-l-brevant");
                 
                 let discountsText = '';
-                const isContado = item.condVal === 'direct|0';
+                const isContado = item.condVal === 'direct|-0.05';
                 const actualVolDiscount = (item.cropType === 'maiz' && !item.isSpecial && isContado) ? volDiscount : 0;
                 if (actualVolDiscount > 0) {
                     discountsText += `<span class="bg-green-100 text-green-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 uppercase">Escala Volumen -$${actualVolDiscount}</span>`;
@@ -2006,7 +2010,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 }
 
                 let volScaleRow = "";
-                const isContado = item.condVal === 'direct|0' && item.conditionName.includes("Contado");
+                const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
                 if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
                     volScaleRow = `
                         <p class="text-[10px] text-green-700 font-black uppercase tracking-widest mt-2"><i class="fas fa-tags mr-1"></i>Escala Volumen Maíz: -$${volDiscount} USD por bolsa</p>
@@ -2182,7 +2186,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 if (item.grainBonus > 0) {
                     text += `  🌾 *Beneficio Granos Plus:* +${item.grainBonus * 100}% Bono Grano (por fuera) 🎁\n`;
                 }
-                const isContado = item.condVal === 'direct|0' && item.conditionName.includes("Contado");
+                const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
                 if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
                     text += `  📈 *Escala Volumen Maíz:* -$${volDiscount} USD/bolsa aplicado ✅\n`;
                 }
