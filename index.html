@@ -1717,8 +1717,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             }
 
             // REGLA: El volumen de descuento SOLO aplica para Contado (direct|-0.05), y nunca para materiales de precio fijo (Ganadero)
-            const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
-            const volDiscount = (item.cropType === 'maiz' && !item.isSpecial && isContado) ? getVolumeDiscount(globalMaizBags) : 0;
+            const volDiscount = (item.cropType === 'maiz' && !item.isSpecial) ? getVolumeDiscount(globalMaizBags) : 0;
             
             const titusDiscount = item.titusActive ? 15 : 0;
             const baseNet = priceBeforeFinancing - item.caliberDiscount - volDiscount - titusDiscount;
@@ -1773,8 +1772,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             
             const vd = getVolumeDiscount(projectedMaizBags);
             const notice = document.getElementById('volDiscountNotice');
-            const isContado = vals.condVal === 'direct|-0.05' && vals.conditionName.includes("Contado");
-            if (vd > 0 && vals.cropType === 'maiz' && !vals.isSpecial && isContado) {
+            if (vd > 0 && vals.cropType === 'maiz' && !vals.isSpecial) {
                 notice.classList.remove('hidden');
                 notice.textContent = `Escala Volumen Aplicada (-$${vd})`;
             } else {
@@ -1875,8 +1873,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 div.className = "bg-white p-5 rounded-xl border shadow-sm relative item-enter border-l-4 " + (item.isSpecial ? "border-l-ganadero" : "border-l-brevant");
                 
                 let discountsText = '';
-                const isContado = item.condVal === 'direct|-0.05';
-                const actualVolDiscount = (item.cropType === 'maiz' && !item.isSpecial && isContado) ? volDiscount : 0;
+                const actualVolDiscount = (item.cropType === 'maiz' && !item.isSpecial) ? volDiscount : 0;
                 if (actualVolDiscount > 0) {
                     discountsText += `<span class="bg-green-100 text-green-800 text-[8px] px-2 py-0.5 rounded font-black mr-1 uppercase">Escala Volumen -$${actualVolDiscount}</span>`;
                 }
@@ -2010,8 +2007,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 }
 
                 let volScaleRow = "";
-                const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
-                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
+                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0) {
                     volScaleRow = `
                         <p class="text-[10px] text-green-700 font-black uppercase tracking-widest mt-2"><i class="fas fa-tags mr-1"></i>Escala Volumen Maíz: -$${volDiscount} USD por bolsa</p>
                     `;
@@ -2186,8 +2182,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 if (item.grainBonus > 0) {
                     text += `  🌾 *Beneficio Granos Plus:* +${item.grainBonus * 100}% Bono Grano (por fuera) 🎁\n`;
                 }
-                const isContado = item.condVal === 'direct|-0.05' && item.conditionName.includes("Contado");
-                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0 && isContado) {
+                if (item.cropType === 'maiz' && !item.isSpecial && volDiscount > 0) {
                     text += `  📈 *Escala Volumen Maíz:* -$${volDiscount} USD/bolsa aplicado ✅\n`;
                 }
                 if (item.titusActive) {
