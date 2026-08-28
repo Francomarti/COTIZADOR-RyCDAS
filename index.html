@@ -1429,14 +1429,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             </optgroup>
         `;
 
-        const ganaderoConditions = `
+        const ganaderoConditions = (`
             <optgroup label="🥩 CONDICIONES GANADERO (Precio Fijo por Bolsa)">
                 <option value="special_contado">Contado ($95 Ganadero)</option>
                 <option value="special_fwd">Forward Enero / Canje ($99 Ganadero)</option>
                 <option value="special_cheques6">6 ECHEQS ($110 Ganadero)</option>
                 <option value="special_cheque1">1 ECHEQ (180 días) / Tarjeta ($117 Ganadero)</option>
             </optgroup>
-        ` + standardConditions;
+        ` + standardConditions).replace('<option value="direct|-0.05">Contado (A 30 días) - 5% Descuento sobre Lista</option>', '');
 
         let cart = [];
 
