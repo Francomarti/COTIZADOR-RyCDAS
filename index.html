@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-04-01">
+    <meta name="app-build" content="2026-09-04-02">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -764,6 +764,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             </optgroup>
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
+            </optgroup>
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS)">
+                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
+                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
+                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
+                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
             </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
@@ -1420,6 +1426,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
             </optgroup>
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS)">
+                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
+                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
+                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
+                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
+            </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
             </optgroup>
@@ -1589,7 +1601,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             } else if (type === 'direct') {
                 daysContainer.classList.add('opacity-40', 'grayscale');
                 simDays.disabled = true;
-                if (condText.includes("360d") || condText.includes("360 días")) {
+                if (condText.includes("Descuento Cheques")) {
+                    helper.innerHTML = `<i class="fas fa-exclamation-triangle text-amber-600 mr-1"></i> <strong>⚠️ Cupo limitado a 500 bolsas totales.</strong> Tasa Directa: <strong>+${(rate*100).toFixed(2)}%</strong>. Confirmar disponibilidad de cupo antes de cerrar el negocio.`;
+                } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
                     helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
@@ -1663,6 +1677,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     plazoText = "360 días (Convenio SGR)";
                 } else if (condText.includes("Canje Granos Disponible")) {
                     plazoText = "Disponible (Plazo Máx 30 días)";
+                } else if (condText.includes("Descuento Cheques")) {
+                    const matchDias = condText.match(/(\d+)\s+días/);
+                    const diasCheq = matchDias ? matchDias[1] : days;
+                    plazoText = `${diasCheq} días (Descuento Cheques - ⚠️ Cupo Limitado)`;
                 } else if (condText.includes("Grano Plus FWD")) {
                     const match = condText.match(/Grano Plus FWD\s+([A-Za-z]+)\s+(\d+)/i);
                     if (match) {
