@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-04-03">
+    <meta name="app-build" content="2026-09-04-04">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -798,7 +798,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="procampo_sin_tna|0">Procampo - Sin subsidio (TNA Variable: 30% - 31% - 32%)</option>
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 37.5% - 39%)</option>
             </optgroup>
-            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS) - APARTE">
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES - PROGRAMA SUPERVIELLE (CUPO LIMITADO 500 BOLSAS)">
                 <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
                 <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
                 <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
@@ -811,7 +811,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <input type="number" id="simDays" value="180" min="1" max="360" disabled="" oninput="updatePreview();" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-brevant text-sm bg-white shadow-sm">
                                 </div>
                             </div>
-                            <p class="text-[10px] text-slate-500 mt-2 font-medium" id="rateHelperText">Sin recargo.</p>
+                            <div class="text-[10px] text-slate-500 mt-2 font-medium" id="rateHelperText">Sin recargo.</div>
                         </div>
                         
                         <!-- Mini Preview -->
@@ -1459,7 +1459,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="procampo_sin_tna|0">Procampo - Sin subsidio (TNA Variable: 30% - 31% - 32%)</option>
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 37.5% - 39%)</option>
             </optgroup>
-            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS) - APARTE">
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES - PROGRAMA SUPERVIELLE (CUPO LIMITADO 500 BOLSAS)">
                 <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
                 <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
                 <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
@@ -1602,7 +1602,18 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 daysContainer.classList.add('opacity-40', 'grayscale');
                 simDays.disabled = true;
                 if (condText.includes("Descuento Cheques")) {
-                    helper.innerHTML = `<i class="fas fa-exclamation-triangle text-amber-600 mr-1"></i> <strong>⚠️ Cupo limitado a 500 bolsas totales.</strong> Tasa Directa: <strong>+${(rate*100).toFixed(2)}%</strong>. Confirmar disponibilidad de cupo antes de cerrar el negocio.`;
+                    helper.innerHTML = `
+                        <div class="bg-amber-50 border border-amber-300 rounded-lg p-2">
+                            <p class="font-black text-amber-800 text-[11px]"><i class="fas fa-exclamation-triangle mr-1"></i>Programa Supervielle — ⚠️ Cupo Limitado 500 Bolsas</p>
+                            <ul class="text-[10px] text-amber-900 mt-1 space-y-0.5 list-disc list-inside">
+                                <li>Sin máximo por librador</li>
+                                <li>El cheque debe tener espacio libre para el Endoso de CTVA</li>
+                                <li>Enviar planilla con los cheques a <strong>programasfinancieros@corteva.com</strong> antes de cerrar la operación</li>
+                                <li>Tipo de cambio: BNA del día que entra la planilla</li>
+                                <li>Va contra liquidación — no es para pago de deuda</li>
+                            </ul>
+                            <p class="text-[10px] text-amber-900 mt-1 font-bold">Tasa Directa: +${(rate*100).toFixed(2)}%</p>
+                        </div>`;
                 } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
