@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-04-02">
+    <meta name="app-build" content="2026-09-04-03">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -765,12 +765,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
             </optgroup>
-            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS)">
-                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
-                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
-                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
-                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
-            </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
             </optgroup>
@@ -803,6 +797,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA Variable: 11% - 18% - 21%)</option>
                 <option value="procampo_sin_tna|0">Procampo - Sin subsidio (TNA Variable: 30% - 31% - 32%)</option>
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 37.5% - 39%)</option>
+            </optgroup>
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS) - APARTE">
+                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
+                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
+                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
+                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
             </optgroup>
         </select>
                                 </div>
@@ -1426,12 +1426,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
             </optgroup>
-            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS)">
-                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
-                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
-                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
-                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
-            </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
             </optgroup>
@@ -1464,6 +1458,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA Variable: 11% - 18% - 21%)</option>
                 <option value="procampo_sin_tna|0">Procampo - Sin subsidio (TNA Variable: 30% - 31% - 32%)</option>
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 37.5% - 39%)</option>
+            </optgroup>
+            <optgroup label="⚠️ DESCUENTO DE CHEQUES (CUPO LIMITADO 500 BOLSAS) - APARTE">
+                <option value="direct|0.0470|0">Descuento Cheques 90 días (+4.70%) - Cupo Limitado</option>
+                <option value="direct|0.0999|0">Descuento Cheques 180 días (+9.99%) - Cupo Limitado</option>
+                <option value="direct|0.1652|0">Descuento Cheques 270 días (+16.52%) - Cupo Limitado</option>
+                <option value="direct|0.2322|0">Descuento Cheques 360 días (+23.22%) - Cupo Limitado</option>
             </optgroup>
         `;
         document.getElementById('bulkCondition').innerHTML = standardConditions;
