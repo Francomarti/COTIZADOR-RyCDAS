@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-08-28-03">
+    <meta name="app-build" content="2026-08-28-04">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Agosto 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Agosto 2026.">
@@ -840,6 +840,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <div class="flex justify-between items-center mb-4 relative z-10">
                             <h3 class="text-sm font-black text-slate-800 uppercase tracking-widest"><i class="fas fa-clipboard-list mr-2 text-brevant"></i>Detalle Propuesta</h3>
                             <span class="text-[10px] font-bold text-brevant bg-orange-100 border border-orange-200 px-2 py-1 rounded" id="globalMaizScaleText">Maíz: 0 b.</span>
+                        </div>
+
+                        <div id="bulkDuplicateBar" class="hidden mb-4 relative z-10 bg-blue-50 border border-blue-100 rounded-lg p-3">
+                            <p class="text-[10px] font-black text-blue-800 uppercase tracking-wide mb-2"><i class="fas fa-copy mr-1"></i>Duplicar toda la propuesta con otra condición</p>
+                            <div class="flex gap-2">
+                                <select id="bulkCondition" class="flex-1 border-2 border-blue-200 rounded-lg p-2 text-[11px] font-bold text-slate-800 bg-white focus:ring-0 focus:border-blue-500"></select>
+                                <button onclick="duplicateAllWithCondition()" class="bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-black px-3 py-2 rounded-lg whitespace-nowrap transition-colors">Duplicar Todo</button>
+                            </div>
                         </div>
 
                         <div class="overflow-y-auto custom-scrollbar pr-2 max-h-[300px] relative z-10">
@@ -1450,6 +1458,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 32% - 33% - 35%)</option>
             </optgroup>
         `;
+        document.getElementById('bulkCondition').innerHTML = standardConditions;
 
         const ganaderoConditions = (`
             <optgroup label="🥩 CONDICIONES GANADERO (Precio Fijo por Bolsa)">
@@ -1869,6 +1878,70 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         }
         window.duplicateToForm = duplicateToForm;
 
+        function duplicateAllWithCondition() {
+            if (cart.length === 0) return;
+            const bulkSel = document.getElementById('bulkCondition');
+            if (!bulkSel.value) return;
+            const targetVal = bulkSel.value;
+            const targetText = bulkSel.options[bulkSel.selectedIndex].text;
+
+            const hybridSel = document.getElementById('simHybrid');
+            const condSel = document.getElementById('simCondition');
+            const originalItems = [...cart]; // snapshot: no duplicamos sobre lo que vamos agregando en este mismo loop
+            let addedCount = 0;
+            let skippedCount = 0;
+
+            originalItems.forEach(item => {
+                const reconstructed = `${item.cropType}|${item.baseCost}|${item.hybridName}${item.isSpecial ? '|special' : ''}`;
+                let matched = false;
+                for (const opt of hybridSel.options) {
+                    if (opt.value === reconstructed) { hybridSel.value = reconstructed; matched = true; break; }
+                }
+                if (!matched) {
+                    for (const opt of hybridSel.options) {
+                        if (opt.value.split('|')[2] === item.hybridName) { hybridSel.value = opt.value; matched = true; break; }
+                    }
+                }
+                if (!matched) { skippedCount++; return; }
+
+                toggleSpecialMode(); // repuebla simCondition (Ganadero o estándar) y resetea densidad/calibre a default
+
+                if (!item.isSpecial) {
+                    document.getElementById('simCaliber').value = item.caliberDiscount || 0;
+                }
+                document.getElementById('simBags').value = item.bags;
+                document.getElementById('simFreeBags').value = item.freeBags || 0;
+                document.getElementById('simDensity').value = item.density;
+                document.getElementById('simTitus').checked = !!item.titusActive;
+                if (item.cropType === 'girasol') {
+                    document.getElementById('simMargin').value = item.appliedMargin || 15;
+                }
+
+                // La condición elegida en el selector masivo tiene que existir también en el desplegable de ESTE ítem puntual
+                let condMatched = false;
+                for (const opt of condSel.options) {
+                    if (opt.value === targetVal && opt.text === targetText) { condSel.value = targetVal; condMatched = true; break; }
+                }
+                if (!condMatched) { skippedCount++; return; }
+
+                toggleDaysInput();
+                const vals = getCurrentFormValues();
+                if (vals.bags <= 0) { skippedCount++; return; }
+                cart.push({ id: Date.now().toString() + Math.random().toString(36).slice(2, 6), ...vals });
+                addedCount++;
+            });
+
+            recalculateAndRender();
+            if (addedCount > 0 && skippedCount === 0) {
+                showToast(`${addedCount} ítem(s) duplicados con "${targetText}"`);
+            } else if (addedCount > 0 && skippedCount > 0) {
+                showToast(`${addedCount} duplicados, ${skippedCount} no admiten esa condición`);
+            } else {
+                showToast("Ningún ítem admite esa condición");
+            }
+        }
+        window.duplicateAllWithCondition = duplicateAllWithCondition;
+
         function clearCart() {
             cart = [];
             recalculateAndRender();
@@ -1886,6 +1959,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             
             if (cart.length === 0) {
                 if(emptyState) emptyState.style.display = 'flex';
+                document.getElementById('bulkDuplicateBar').classList.add('hidden');
                 document.getElementById('grandTotalBags').textContent = "0";
                 document.getElementById('grandTotalAvgContainer').innerHTML = `
                     <div class="flex justify-between items-center">
@@ -1900,6 +1974,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             }
 
             if(emptyState) emptyState.style.display = 'none';
+            document.getElementById('bulkDuplicateBar').classList.remove('hidden');
             document.getElementById('btnCopy').disabled = false;
             document.getElementById('btnImage').disabled = false;
 
