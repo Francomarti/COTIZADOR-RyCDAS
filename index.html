@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-04-04">
+    <meta name="app-build" content="2026-09-04-05">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -791,7 +791,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0.0450|0">Fin Corteva Vto Junio 2027 (+4.50%)</option>
                 <option value="direct|0.0500|0">Fin Corteva Vto Julio 2027 (+5.00%) ⚡</option>
             </optgroup>
-            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Septiembre 2026)">
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Sept 2026 - Tasa la cobra el Banco al Productor)">
                 <option value="tna|0.225">AgroNación - Con subsidio 7.5% (TNA 22.50% - máx 360d)</option>
                 <option value="tna|0.30">AgroNación - Sin subsidio (TNA 30.00% - máx 360d)</option>
                 <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA Variable: 11% - 18% - 21%)</option>
@@ -1452,7 +1452,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0.0450|0">Fin Corteva Vto Junio 2027 (+4.50%)</option>
                 <option value="direct|0.0500|0">Fin Corteva Vto Julio 2027 (+5.00%) ⚡</option>
             </optgroup>
-            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Septiembre 2026)">
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Sept 2026 - Tasa la cobra el Banco al Productor)">
                 <option value="tna|0.225">AgroNación - Con subsidio 7.5% (TNA 22.50% - máx 360d)</option>
                 <option value="tna|0.30">AgroNación - Sin subsidio (TNA 30.00% - máx 360d)</option>
                 <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA Variable: 11% - 18% - 21%)</option>
@@ -1571,28 +1571,28 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 simDays.disabled = false;
                 if (type === 'tna') {
                     const effective = (rate * (simDays.value / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)<br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
                 } else if (type === 'procampo_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.21;
                     if (totalDays <= 180) currentRate = 0.11;
                     else if (totalDays <= 270) currentRate = 0.18;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Con Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Con Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
                 } else if (type === 'procampo_sin_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.32;
                     if (totalDays <= 180) currentRate = 0.30;
                     else if (totalDays <= 270) currentRate = 0.31;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Sin Subsidio: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Sin Subsidio: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
                 } else if (type === 'bbva_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.39;
                     if (totalDays <= 180) currentRate = 0.35;
                     else if (totalDays <= 270) currentRate = 0.375;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
                 } else {
                     const totalDays = parseInt(simDays.value) || 180;
                     const effective = (rate * (totalDays / 360) * 100).toFixed(2);
