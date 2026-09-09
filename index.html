@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-04">
+    <meta name="app-build" content="2026-09-07-05">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -1567,6 +1567,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 caliberInput.classList.add('bg-slate-50', 'opacity-50');
                 caliberInput.value = "0";
                 condSelect.innerHTML = ganaderoConditions;
+            } else if (cropType === 'soja') {
+                condSelect.innerHTML = `<option value="direct|0">Contado (A 30 días) - Precio Lista (Sin Bonificación NC)</option>`;
+                daysContainer.classList.remove('hidden');
             } else {
                 condSelect.innerHTML = standardConditions;
                 daysContainer.classList.remove('hidden');
