@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-04-06">
+    <meta name="app-build" content="2026-09-07-01">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -704,6 +704,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <option value="girasol|175|MG 360">MG 360 ($175)</option>
                                     <option value="girasol|100|BRV 3304 CPDM">BRV 3304 CPDM ($100)</option>
                                 </optgroup>
+                                <optgroup label="🫘 Soja Brevant (USD/BigBag 800kg - Curada)">
+                                    <option value="soja|816|BRV 4124 SE">BRV 4124 SE ($816.00 BigBag / $1.02 Kg)</option>
+                                    <option value="soja|816|BRV 4524 SE">BRV 4524 SE ($816.00 BigBag / $1.02 Kg)</option>
+                                    <option value="soja|0|BRV 3325 SE" disabled>⚠️ BRV 3325 SE — SIN PRECIO (No Usar)</option>
+                                </optgroup>
                             </select>
                         </div>
 
@@ -728,20 +733,20 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <!-- Calibre, Bolsas (Facturadas y Sin Cargo) y Densidad -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Calibre</label>
+                                <label id="caliberLabel" class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Calibre</label>
                                 <select id="simCaliber" onchange="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-bold text-slate-800 bg-white text-xs transition-colors shadow-sm"><option value="0">Banda 1 (Base)</option><option value="3">Banda 2 (-$3)</option><option value="6">Banda 3 (-$6)</option></select>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas Fact.</label>
+                                <label id="bagsLabel" class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas Fact.</label>
                                 <input type="number" id="simBags" value="50" min="1" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-brevant text-sm bg-white shadow-sm">
                                 <p id="volDiscountNotice" class="text-[8px] text-green-600 font-bold mt-1">Escala Volumen Aplicada (-$3)</p>
                             </div>
                             <div>
-                                <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas S/C</label>
+                                <label id="freeBagsLabel" class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Bolsas S/C</label>
                                 <input type="number" id="simFreeBags" value="0" min="0" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-green-700 text-sm bg-white shadow-sm">
                             </div>
                             <div>
-                                <label class="block text-[10px] font-bold text-slate-700 mb-1 uppercase tracking-tight">Densidad (Sem/Ha)</label>
+                                <label id="densityLabel" class="block text-[10px] font-bold text-slate-700 mb-1 uppercase tracking-tight">Densidad (Sem/Ha)</label>
                                 <input type="number" id="simDensity" value="55000" min="1000" step="1000" oninput="updatePreview()" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-black text-slate-700 text-sm bg-white shadow-sm">
                             </div>
                         </div>
@@ -1522,6 +1527,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             const caliberInput = document.getElementById('simCaliber');
             const condSelect = document.getElementById('simCondition');
             const daysContainer = document.getElementById('daysContainer');
+            const caliberLabel = document.getElementById('caliberLabel');
+            const bagsLabel = document.getElementById('bagsLabel');
+            const freeBagsLabel = document.getElementById('freeBagsLabel');
+            const densityLabel = document.getElementById('densityLabel');
 
             marginContainer.classList.add('hidden');
             titusContainer.classList.add('hidden');
@@ -1532,10 +1541,25 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 caliberInput.innerHTML = `<option value="0">Banda 1 (G1 y G2)</option><option value="10">Banda 2 (G3 y G3E) (-$10)</option>`;
                 marginContainer.classList.remove('hidden');
                 document.getElementById('simDensity').value = '45000';
+                caliberLabel.textContent = 'Calibre';
+                bagsLabel.textContent = 'Bolsas Fact.';
+                freeBagsLabel.textContent = 'Bolsas S/C';
+                densityLabel.textContent = 'Densidad (Sem/Ha)';
+            } else if (cropType === 'soja') {
+                caliberInput.innerHTML = `<option value="0">Curado (Rizopac 203 HC)</option><option value="136">Sin Curar (-$136/BigBag)</option>`;
+                document.getElementById('simDensity').value = '75';
+                caliberLabel.textContent = 'Tratamiento';
+                bagsLabel.textContent = 'BigBags Fact.';
+                freeBagsLabel.textContent = 'BigBags S/C';
+                densityLabel.textContent = 'Densidad (Kg/Ha)';
             } else {
                 caliberInput.innerHTML = `<option value="0">Banda 1 (Base)</option><option value="3">Banda 2 (-$3)</option><option value="6">Banda 3 (-$6)</option>`;
                 document.getElementById('simDensity').value = '55000';
                 if (hybridName && !hybridName.includes('RFG') && !isSpecial) titusContainer.classList.remove('hidden');
+                caliberLabel.textContent = 'Calibre';
+                bagsLabel.textContent = 'Bolsas Fact.';
+                freeBagsLabel.textContent = 'Bolsas S/C';
+                densityLabel.textContent = 'Densidad (Sem/Ha)';
             }
 
             if (isSpecial) {
@@ -1783,7 +1807,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
         function updatePreview() {
             const vals = getCurrentFormValues();
-            const seedsPerBag = vals.cropType === 'maiz' ? 80000 : 150000;
+            const seedsPerBag = vals.cropType === 'maiz' ? 80000 : (vals.cropType === 'soja' ? 800 : 150000);
             const totalItemBags = vals.bags + vals.freeBags;
             
             const totalMaizBagsInCart = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
@@ -1988,6 +2012,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             let maizUSD = 0;
             let girasolBags = 0;
             let girasolUSD = 0;
+            let sojaBags = 0;
+            let sojaUSD = 0;
 
             cart.forEach(item => {
                 const finalUnitPrice = calculateItemNet(item, totalMaizBags);
@@ -2002,10 +2028,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (item.cropType === 'girasol') {
                     girasolBags += totalItemBags;
                     girasolUSD += totalLine;
+                } else if (item.cropType === 'soja') {
+                    sojaBags += totalItemBags;
+                    sojaUSD += totalLine;
                 }
 
-                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
-                const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                const emoj = item.cropType === 'girasol' ? '🌻' : (item.cropType === 'soja' ? '🫘' : '🌽');
+                const seedsPerBag = item.cropType === 'maiz' ? 80000 : (item.cropType === 'soja' ? 800 : 150000);
                 
                 const effectivePrice = totalItemBags > 0 ? totalLine / totalItemBags : finalUnitPrice;
                 const costHa = effectivePrice * (item.density / seedsPerBag);
@@ -2037,9 +2066,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     bonusInfo = `<div class="mt-2 text-[9px] text-blue-800 font-bold bg-blue-50 p-2 rounded border border-blue-100 flex justify-between"><span><i class="fas fa-flask mr-1"></i>Titus: ${drums * 2.5} Kg (${drums} bid.)</span><span>-$${item.bags * 15} USD</span></div>`;
                 }
 
-                let bagsQtyText = `${item.bags} b.`;
+                const unitAbbr = item.cropType === 'soja' ? 'BB' : 'b.';
+                let bagsQtyText = `${item.bags} ${unitAbbr}`;
                 if (item.freeBags > 0) {
-                    bagsQtyText = `${item.bags} b. + ${item.freeBags} S/C`;
+                    bagsQtyText = `${item.bags} ${unitAbbr} + ${item.freeBags} S/C`;
                 }
 
                 div.innerHTML = `
@@ -2054,7 +2084,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     ${bonusInfo}
                     <div class="mt-4 grid grid-cols-3 gap-2 border-t pt-3 border-slate-100">
                         <div>
-                            <span class="block text-[8px] uppercase font-black text-slate-400">P. Bolsa</span>
+                            <span class="block text-[8px] uppercase font-black text-slate-400">${item.cropType === 'soja' ? 'P. BigBag' : 'P. Bolsa'}</span>
                             <span class="font-black text-slate-700 text-sm">${exactFormatter.format(finalUnitPrice)}</span>
                             ${item.freeBags > 0 ? `<span class="block text-[8px] text-emerald-600 font-bold">Prom: ${exactFormatter.format(effectivePrice)}</span>` : ''}
                         </div>
@@ -2091,7 +2121,16 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     </div>
                 `;
             }
-            if (maizBags === 0 && girasolBags === 0) {
+            if (sojaBags > 0) {
+                const sojaAvg = sojaUSD / sojaBags;
+                avgHtml += `
+                    <div class="flex justify-between items-center text-xs pt-1 border-t border-slate-800/50 mt-1">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Promedio BigBag Soja 🫘</span>
+                        <span class="text-base font-black text-white">${exactFormatter.format(sojaAvg)}</span>
+                    </div>
+                `;
+            }
+            if (maizBags === 0 && girasolBags === 0 && sojaBags === 0) {
                 avgHtml = `
                     <div class="flex justify-between items-center">
                         <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Precio Promedio x Bolsa</span>
@@ -2119,6 +2158,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             let maizUSD = 0;
             let girasolBags = 0;
             let girasolUSD = 0;
+            let sojaBags = 0;
+            let sojaUSD = 0;
 
             cart.forEach(item => {
                 const totalItemBags = item.bags + item.freeBags;
@@ -2131,10 +2172,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (item.cropType === 'girasol') {
                     girasolBags += totalItemBags;
                     girasolUSD += item.calculatedTotal;
+                } else if (item.cropType === 'soja') {
+                    sojaBags += totalItemBags;
+                    sojaUSD += item.calculatedTotal;
                 }
 
-                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
-                const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                const emoj = item.cropType === 'girasol' ? '🌻' : (item.cropType === 'soja' ? '🫘' : '🌽');
+                const seedsPerBag = item.cropType === 'maiz' ? 80000 : (item.cropType === 'soja' ? 800 : 150000);
                 const costHa = item.calculatedCostHa;
                 
                 let titusRow = "";
@@ -2169,15 +2213,16 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     `;
                 }
 
-                let bagsDesc = `${item.bags} b. facturadas`;
+                const unitAbbr = item.cropType === 'soja' ? 'BB' : 'b.';
+                let bagsDesc = `${item.bags} ${unitAbbr} facturadas`;
                 if (item.freeBags > 0) {
-                    bagsDesc = `${item.bags} b. fact. + ${item.freeBags} S/C (${totalItemBags} b. totales)`;
+                    bagsDesc = `${item.bags} ${unitAbbr} fact. + ${item.freeBags} S/C (${totalItemBags} ${unitAbbr} totales)`;
                 }
 
                 // DETALLE DEL CALIBRE SELECCIONADO EN EL TICKET DE IMAGEN
                 let caliberDetails = "";
                 if (!item.isSpecial) {
-                    caliberDetails = `<span class="flex items-center text-slate-700"><i class="fas fa-tag text-brevant/50 mr-2 w-4"></i>Calibre: ${item.caliberName}</span>`;
+                    caliberDetails = `<span class="flex items-center text-slate-700"><i class="fas fa-tag text-brevant/50 mr-2 w-4"></i>${item.cropType === 'soja' ? 'Tratamiento' : 'Calibre'}: ${item.caliberName}</span>`;
                 }
 
                 receiptItems.innerHTML += `
@@ -2188,7 +2233,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 <p class="text-[11px] text-slate-500 font-black tracking-widest uppercase mb-4 leading-tight">${item.conditionName}</p>
                                 <div class="flex flex-col space-y-1.5 text-[11px] text-slate-400 font-black uppercase mt-1">
                                     <span class="flex items-center"><i class="fas fa-boxes text-brevant/50 mr-2 w-4"></i>${bagsDesc}</span>
-                                    <span class="flex items-center"><i class="fas fa-seedling text-ganadero/50 mr-2 w-4"></i>Dens. ${item.density/1000}k</span>
+                                    <span class="flex items-center"><i class="fas fa-seedling text-ganadero/50 mr-2 w-4"></i>Dens. ${item.cropType === 'soja' ? item.density + ' Kg/Ha' : (item.density/1000) + 'k'}</span>
                                     <span class="flex items-center text-slate-700"><i class="fas fa-calendar-alt text-brevant/50 mr-2 w-4"></i>Vto: ${item.plazoText}</span>
                                     ${caliberDetails}
                                 </div>
@@ -2199,7 +2244,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                             <div class="text-right w-2/5">
                                 <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Costo por Hectárea</p>
                                 <p class="font-black text-3xl text-ganadero mb-2">${item.calculatedCostHa ? exactFormatter.format(item.calculatedCostHa) : '$0.00'}</p>
-                                <p class="text-sm text-slate-500 font-bold">P. Bolsa: ${exactFormatter.format(item.calculatedPrice)}</p>
+                                <p class="text-sm text-slate-500 font-bold">${item.cropType === 'soja' ? 'P. BigBag' : 'P. Bolsa'}: ${exactFormatter.format(item.calculatedPrice)}</p>
                                 ${item.freeBags > 0 ? `<p class="text-xs text-emerald-700 font-bold">Promedio: ${exactFormatter.format(item.calculatedTotal / totalItemBags)}</p>` : ''}
                             </div>
                         </div>
@@ -2230,7 +2275,16 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     </div>
                 `;
             }
-            if (maizBags === 0 && girasolBags === 0) {
+            if (sojaBags > 0) {
+                const sojaAvg = sojaUSD / sojaBags;
+                receiptAvgHtml += `
+                    <div class="${(maizBags > 0 || girasolBags > 0) ? 'mt-2 border-t border-slate-800 pt-1.5' : ''}">
+                        <p class="text-[9px] text-slate-400 uppercase font-black tracking-widest leading-none">Prom. Soja 🫘</p>
+                        <p class="text-lg font-black text-white">${exactFormatter.format(sojaAvg)}</p>
+                    </div>
+                `;
+            }
+            if (maizBags === 0 && girasolBags === 0 && sojaBags === 0) {
                 receiptAvgHtml = `
                     <div>
                         <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-2">Promedio Bolsa</p>
@@ -2293,9 +2347,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             let maizUSD = 0;
             let girasolBags = 0;
             let girasolUSD = 0;
+            let sojaBags = 0;
+            let sojaUSD = 0;
 
             cart.forEach((item, index) => {
-                const emoj = item.cropType === 'girasol' ? '🌻' : '🌽';
+                const emoj = item.cropType === 'girasol' ? '🌻' : (item.cropType === 'soja' ? '🫘' : '🌽');
+                const unitAbbr = item.cropType === 'soja' ? 'BB' : 'b.';
                 const totalItemBags = item.bags + item.freeBags;
                 totalBags += totalItemBags;
                 grandTotalUSD += item.calculatedTotal;
@@ -2306,20 +2363,23 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (item.cropType === 'girasol') {
                     girasolBags += totalItemBags;
                     girasolUSD += item.calculatedTotal;
+                } else if (item.cropType === 'soja') {
+                    sojaBags += totalItemBags;
+                    sojaUSD += item.calculatedTotal;
                 }
 
                 text += `*${index+1}. ${item.hybridName}* ${emoj} ${item.isSpecial ? '🥩' : ''}\n`;
                 
-                let bagsQtyText = `${item.bags} bolsas facturadas`;
+                let bagsQtyText = `${item.bags} ${item.cropType === 'soja' ? 'BigBags' : 'bolsas'} facturadas`;
                 if (item.freeBags > 0) {
-                    bagsQtyText = `${item.bags} b. facturadas + ${item.freeBags} Sin Cargo (${totalItemBags} b. totales)`;
+                    bagsQtyText = `${item.bags} ${unitAbbr} facturadas + ${item.freeBags} Sin Cargo (${totalItemBags} ${unitAbbr} totales)`;
                 }
                 text += `  🔹 Cantidad: ${bagsQtyText}\n`;
                 text += `  🔹 Pago: ${item.conditionName}\n`;
                 text += `  📅 *Plazo / Vto:* ${item.plazoText}\n`;
                 // DETALLE DEL CALIBRE SELECCIONADO EN EL TEXTO DE WHATSAPP
                 if (!item.isSpecial) {
-                    text += `  🏷️ *Calibre / Banda:* ${item.caliberName}\n`;
+                    text += `  🏷️ *${item.cropType === 'soja' ? 'Tratamiento' : 'Calibre / Banda'}:* ${item.caliberName}\n`;
                 }
                 if (item.grainBonus > 0) {
                     text += `  🌾 *Beneficio Granos Plus:* +${item.grainBonus * 100}% Bono Grano (por fuera) 🎁\n`;
@@ -2328,23 +2388,23 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     text += `  📈 *Escala Volumen Maíz:* -$${volDiscount} USD/bolsa aplicado ✅\n`;
                 }
                 if (item.titusActive) {
-                    const seedsPerBag = item.cropType === 'maiz' ? 80000 : 150000;
+                    const seedsPerBag = item.cropType === 'maiz' ? 80000 : (item.cropType === 'soja' ? 800 : 150000);
                     const totalHa = item.bags * (seedsPerBag / item.density);
                     const drums = Math.ceil((totalHa * 0.1) / 2.5);
                     text += `  🔥 *Beneficio TITUS:* Descuento -$15/bolsa aplicado 🎁\n`;
                     text += `  📦 *Logística Titus:* ${(drums * 2.5).toFixed(1)} Kg (${drums} bidones)\n`;
                 }
-                text += `  👉 *Precio Bolsa:* ${exactFormatter.format(item.calculatedPrice)}\n`;
+                text += `  👉 *Precio ${item.cropType === 'soja' ? 'BigBag' : 'Bolsa'}:* ${exactFormatter.format(item.calculatedPrice)}\n`;
                 if (item.freeBags > 0) {
                     text += `  👉 *Precio Promedio c/ SC:* ${exactFormatter.format(item.calculatedTotal / totalItemBags)}\n`;
                 }
-                text += `  👉 *Costo por Ha:* ${exactFormatter.format(item.calculatedCostHa)} (Dens. ${item.density/1000}k)\n\n`;
+                text += `  👉 *Costo por Ha:* ${exactFormatter.format(item.calculatedCostHa)} (Dens. ${item.cropType === 'soja' ? item.density + ' Kg/Ha' : (item.density/1000) + 'k'})\n\n`;
             });
 
             text += `*--- RESUMEN DE INVERSIÓN ---*\n`;
             text += `📊 *Bolsas Totales:* ${totalBags} bolsas\n`;
             
-            // SE SEPARAN LOS PROMEDIOS DE MAÍZ Y GIRASOL EN EL MENSAJE DE WHATSAPP
+            // SE SEPARAN LOS PROMEDIOS DE MAÍZ, GIRASOL Y SOJA EN EL MENSAJE DE WHATSAPP
             if (maizBags > 0) {
                 const maizAvg = maizUSD / maizBags;
                 text += `🌽 *Precio Promedio Maíz:* ${exactFormatter.format(maizAvg)} / bolsa\n`;
@@ -2352,6 +2412,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             if (girasolBags > 0) {
                 const girasolAvg = girasolUSD / girasolBags;
                 text += `🌻 *Precio Promedio Girasol:* ${exactFormatter.format(girasolAvg)} / bolsa\n`;
+            }
+            if (sojaBags > 0) {
+                const sojaAvg = sojaUSD / sojaBags;
+                text += `🫘 *Precio Promedio Soja:* ${exactFormatter.format(sojaAvg)} / BigBag\n`;
             }
             
             text += `💰 *INVERSIÓN ESTIMADA:* ${usdFormatter.format(grandTotalUSD)}\n\n`;
