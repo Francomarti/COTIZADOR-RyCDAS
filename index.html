@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-02">
+    <meta name="app-build" content="2026-09-07-03">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -1585,6 +1585,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             const simDays = document.getElementById('simDays');
             const helper = document.getElementById('rateHelperText');
             const condText = condSel.options[condSel.selectedIndex] ? condSel.options[condSel.selectedIndex].text : "";
+            const currentCropType = (document.getElementById('simHybrid').value || "").split('|')[0];
 
             if (type === 'tna' || type === 'corteva_tna' || type === 'procampo_tna' || type === 'bbva_tna') {
                 daysContainer.classList.remove('opacity-40', 'grayscale');
@@ -1630,7 +1631,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
-                    helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
+                    if (currentCropType === 'soja') {
+                        helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. <strong>Para Soja no aplica la bonificación del 5% por Nota de Crédito.</strong>`;
+                    } else {
+                        helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
+                    }
                 } else if (rate < 0) {
                     let extra = bonus > 0 ? ` y +${bonus*100}% de Bono Extra en Grano` : '';
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Beneficio factura: <strong>${(rate*100).toFixed(0)}%</strong>${extra}.`;
