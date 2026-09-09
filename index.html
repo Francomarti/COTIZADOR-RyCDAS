@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-03">
+    <meta name="app-build" content="2026-09-07-04">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -1592,21 +1592,21 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 simDays.disabled = false;
                 if (type === 'tna') {
                     const effective = (rate * (simDays.value / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)<br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)<div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else if (type === 'procampo_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.21;
                     if (totalDays <= 180) currentRate = 0.11;
                     else if (totalDays <= 270) currentRate = 0.18;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Con Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Con Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else if (type === 'bbva_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.39;
                     if (totalDays <= 180) currentRate = 0.35;
                     else if (totalDays <= 270) currentRate = 0.375;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><br><span class="text-slate-500 font-normal"><i class="fas fa-university mr-1"></i>Tasa cobrada por el <strong>Banco directamente al productor</strong>. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</span>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else {
                     const totalDays = parseInt(simDays.value) || 180;
                     const effective = (rate * (totalDays / 360) * 100).toFixed(2);
@@ -1617,22 +1617,25 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 simDays.disabled = true;
                 if (condText.includes("Descuento Cheques")) {
                     helper.innerHTML = `
-                        <div class="bg-amber-50 border border-amber-300 rounded-lg p-2">
-                            <p class="font-black text-amber-800 text-[11px]"><i class="fas fa-exclamation-triangle mr-1"></i>Programa Supervielle — ⚠️ Cupo Limitado 500 Bolsas</p>
-                            <ul class="text-[10px] text-amber-900 mt-1 space-y-0.5 list-disc list-inside">
+                        <div class="bg-red-50 border-2 border-red-400 rounded-lg p-2">
+                            <p class="font-black text-red-700 text-[11px]"><i class="fas fa-exclamation-triangle mr-1"></i>Programa Supervielle — ⚠️ Cupo Limitado 500 Bolsas</p>
+                            <ul class="text-[10px] text-red-800 mt-1 space-y-0.5 list-disc list-inside">
                                 <li>Sin máximo por librador</li>
                                 <li>El cheque debe tener espacio libre para el Endoso de CTVA</li>
                                 <li>Enviar planilla con los cheques a <strong>programasfinancieros@corteva.com</strong> antes de cerrar la operación</li>
                                 <li>Tipo de cambio: BNA del día que entra la planilla</li>
                                 <li>Va contra liquidación — no es para pago de deuda</li>
                             </ul>
-                            <p class="text-[10px] text-amber-900 mt-1 font-bold">Tasa Directa: +${(rate*100).toFixed(2)}%</p>
+                            <p class="text-[10px] text-red-800 mt-1 font-bold">Tasa Directa: +${(rate*100).toFixed(2)}%</p>
                         </div>`;
                 } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
                     if (currentCropType === 'soja') {
-                        helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. <strong>Para Soja no aplica la bonificación del 5% por Nota de Crédito.</strong>`;
+                        helper.innerHTML = `
+                            <div class="bg-red-50 border-2 border-red-400 rounded-lg p-2">
+                                <p class="text-red-700 font-black text-[11px]"><i class="fas fa-exclamation-triangle mr-1"></i>Se factura a Precio de Lista. Para SOJA NO aplica la bonificación del 5% por Nota de Crédito.</p>
+                            </div>`;
                     } else {
                         helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
                     }
