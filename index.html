@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-05">
+    <meta name="app-build" content="2026-09-07-06">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -1568,7 +1568,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 caliberInput.value = "0";
                 condSelect.innerHTML = ganaderoConditions;
             } else if (cropType === 'soja') {
-                condSelect.innerHTML = `<option value="direct|0">Contado (A 30 días) - Precio Lista (Sin Bonificación NC)</option>`;
+                condSelect.innerHTML = `<option value="direct|0">NERA (360 días - Tasa 0%)</option><option value="soja_fwd_tna|0.06">FWD Soja (0,5% Mensual)</option>`;
                 daysContainer.classList.remove('hidden');
             } else {
                 condSelect.innerHTML = standardConditions;
@@ -1590,7 +1590,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             const condText = condSel.options[condSel.selectedIndex] ? condSel.options[condSel.selectedIndex].text : "";
             const currentCropType = (document.getElementById('simHybrid').value || "").split('|')[0];
 
-            if (type === 'tna' || type === 'corteva_tna' || type === 'procampo_tna' || type === 'bbva_tna') {
+            if (type === 'tna' || type === 'corteva_tna' || type === 'procampo_tna' || type === 'bbva_tna' || type === 'soja_fwd_tna') {
                 daysContainer.classList.remove('opacity-40', 'grayscale');
                 simDays.disabled = false;
                 if (type === 'tna') {
@@ -1610,6 +1610,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     else if (totalDays <= 270) currentRate = 0.375;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
                     helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
+                } else if (type === 'soja_fwd_tna') {
+                    const totalDays = parseInt(simDays.value) || 180;
+                    const effective = (rate * (totalDays / 360) * 100).toFixed(2);
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> FWD Soja: TNA 6.00% (0,5% mensual). Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${totalDays} d)`;
                 } else {
                     const totalDays = parseInt(simDays.value) || 180;
                     const effective = (rate * (totalDays / 360) * 100).toFixed(2);
@@ -1634,14 +1638,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
-                    if (currentCropType === 'soja') {
-                        helper.innerHTML = `
-                            <div class="bg-red-50 border-2 border-red-400 rounded-lg p-2">
-                                <p class="text-red-700 font-black text-[11px]"><i class="fas fa-exclamation-triangle mr-1"></i>Se factura a Precio de Lista. Para SOJA NO aplica la bonificación del 5% por Nota de Crédito.</p>
-                            </div>`;
-                    } else {
-                        helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
-                    }
+                    helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
                 } else if (rate < 0) {
                     let extra = bonus > 0 ? ` y +${bonus*100}% de Bono Extra en Grano` : '';
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Beneficio factura: <strong>${(rate*100).toFixed(0)}%</strong>${extra}.`;
@@ -1710,6 +1707,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     plazoText = "360 días (BBVA USD Tasa 0%)";
                 } else if (condText.includes("Convenio SGR")) {
                     plazoText = "360 días (Convenio SGR)";
+                } else if (condText.includes("NERA (360")) {
+                    plazoText = "360 días (NERA Soja Tasa 0%)";
+                } else if (condType === 'soja_fwd_tna') {
+                    plazoText = `${days} días (FWD Soja - TNA 6.00%)`;
                 } else if (condText.includes("Canje Granos Disponible")) {
                     plazoText = "Disponible (Plazo Máx 30 días)";
                 } else if (condText.includes("Descuento Cheques")) {
@@ -1808,7 +1809,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 else effectiveRate = 0.39;
             }
 
-            if (item.condType === 'tna' || item.condType === 'corteva_tna' || item.condType === 'procampo_tna' || item.condType === 'bbva_tna') {
+            if (item.condType === 'tna' || item.condType === 'corteva_tna' || item.condType === 'procampo_tna' || item.condType === 'bbva_tna' || item.condType === 'soja_fwd_tna') {
                 return baseNet * (1 + (effectiveRate * (item.days / 360)));
             } else if (item.condType === 'direct') {
                 return baseNet * (1 + effectiveRate);
