@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-08">
+    <meta name="app-build" content="2026-09-07-09">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -705,8 +705,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <option value="girasol|100|BRV 3304 CPDM">BRV 3304 CPDM ($100)</option>
                                 </optgroup>
                                 <optgroup label="🫘 Soja Brevant (USD/BigBag 800kg - Curada)">
-                                    <option value="soja|880|BRV 4124 SE">BRV 4124 SE ($880.00 BigBag / $1.10 Kg)</option>
-                                    <option value="soja|880|BRV 4524 SE">BRV 4524 SE ($880.00 BigBag / $1.10 Kg)</option>
+                                    <option value="soja|736|BRV 4124 SE">BRV 4124 SE ($736.00 BigBag Sin Curar / $36.80 c/ 40kg)</option>
+                                    <option value="soja|736|BRV 4524 SE">BRV 4524 SE ($736.00 BigBag Sin Curar / $36.80 c/ 40kg)</option>
                                     <option value="soja|0|BRV 3325 SE" disabled>⚠️ BRV 3325 SE — SIN PRECIO (No Usar)</option>
                                 </optgroup>
                             </select>
@@ -830,6 +830,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                             <div class="flex justify-between items-center text-sm pt-2 border-t border-slate-200">
                                 <span class="text-slate-500 font-bold">Costo por Hectárea:</span>
                                 <span class="text-lg font-black text-brevant" id="previewCostHa">$121.69</span>
+                            </div>
+                            <div id="previewBolsaEquivRow" class="hidden mt-1 bg-amber-100 border-2 border-amber-400 rounded-lg p-2 flex justify-between items-center">
+                                <span class="text-amber-900 font-black uppercase text-[10px]">💡 Equiv. x Bolsa 40kg</span>
+                                <span class="text-amber-900 font-black text-base" id="previewBolsaEquiv">$0.00</span>
                             </div>
                         </div>
                     </div>
@@ -1546,7 +1550,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 freeBagsLabel.textContent = 'Bolsas S/C';
                 densityLabel.textContent = 'Densidad (Sem/Ha)';
             } else if (cropType === 'soja') {
-                caliberInput.innerHTML = `<option value="0">Curado (Rizopac 203 HC)</option><option value="144">Sin Curar (-$144/BigBag)</option>`;
+                caliberInput.innerHTML = `<option value="0">Sin Curar (Base)</option><option value="-144">Curado (Rizopac 203 HC) (+$144/BigBag)</option>`;
                 document.getElementById('simDensity').value = '75';
                 caliberLabel.textContent = 'Tratamiento';
                 bagsLabel.textContent = 'BigBags Fact.';
@@ -1841,6 +1845,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             }
 
             document.getElementById('previewCostHa').textContent = exactFormatter.format(costPerHa);
+
+            const bolsaEquivRow = document.getElementById('previewBolsaEquivRow');
+            if (vals.cropType === 'soja') {
+                document.getElementById('previewBolsaEquiv').textContent = exactFormatter.format(finalUnitPrice / 20);
+                bolsaEquivRow.classList.remove('hidden');
+            } else {
+                bolsaEquivRow.classList.add('hidden');
+            }
             
             const vd = getVolumeDiscount(projectedMaizBags);
             const notice = document.getElementById('volDiscountNotice');
@@ -2103,6 +2115,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <div><span class="block text-[8px] uppercase font-black text-slate-400">Costo Ha</span><span class="font-black text-brevant text-sm">${exactFormatter.format(costHa)}</span></div>
                         <div class="text-right"><span class="block text-[8px] uppercase font-black text-slate-400">Línea (${bagsQtyText})</span><span class="font-black text-slate-900 text-base">${usdFormatter.format(totalLine)}</span></div>
                     </div>
+                    ${item.cropType === 'soja' ? `<div class="mt-2 bg-amber-100 border-2 border-amber-400 rounded-lg p-2 flex justify-between items-center"><span class="text-amber-900 font-black uppercase text-[10px]">💡 Equiv. x Bolsa 40kg</span><span class="text-amber-900 font-black text-base">${exactFormatter.format(finalUnitPrice / 20)}</span></div>` : ''}
                 `;
                 container.appendChild(div);
 
@@ -2257,6 +2270,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-1">Costo por Hectárea</p>
                                 <p class="font-black text-3xl text-ganadero mb-2">${item.calculatedCostHa ? exactFormatter.format(item.calculatedCostHa) : '$0.00'}</p>
                                 <p class="text-sm text-slate-500 font-bold">${item.cropType === 'soja' ? 'P. BigBag' : 'P. Bolsa'}: ${exactFormatter.format(item.calculatedPrice)}</p>
+                                ${item.cropType === 'soja' ? `<p class="text-sm font-black text-amber-700 bg-amber-100 border border-amber-400 rounded px-2 py-0.5 inline-block mt-1">💡 Equiv. 40kg: ${exactFormatter.format(item.calculatedPrice / 20)}</p>` : ''}
                                 ${item.freeBags > 0 ? `<p class="text-xs text-emerald-700 font-bold">Promedio: ${exactFormatter.format(item.calculatedTotal / totalItemBags)}</p>` : ''}
                             </div>
                         </div>
@@ -2407,6 +2421,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     text += `  📦 *Logística Titus:* ${(drums * 2.5).toFixed(1)} Kg (${drums} bidones)\n`;
                 }
                 text += `  👉 *Precio ${item.cropType === 'soja' ? 'BigBag' : 'Bolsa'}:* ${exactFormatter.format(item.calculatedPrice)}\n`;
+                if (item.cropType === 'soja') {
+                    text += `  💡 *Equiv. x Bolsa 40kg:* ${exactFormatter.format(item.calculatedPrice / 20)}\n`;
+                }
                 if (item.freeBags > 0) {
                     text += `  👉 *Precio Promedio c/ SC:* ${exactFormatter.format(item.calculatedTotal / totalItemBags)}\n`;
                 }
