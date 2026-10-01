@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-10-01-10">
+    <meta name="app-build" content="2026-10-01-11">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -735,7 +735,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                             <span class="text-[10px] font-black text-emerald-800 uppercase tracking-wide flex items-center"><i class="fas fa-leaf mr-2"></i> Calidad de semilla (con fungicida)</span>
                             <div class="mt-2 grid grid-cols-2 gap-3">
                                 <div>
-                                    <span class="block text-[9px] uppercase font-bold text-emerald-700">PG (plántulas normales)</span>
+                                    <span class="block text-[9px] uppercase font-bold text-emerald-700">PG por lote (plántulas normales)</span>
                                     <span id="sojaQualityPG" class="text-lg font-black text-emerald-900">—</span>
                                 </div>
                                 <div>
@@ -1435,11 +1435,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-        // Calidad de semilla por variedad de soja — promedio ponderado por Kg de lote, semilla CON FUNGICIDA (tratada).
+        // Calidad de semilla por variedad de soja, semilla CON FUNGICIDA (tratada).
+        // PG: se listan los valores de todos los lotes analizados (no se promedian) para que se revise cuál corresponde.
+        // Peso de 1000: el valor más alto entre los lotes analizados.
         // Fuente: Laboratorio Horizonte, 09/09/2026 (Soja_Pricing_unificado.xlsx, hoja "Calidad"). Actualizar cuando llegue un análisis nuevo.
         const SOJA_CALIDAD = {
-            'BRV 4124 SE': { pg: 91.8, p1000: 161.4, nota: 'Análisis Lab. Horizonte, 09/09/2026.' },
-            'BRV 4524 SE': { pg: 92.6, p1000: 161.0, nota: 'Análisis Lab. Horizonte, 09/09/2026.' }
+            'BRV 4124 SE': { pg: [95, 88], p1000: 162.9, nota: 'Hay 2 lotes analizados (Lab. Horizonte, 09/09/2026) — confirmá cuál corresponde antes de informar al productor.' },
+            'BRV 4524 SE': { pg: [93, 92], p1000: 162.2, nota: 'Hay 2 lotes analizados (Lab. Horizonte, 09/09/2026) — confirmá cuál corresponde antes de informar al productor.' }
         };
 
         const standardConditions = `
@@ -1584,7 +1586,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
                 const qInfo = SOJA_CALIDAD[hybridName];
                 if (qInfo) {
-                    document.getElementById('sojaQualityPG').textContent = qInfo.pg.toFixed(1).replace('.', ',') + '%';
+                    document.getElementById('sojaQualityPG').textContent = qInfo.pg.map(function(v){ return v + '%'; }).join(' / ');
                     document.getElementById('sojaQualityP1000').textContent = qInfo.p1000.toFixed(1).replace('.', ',') + ' g';
                     document.getElementById('sojaQualityNota').textContent = qInfo.nota || '';
                     qualityContainer.classList.remove('hidden');
