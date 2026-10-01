@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-10-01-13">
+    <meta name="app-build" content="2026-10-01-14">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -1438,10 +1438,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         // Calidad de semilla por variedad de soja, semilla CON FUNGICIDA (tratada).
         // PG: se listan los valores de todos los lotes analizados (no se promedian) para que se revise cuál corresponde.
         // Peso de 1000: el valor más alto entre los lotes analizados.
-        // Fuente: Laboratorio Horizonte, 09/09/2026 (Soja_Pricing_unificado.xlsx, hoja "Calidad"). Actualizar cuando llegue un análisis nuevo.
+        // Fuente: Laboratorio Horizonte — BRV4124/BRV4524: 09/09/2026 (Soja_Pricing_unificado.xlsx, hoja "Calidad"); BRV3325: certificado Nº 2026-2323, 22/09/2026. Actualizar cuando llegue un análisis nuevo.
         const SOJA_CALIDAD = {
             'BRV 4124 SE': { pg: [95, 88], p1000: 162.9, nota: 'Hay 2 lotes analizados (Lab. Horizonte, 09/09/2026) — confirmá cuál corresponde antes de informar al productor.' },
-            'BRV 4524 SE': { pg: [93, 92], p1000: 162.2, nota: 'Hay 2 lotes analizados (Lab. Horizonte, 09/09/2026) — confirmá cuál corresponde antes de informar al productor.' }
+            'BRV 4524 SE': { pg: [93, 92], p1000: 162.2, nota: 'Hay 2 lotes analizados (Lab. Horizonte, 09/09/2026) — confirmá cuál corresponde antes de informar al productor.' },
+            'BRV 3325 SE': { pg: [93], p1000: 158.1, nota: 'Certificado Nº 2026-2323 (Lab. Horizonte, 22/09/2026) — no ampara la totalidad del lote, confirmá antes de informar al productor.' }
         };
 
         const standardConditions = `
