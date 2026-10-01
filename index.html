@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-09-07-09">
+    <meta name="app-build" content="2026-10-01-10">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Septiembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Septiembre 2026.">
@@ -728,6 +728,22 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <div id="sunflowerMarginContainer" class="hidden animate-fadeIn bg-orange-50 border border-orange-200 rounded-lg p-4">
                             <label class="block text-xs font-bold text-brevant mb-2 uppercase tracking-wide">Margen Comercial Girasol (%)</label>
                             <input type="number" id="simMargin" value="15" min="0" oninput="updatePreview()" class="w-24 border-2 border-orange-300 rounded-lg p-2 font-black text-slate-900 bg-white">
+                        </div>
+
+                        <!-- Calidad de Semilla (Soja) -->
+                        <div id="sojaQualityContainer" class="hidden animate-fadeIn bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+                            <span class="text-[10px] font-black text-emerald-800 uppercase tracking-wide flex items-center"><i class="fas fa-leaf mr-2"></i> Calidad de semilla (con fungicida)</span>
+                            <div class="mt-2 grid grid-cols-2 gap-3">
+                                <div>
+                                    <span class="block text-[9px] uppercase font-bold text-emerald-700">PG (plántulas normales)</span>
+                                    <span id="sojaQualityPG" class="text-lg font-black text-emerald-900">—</span>
+                                </div>
+                                <div>
+                                    <span class="block text-[9px] uppercase font-bold text-emerald-700">Peso de 1000 semillas</span>
+                                    <span id="sojaQualityP1000" class="text-lg font-black text-emerald-900">—</span>
+                                </div>
+                            </div>
+                            <p id="sojaQualityNota" class="mt-2 text-[9px] text-emerald-700 leading-tight"></p>
                         </div>
 
                         <!-- Calibre, Bolsas (Facturadas y Sin Cargo) y Densidad -->
@@ -1419,6 +1435,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
+        // Calidad de semilla por variedad de soja — promedio ponderado por Kg de lote, semilla CON FUNGICIDA (tratada).
+        // Fuente: Laboratorio Horizonte, 09/09/2026 (Soja_Pricing_unificado.xlsx, hoja "Calidad"). Actualizar cuando llegue un análisis nuevo.
+        const SOJA_CALIDAD = {
+            'BRV 4124 SE': { pg: 91.8, p1000: 161.4, nota: 'Análisis Lab. Horizonte, 09/09/2026.' },
+            'BRV 4524 SE': { pg: 92.6, p1000: 161.0, nota: 'Análisis Lab. Horizonte, 09/09/2026.' }
+        };
+
         const standardConditions = `
             <option value="direct|0">Contado (A 30 días) - Precio Lista (Bonif. 5% x NC si paga en término)</option>
             <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - 360 días)">
@@ -1528,6 +1551,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             
             const marginContainer = document.getElementById('sunflowerMarginContainer');
             const titusContainer = document.getElementById('titusBonusContainer');
+            const qualityContainer = document.getElementById('sojaQualityContainer');
             const caliberInput = document.getElementById('simCaliber');
             const condSelect = document.getElementById('simCondition');
             const daysContainer = document.getElementById('daysContainer');
@@ -1538,6 +1562,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
             marginContainer.classList.add('hidden');
             titusContainer.classList.add('hidden');
+            qualityContainer.classList.add('hidden');
             caliberInput.disabled = false;
             caliberInput.classList.remove('bg-slate-50', 'opacity-50');
 
@@ -1556,6 +1581,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 bagsLabel.textContent = 'BigBags Fact.';
                 freeBagsLabel.textContent = 'BigBags S/C';
                 densityLabel.textContent = 'Densidad (Kg/Ha)';
+
+                const qInfo = SOJA_CALIDAD[hybridName];
+                if (qInfo) {
+                    document.getElementById('sojaQualityPG').textContent = qInfo.pg.toFixed(1).replace('.', ',') + '%';
+                    document.getElementById('sojaQualityP1000').textContent = qInfo.p1000.toFixed(1).replace('.', ',') + ' g';
+                    document.getElementById('sojaQualityNota').textContent = qInfo.nota || '';
+                    qualityContainer.classList.remove('hidden');
+                }
             } else {
                 caliberInput.innerHTML = `<option value="0">Banda 1 (Base)</option><option value="3">Banda 2 (-$3)</option><option value="6">Banda 3 (-$6)</option>`;
                 document.getElementById('simDensity').value = '55000';
