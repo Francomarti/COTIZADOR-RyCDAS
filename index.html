@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-10-07-3">
+    <meta name="app-build" content="2026-10-07-4">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Octubre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Octubre 2026.">
@@ -787,7 +787,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
             </optgroup>
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
-                <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
+                <option value="direct|0">Convenio SGR</option>
             </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
@@ -816,8 +816,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0.0500|0">Fin Corteva Vto Agosto 2027 (+5.00%) ⚡</option>
             </optgroup>
             <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Oct 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
-                <option value="tna|0.225">AgroNación - Con subsidio 7.5% (TNA 22.50% - máx 360d)</option>
-                <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
+                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 360d)</option>
+                <option value="procampo_tna|0">Procampo (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
             </optgroup>
             <optgroup label="💳 TARJETA BBVA PESOS (Oct 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 39% - 39%)</option>
@@ -1463,7 +1463,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
             </optgroup>
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
-                <option value="direct|0">Convenio SGR (Subsidio Tasa/Comisión hasta 7.5%)</option>
+                <option value="direct|0">Convenio SGR</option>
             </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
@@ -1492,8 +1492,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0.0500|0">Fin Corteva Vto Agosto 2027 (+5.00%) ⚡</option>
             </optgroup>
             <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Oct 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
-                <option value="tna|0.225">AgroNación - Con subsidio 7.5% (TNA 22.50% - máx 360d)</option>
-                <option value="procampo_tna|0">Procampo - Con subsidio 10% (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
+                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 360d)</option>
+                <option value="procampo_tna|0">Procampo (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
             </optgroup>
             <optgroup label="💳 TARJETA BBVA PESOS (Oct 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
                 <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 39% - 39%)</option>
@@ -1650,7 +1650,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     if (totalDays <= 180) currentRate = 0.07;
                     else if (totalDays <= 270) currentRate = 0.14;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo Con Subsidio 10%: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else if (type === 'bbva_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.39;
@@ -1789,13 +1789,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     let procampoRate = 0.18;
                     if (days <= 180) procampoRate = 0.07;
                     else if (days <= 270) procampoRate = 0.14;
-                    plazoText = `${days} días (Tarjeta Procampo Con Subsidio TNA ${(procampoRate*100).toFixed(0)}%)`;
+                    plazoText = `${days} días (Tarjeta Procampo TNA ${(procampoRate*100).toFixed(0)}%)`;
                 } else if (condType === 'bbva_tna') {
                     let bbvaRate = 0.39;
                     if (days <= 180) bbvaRate = 0.35;
                     else if (days <= 270) bbvaRate = 0.39;
                     plazoText = `${days} días (Tarjeta BBVA Pesos TNA ${(bbvaRate*100).toFixed(1)}%)`;
-                } else if (condText.includes("AgroNación - Con subsidio")) {
+                } else if (condText.includes("AgroNación (TNA")) {
                     plazoText = `${days} días (Tarjeta AgroNación Pesos TNA 22.50%)`;
                 } else if (condVal === 'direct|0.105|0.05') {
                     plazoText = "360 días (Forward Enero 2027 / Financiación USD)";
