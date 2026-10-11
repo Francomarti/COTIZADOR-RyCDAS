@@ -737,12 +737,38 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 <span id="sojaQualityBadge" class="hidden bg-amber-400 text-amber-950 text-[9px] font-black px-2 py-0.5 rounded-full ml-2 whitespace-nowrap">PRELIMINAR</span>
                             </span>
                             <div class="mt-2">
-                                <span class="block text-[9px] uppercase font-bold text-emerald-700">Peso de 1000 semillas (lote de mayor peso)</span>
-                                <span id="sojaQualityP1000" class="text-lg font-black text-emerald-900">—</span>
+                                <span class="block text-[9px] uppercase font-bold text-emerald-700 mb-1">Peso de 1000 semillas (g)</span>
+                                <div class="grid grid-cols-3 gap-1 text-center">
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Mín.</span>
+                                        <span id="sojaQualityP1000Min" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Máx.</span>
+                                        <span id="sojaQualityP1000Max" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Prom.</span>
+                                        <span id="sojaQualityP1000Avg" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mt-3">
-                                <span class="block text-[9px] uppercase font-bold text-emerald-700 mb-1">PG por lote (plántulas normales, con curasemillas)</span>
-                                <div id="sojaQualityPG" class="flex flex-wrap gap-1"></div>
+                                <span class="block text-[9px] uppercase font-bold text-emerald-700 mb-1">PG curado (%, plántulas normales)</span>
+                                <div class="grid grid-cols-3 gap-1 text-center">
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Mín.</span>
+                                        <span id="sojaQualityPGMin" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Máx.</span>
+                                        <span id="sojaQualityPGMax" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                    <div class="bg-white rounded-md border border-emerald-200 py-1">
+                                        <span class="block text-[8px] uppercase text-emerald-600 font-bold">Prom.</span>
+                                        <span id="sojaQualityPGAvg" class="text-sm font-black text-emerald-900">—</span>
+                                    </div>
+                                </div>
                             </div>
                             <p id="sojaQualityNota" class="mt-2 text-[9px] text-emerald-700 leading-tight"></p>
                         </div>
@@ -1438,52 +1464,52 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
 
-        // Calidad de semilla por variedad de soja, semilla CON FUNGICIDA (tratada).
-        // PG: se listan los valores de todos los lotes analizados (no se promedian) para que se revise cuál corresponde.
-        // Peso de 1000: el valor más alto entre los lotes analizados. PG: PG curado (PGC%, plántulas normales) por lote,
-        // listado individualmente (no promediado) para que el vendedor confirme a qué lote corresponde.
+        // Calidad de semilla por variedad de soja, semilla CON FUNGICIDA (tratada/curada).
+        // Cada variedad guarda sus lotes analizados (PG curado = PGC%, columna N/normales; PM = peso de mil, en gramos).
+        // En el panel se muestran mínimo, máximo y promedio de PG y de PM, calculados sobre estos lotes.
         // BRV 4124 SE y BRV 4524 SE — fuente: planilla de laboratorio por lote (PG_y_LOTES), cargada 11/10/2026.
+        //   BRV 4124 SE: se excluyó el lote 113 (outlier de peso: PM=122 g, muy por debajo del resto ~154-158 g).
         // BRV 3325 SE — fuente: Laboratorio Horizonte, certificado Nº 2026-2323, 22/09/2026 (dato PRELIMINAR, no ampara la totalidad del lote). Actualizar cuando llegue un análisis nuevo.
         const SOJA_CALIDAD = {
             'BRV 4124 SE': {
-                pg: [
-                    { lote: 109, valor: 86 },
-                    { lote: 110, valor: 85 },
-                    { lote: 111, valor: 88 },
-                    { lote: 112, valor: 88 },
-                    { lote: 113, valor: 93 },
-                    { lote: 114, valor: 96 },
-                    { lote: 115, valor: 96 },
-                    { lote: 116, valor: 92 },
-                    { lote: 117, valor: 92 }
+                lotes: [
+                    { lote: 109, pg: 86, pm: 155 },
+                    { lote: 110, pg: 85, pm: 156 },
+                    { lote: 111, pg: 88, pm: 154 },
+                    { lote: 112, pg: 88, pm: 155 },
+                    { lote: 114, pg: 96, pm: 158 },
+                    { lote: 115, pg: 96, pm: 157 },
+                    { lote: 116, pg: 92, pm: 156 },
+                    { lote: 117, pg: 92, pm: 156 }
                 ],
-                p1000: 158.0,
                 preliminar: false,
-                nota: 'PG curado (PGC%, plántulas normales) y peso de 1000 por lote — 9 lotes analizados. Peso de 1000 corresponde al lote de mayor peso (lote 114). Confirmá el lote correspondiente antes de informar al productor.'
+                nota: 'PG curado (PGC%, plántulas normales) y peso de 1000 calculados sobre 8 lotes analizados (se excluyó el lote 113 por outlier de peso: 122 g).'
             },
             'BRV 4524 SE': {
-                pg: [
-                    { lote: 120, valor: 88 },
-                    { lote: 121, valor: 89 },
-                    { lote: 122, valor: 91 },
-                    { lote: 123, valor: 97 },
-                    { lote: 124, valor: 97 },
-                    { lote: 125, valor: 95 },
-                    { lote: 126, valor: 87 },
-                    { lote: 127, valor: 82 },
-                    { lote: 128, valor: 89 },
-                    { lote: 129, valor: 90 },
-                    { lote: 130, valor: 94 },
-                    { lote: 131, valor: 94 },
-                    { lote: 132, valor: 95 },
-                    { lote: 133, valor: 93 },
-                    { lote: 134, valor: 95 }
+                lotes: [
+                    { lote: 120, pg: 88, pm: 158 },
+                    { lote: 121, pg: 89, pm: 157 },
+                    { lote: 122, pg: 91, pm: 162 },
+                    { lote: 123, pg: 97, pm: 163 },
+                    { lote: 124, pg: 97, pm: 159 },
+                    { lote: 125, pg: 95, pm: 159 },
+                    { lote: 126, pg: 87, pm: 157 },
+                    { lote: 127, pg: 82, pm: 157 },
+                    { lote: 128, pg: 89, pm: 160 },
+                    { lote: 129, pg: 90, pm: 154 },
+                    { lote: 130, pg: 94, pm: 157 },
+                    { lote: 131, pg: 94, pm: 162 },
+                    { lote: 132, pg: 95, pm: 159 },
+                    { lote: 133, pg: 93, pm: 159 },
+                    { lote: 134, pg: 95, pm: 163 }
                 ],
-                p1000: 163.0,
                 preliminar: false,
-                nota: 'PG curado (PGC%, plántulas normales) y peso de 1000 por lote — 15 lotes analizados. Peso de 1000 corresponde al lote de mayor peso (lotes 123 y 134). Confirmá el lote correspondiente antes de informar al productor.'
+                nota: 'PG curado (PGC%, plántulas normales) y peso de 1000 calculados sobre 15 lotes analizados.'
             },
-            'BRV 3325 SE': { pg: [93], p1000: 158.1, nota: 'Dato PRELIMINAR — revisar con el equipo el valor definitivo. Certificado Nº 2026-2323 (Lab. Horizonte, 22/09/2026), no ampara la totalidad del lote; confirmá antes de informar al productor.' }
+            'BRV 3325 SE': {
+                lotes: [ { lote: null, pg: 93, pm: 158.1 } ],
+                nota: 'Dato PRELIMINAR — revisar con el equipo el valor definitivo. Certificado Nº 2026-2323 (Lab. Horizonte, 22/09/2026), no ampara la totalidad del lote; confirmá antes de informar al productor.'
+            }
         };
 
         const standardConditions = `
@@ -1630,17 +1656,20 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
                 const qInfo = SOJA_CALIDAD[hybridName];
                 if (qInfo) {
-                    const pgContainer = document.getElementById('sojaQualityPG');
-                    pgContainer.innerHTML = '';
-                    qInfo.pg.forEach(function(item) {
-                        const valor = (item && typeof item === 'object') ? item.valor : item;
-                        const label = (item && typeof item === 'object' && item.lote) ? ('Lote ' + item.lote + ': ' + valor + '%') : (valor + '%');
-                        const chip = document.createElement('span');
-                        chip.className = 'inline-block bg-white text-emerald-900 text-[9px] font-bold px-2 py-1 rounded-md border border-emerald-300';
-                        chip.textContent = label;
-                        pgContainer.appendChild(chip);
-                    });
-                    document.getElementById('sojaQualityP1000').textContent = qInfo.p1000.toFixed(1).replace('.', ',') + ' g';
+                    const pgValues = qInfo.lotes.map(function(l){ return l.pg; });
+                    const pmValues = qInfo.lotes.map(function(l){ return l.pm; });
+                    const avg = function(arr){ return arr.reduce(function(a,b){ return a + b; }, 0) / arr.length; };
+                    const fmtWhole = function(v, suffix){ return Math.round(v) + suffix; };
+                    const fmtAvg = function(v, suffix){ return v.toFixed(1).replace('.', ',') + suffix; };
+
+                    document.getElementById('sojaQualityPGMin').textContent = fmtWhole(Math.min.apply(null, pgValues), '%');
+                    document.getElementById('sojaQualityPGMax').textContent = fmtWhole(Math.max.apply(null, pgValues), '%');
+                    document.getElementById('sojaQualityPGAvg').textContent = fmtAvg(avg(pgValues), '%');
+
+                    document.getElementById('sojaQualityP1000Min').textContent = fmtWhole(Math.min.apply(null, pmValues), ' g');
+                    document.getElementById('sojaQualityP1000Max').textContent = fmtWhole(Math.max.apply(null, pmValues), ' g');
+                    document.getElementById('sojaQualityP1000Avg').textContent = fmtAvg(avg(pmValues), ' g');
+
                     document.getElementById('sojaQualityNota').textContent = qInfo.nota || '';
                     const qBadge = document.getElementById('sojaQualityBadge');
                     qBadge.classList.toggle('hidden', qInfo.preliminar === false);
