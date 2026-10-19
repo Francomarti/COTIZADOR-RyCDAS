@@ -1469,7 +1469,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         // En el panel se muestran mínimo, máximo y promedio de PG y de PM, calculados sobre estos lotes.
         // BRV 4124 SE y BRV 4524 SE — fuente: planilla de laboratorio por lote (PG_y_LOTES), cargada 11/10/2026.
         //   BRV 4124 SE: se excluyó el lote 113 (outlier de peso: PM=122 g, muy por debajo del resto ~154-158 g).
-        // BRV 3325 SE — fuente: Laboratorio Horizonte, certificado Nº 2026-2323, 22/09/2026 (dato PRELIMINAR, no ampara la totalidad del lote). Actualizar cuando llegue un análisis nuevo.
+        // BRV 3325 SE — fuentes: (1) Laboratorio Horizonte, certificado Nº 2026-2323, 22/09/2026 (no ampara la totalidad del lote);
+        //   (2) planilla de calidad RyCDAS (CALIDAD-PLACAS-RyCDAS), actualización automática 19/10/2026 — lote en depósito de
+        //   terceros en Azul, PG 97% (lecturas 99/95), sin dato de peso de mil todavía. Ambos datos son PRELIMINARES.
+        //   (No confundir con el otro lote de 3325 Curada Big Bag que figura en esa misma planilla, en depósito propio Azul,
+        //   vencido desde 05/2026 y marcado "Todas muertas": ese es un lote distinto, viejo, sin relación con este PG.)
         const SOJA_CALIDAD = {
             'BRV 4124 SE': {
                 lotes: [
@@ -1507,8 +1511,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 nota: 'PG curado (PGC%, plántulas normales) y peso de 1000 calculados sobre 15 lotes analizados.'
             },
             'BRV 3325 SE': {
-                lotes: [ { lote: null, pg: 93, pm: 158.1 } ],
-                nota: 'Dato PRELIMINAR — revisar con el equipo el valor definitivo. Certificado Nº 2026-2323 (Lab. Horizonte, 22/09/2026), no ampara la totalidad del lote; confirmá antes de informar al productor.'
+                lotes: [
+                    { lote: null, pg: 93, pm: 158.1 },
+                    { lote: 'Azul (dep. terceros)', pg: 97, pm: null }
+                ],
+                nota: 'Dato PRELIMINAR — revisar con el equipo cuál lote corresponde antes de informar al productor. PG 93% / PM 158,1g: certificado Nº 2026-2323 (Lab. Horizonte, 22/09/2026), no ampara la totalidad del lote. PG 97% (lecturas 99/95): planilla de calidad RyCDAS, lote en depósito de terceros (Azul), actualización 19/10/2026 — todavía sin dato de peso de mil, por eso no entra en ese promedio.'
             }
         };
 
@@ -1656,8 +1663,11 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
                 const qInfo = SOJA_CALIDAD[hybridName];
                 if (qInfo) {
-                    const pgValues = qInfo.lotes.map(function(l){ return l.pg; });
-                    const pmValues = qInfo.lotes.map(function(l){ return l.pm; });
+                    const isNum = function(v){ return typeof v === 'number' && !isNaN(v); };
+                    // Se filtran los lotes sin dato (pg o pm en null) para que un lote analizado solo en PG
+                    // (sin peso de mil todavía, o viceversa) no arruine el mínimo/máximo/promedio del otro valor.
+                    const pgValues = qInfo.lotes.map(function(l){ return l.pg; }).filter(isNum);
+                    const pmValues = qInfo.lotes.map(function(l){ return l.pm; }).filter(isNum);
                     const avg = function(arr){ return arr.reduce(function(a,b){ return a + b; }, 0) / arr.length; };
                     const fmtWhole = function(v, suffix){ return Math.round(v) + suffix; };
                     const fmtAvg = function(v, suffix){ return v.toFixed(1).replace('.', ',') + suffix; };
