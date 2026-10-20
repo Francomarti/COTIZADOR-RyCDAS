@@ -929,7 +929,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
                         <div class="bg-slate-900 rounded-xl p-5 shadow-lg border border-slate-800">
                             <div class="flex justify-between items-center mb-2 text-slate-400">
-                                <span class="text-[10px] font-bold uppercase tracking-widest">Total de Bolsas</span>
+                                <span class="text-[10px] font-bold uppercase tracking-widest" id="grandTotalBagsLabel">Total de Bolsas</span>
                                 <span class="text-lg font-black text-white" id="grandTotalBags">0</span>
                             </div>
                             <!-- SEPARACIÓN DE PROMEDIOS DENTRO DEL CONTENEDOR DE TOTALES -->
@@ -1116,7 +1116,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         <div class="bg-slate-900 p-10 rounded-3xl text-white shadow-xl">
             <div class="flex justify-between items-end">
                 <div>
-                    <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-2">Total de Bolsas</p>
+                    <p class="text-[10px] text-slate-400 uppercase font-black tracking-widest mb-2" id="receiptTotalBagsLabel">Total de Bolsas</p>
                     <p class="text-2xl font-black" id="receiptTotalBags">0 bolsas</p>
                 </div>
                 <!-- SEPARACIÓN DE PROMEDIOS EN TICKET DE IMAGEN -->
@@ -1463,6 +1463,19 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
         const exactFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
         const usdFormatter = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+
+        // La soja se vende en Big Bags, no en bolsas de 40kg como maíz/girasol: son unidades distintas,
+        // así que el total no se puede sumar como un solo número salvo que la propuesta sea de un solo tipo.
+        // bagsOnly = maíz + girasol (comparten unidad "bolsas"); bigBags = soja.
+        function formatBagsTotal(bagsOnly, bigBags) {
+            if (bagsOnly > 0 && bigBags > 0) {
+                return { label: 'Total Bolsas + Big Bags', value: `${bagsOnly} bolsas + ${bigBags} BB` };
+            }
+            if (bigBags > 0) {
+                return { label: 'Total de Big Bags', value: `${bigBags} Big Bags` };
+            }
+            return { label: 'Total de Bolsas', value: `${bagsOnly} bolsas` };
+        }
 
         // Calidad de semilla por variedad de soja, semilla CON FUNGICIDA (tratada/curada).
         // Cada variedad guarda sus lotes analizados (PG curado = PGC%, columna N/normales; PM = peso de mil, en gramos).
@@ -2295,7 +2308,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             
             avgContainer.innerHTML = avgHtml;
             
-            document.getElementById('grandTotalBags').textContent = totalBags;
+            const grandBagsFmt = formatBagsTotal(maizBags + girasolBags, sojaBags);
+            document.getElementById('grandTotalBagsLabel').textContent = grandBagsFmt.label;
+            document.getElementById('grandTotalBags').textContent = grandBagsFmt.value;
             document.getElementById('grandTotalUSD').textContent = usdFormatter.format(grandTotalUSD);
         }
         window.recalculateAndRender = recalculateAndRender;
@@ -2450,7 +2465,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
             receiptAvgPriceContainer.innerHTML = receiptAvgHtml;
 
-            document.getElementById('receiptTotalBags').textContent = totalBags + " bolsas";
+            const receiptBagsFmt = formatBagsTotal(maizBags + girasolBags, sojaBags);
+            document.getElementById('receiptTotalBagsLabel').textContent = receiptBagsFmt.label;
+            document.getElementById('receiptTotalBags').textContent = receiptBagsFmt.value;
             document.getElementById('receiptGrandTotal').textContent = usdFormatter.format(grandTotalUSD);
             
             // LÓGICA DE CAPTURA ROBUSTA: Movemos el contenedor oculto temporalmente a la pantalla para evitar fallos de html2canvas
@@ -2560,7 +2577,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             });
 
             text += `*--- RESUMEN DE INVERSIÓN ---*\n`;
-            text += `📊 *Bolsas Totales:* ${totalBags} bolsas\n`;
+            const waBagsFmt = formatBagsTotal(maizBags + girasolBags, sojaBags);
+            text += `📊 *${waBagsFmt.label}:* ${waBagsFmt.value}\n`;
             
             // SE SEPARAN LOS PROMEDIOS DE MAÍZ, GIRASOL Y SOJA EN EL MENSAJE DE WHATSAPP
             if (maizBags > 0) {
