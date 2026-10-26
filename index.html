@@ -583,7 +583,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-10-09-1">
+    <meta name="app-build" content="2026-10-26-1">
     <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Octubre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
     <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Octubre 2026.">
@@ -697,7 +697,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <option value="maiz|115|RFG 22 RR">RFG 22 RR ($115)</option>
                                 </optgroup>
                                 <optgroup label="Girasol (Costo Base + Margen)">
-                                    <option value="girasol|210|BRV 4225 CL">BRV 4225 CL ($210)</option>
+                                    <option value="girasol|180|BRV 4225 CL">BRV 4225 CL ($180)</option>
                                     <option value="girasol|210|BRV L 210 CP">BRV L 210 CP ($210)</option>
                                     <option value="girasol|210|BRV H 280 CL">BRV H 280 CL ($210)</option>
                                     <option value="girasol|185|MG 360 CP">MG 360 CP ($185)</option>
@@ -1659,7 +1659,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             caliberInput.classList.remove('bg-slate-50', 'opacity-50');
 
             if (cropType === 'girasol') {
-                caliberInput.innerHTML = `<option value="0">Banda 1 (G1 y G2)</option><option value="10">Banda 2 (G3 y G3E) (-$10)</option>`;
+                // BRV 4225 CL: mismo costo (USD 180) en Banda 1 y Banda 2, sin descuento por banda.
+                caliberInput.innerHTML = hybridName === 'BRV 4225 CL'
+                    ? `<option value="0">Banda 1 (G1 y G2)</option><option value="0">Banda 2 (G3 y G3E)</option>`
+                    : `<option value="0">Banda 1 (G1 y G2)</option><option value="10">Banda 2 (G3 y G3E) (-$10)</option>`;
                 marginContainer.classList.remove('hidden');
                 document.getElementById('simDensity').value = '45000';
                 caliberLabel.textContent = 'Calibre';
