@@ -583,10 +583,10 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cotizador y Gestión Comercial | Rindes y Cultivos DAS</title>
-    <meta name="app-build" content="2026-10-27-1">
-    <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Octubre 2026.">
+    <meta name="app-build" content="2026-11-06-1">
+    <meta name="description" content="Cotizador comercial de semillas Brevant - Maíz, Girasol y Soja. Condiciones Noviembre 2026.">
     <meta property="og:title" content="Cotizador Rindes y Cultivos DAS 🌽">
-    <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Octubre 2026.">
+    <meta property="og:description" content="Cotizador comercial Brevant Semillas - Maíz, Girasol y Soja. Condiciones vigentes Noviembre 2026.">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Rindes y Cultivos DAS">
     <meta name="theme-color" content="#7a1e34">
@@ -643,7 +643,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         <!-- Indicador de conexión en la nube -->
                         <span id="cloudStatusBadge" class="bg-green-100 text-green-800 text-[10px] px-2 py-0.5 rounded-full font-black flex items-center"><span class="w-2 h-2 rounded-full bg-green-500 mr-1"></span> Nube Sincronizada</span>
                     </div>
-                    <p class="text-slate-500 mt-1 text-xs md:text-sm font-medium">Gente de Campo • Octubre 2026</p>
+                    <p class="text-slate-500 mt-1 text-xs md:text-sm font-medium">Gente de Campo • Noviembre 2026</p>
                 </div>
             </div>
             <div class="mt-4 md:mt-0 flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
@@ -651,7 +651,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     <i class="fas fa-save mr-2"></i> Guardar Offline
                 </button>
                 <span class="bg-orange-50 text-brevant px-4 py-2 rounded border border-orange-200 font-bold flex items-center shadow-sm text-[10px] uppercase">
-                    <i class="fas fa-calendar-check mr-2 text-xs"></i> Octubre 2026
+                    <i class="fas fa-calendar-check mr-2 text-xs"></i> Noviembre 2026
                 </span>
             </div>
         </header>
@@ -684,15 +684,18 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 <optgroup label="🥩 SEGMENTO GANADERO (Exclusivo Productor)">
                                     <option value="maiz|95|BRV 8472 PWU / PWUE|special">BRV 8472 PWU / PWUE (Ganadero)</option>
                                 </optgroup>
-                                <optgroup label="Maíz (Precios Productor Octubre)">
+                                <optgroup label="Maíz (Precios Productor Noviembre)">
                                     <option value="maiz|200|NEXT 25.8 PWU">NEXT 25.8 PWU ($200)</option>
+                                    <option value="maiz|200|BRV 8525 PWU">BRV 8525 PWU ($200) · NUEVO</option>
                                     <option value="maiz|190|BRV 8181 PWU">BRV 8181 PWU ($190)</option>
+                                    <option value="maiz|190|BRV 8027 PWU">BRV 8027 PWU ($190) · NUEVO</option>
                                     <option value="maiz|180|BRV 8380 PWUE" selected="">BRV 8380 PWUE ($180)</option>
-                                    <option value="maiz|175|BRV 8421 PWUEN">BRV 8421 PWUEN ($175)</option>
+                                    <option value="maiz|175|BRV 8421 PWUE">BRV 8421 PWUE ($175)</option>
                                     <option value="maiz|170|NEXT 22.6 PWUE">NEXT 22.6 PWUE ($170)</option>
                                     <option value="maiz|160|BRV 510 PWUE">BRV 510 PWUE ($160)</option>
                                     <option value="maiz|150|BRV 510 PWU">BRV 510 PWU ($150)</option>
-                                    <option value="maiz|140|BRV 8472 PWUEN" disabled>⚠️ BRV 8472 PWUEN ($140) — NO USAR (Solo Referencia)</option>
+                                    <option value="maiz|140|BRV 8472 PWUE" disabled>⚠️ BRV 8472 PWUE ($140) — NO USAR (Solo Referencia)</option>
+                                    <option value="maiz|130|BRV 8472 PWU" disabled>⚠️ BRV 8472 PWU ($130) — NO USAR (Solo Referencia)</option>
                                     <option value="maiz|120|RFG 22 RE">RFG 22 RE ($120)</option>
                                     <option value="maiz|115|RFG 22 RR">RFG 22 RR ($115)</option>
                                 </optgroup>
@@ -801,14 +804,15 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                     <label class="block text-xs font-bold text-slate-700 mb-1 uppercase text-[10px]">Condición de Pago</label>
                                     <select id="simCondition" onchange="toggleDaysInput(); updatePreview();" class="w-full border-2 border-slate-300 rounded-lg p-3 focus:ring-0 focus:border-brevant font-bold text-slate-900 bg-white text-[13px] shadow-sm">
             <option value="direct|0">Contado (A 30 días) - Precio Lista (Bonif. 5% x NC si paga en término)</option>
-            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - 360 días)">
-                <option value="direct|0">Nera Santander USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Nera Galicia USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Nera Comafi USD (360d - Tasa 0%)</option>
-                <option value="direct|0">AgroNación Préstamo USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Procampo Digital USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Macro USD (360d - Tasa 0%)</option>
-                <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
+            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - Solo compras nuevas)">
+                <option value="direct|0">Nera Santander USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.035">Nera Santander USD (360d - TNA 3.50%)</option>
+                <option value="direct|0">Nera Galicia USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.024">Nera Galicia USD (360d - TNA 2.40%)</option>
+                <option value="direct|0">Nera Comafi USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">AgroNación Préstamo USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">Procampo Digital USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">BBVA USD (hasta 31/08/27 - Tasa 0%)</option>
             </optgroup>
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR</option>
@@ -816,8 +820,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
             </optgroup>
-            <optgroup label="📈 GRANO FORWARD (Tasa 0% - Dic 26 a Ago 27)">
-                <option value="direct|0|0">Grano Forward Vto Diciembre 26 (Tasa 0%)</option>
+            <optgroup label="📈 GRANO FORWARD (Tasa 0% - Ene 27 a Ago 27)">
+                <option value="direct|0|0">Grano Forward Vto Enero 27 (Tasa 0%)</option>
                 <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
                 <option value="direct|0|0">Grano Forward Vto Febrero 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Marzo 27 (Tasa 0%)</option>
@@ -829,22 +833,21 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             </optgroup>
             <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista - Sin Plus)">
                 <option value="corteva_tna|0.06|0">Fin. Corteva USD - TNA 6.00% ⚡</option>
-                <option value="direct|0.0100|0">Fin Corteva Vto Diciembre 2026 (+1.00%)</option>
-                <option value="direct|0.0150|0">Fin Corteva Vto Enero 2027 (+1.50%)</option>
-                <option value="direct|0.0200|0">Fin Corteva Vto Febrero 2027 (+2.00%)</option>
-                <option value="direct|0.0250|0">Fin Corteva Vto Marzo 2027 (+2.50%)</option>
-                <option value="direct|0.0300|0">Fin Corteva Vto Abril 2027 (+3.00%)</option>
-                <option value="direct|0.0350|0">Fin Corteva Vto Mayo 2027 (+3.50%)</option>
-                <option value="direct|0.0400|0">Fin Corteva Vto Junio 2027 (+4.00%)</option>
-                <option value="direct|0.0450|0">Fin Corteva Vto Julio 2027 (+4.50%)</option>
-                <option value="direct|0.0500|0">Fin Corteva Vto Agosto 2027 (+5.00%) ⚡</option>
+                <option value="direct|0.0100|0">Fin Corteva Vto Enero 2027 (+1.00%)</option>
+                <option value="direct|0.0150|0">Fin Corteva Vto Febrero 2027 (+1.50%)</option>
+                <option value="direct|0.0200|0">Fin Corteva Vto Marzo 2027 (+2.00%)</option>
+                <option value="direct|0.0250|0">Fin Corteva Vto Abril 2027 (+2.50%)</option>
+                <option value="direct|0.0300|0">Fin Corteva Vto Mayo 2027 (+3.00%)</option>
+                <option value="direct|0.0350|0">Fin Corteva Vto Junio 2027 (+3.50%)</option>
+                <option value="direct|0.0400|0">Fin Corteva Vto Julio 2027 (+4.00%)</option>
+                <option value="direct|0.0450|0">Fin Corteva Vto Agosto 2027 (+4.50%) ⚡</option>
             </optgroup>
-            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Oct 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
-                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 360d)</option>
-                <option value="procampo_tna|0">Procampo (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Nov 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
+                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 300d)</option>
+                <option value="procampo_tna|0">Procampo (TNA 11% a 180d / 18% a 270d / 21% a 300d)</option>
             </optgroup>
-            <optgroup label="💳 TARJETA BBVA PESOS (Oct 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
-                <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 39% - 39%)</option>
+            <optgroup label="💳 TARJETA BBVA PESOS (Nov 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
+                <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA 35% a 180d / 37.5% a 270d / 39% a 360d)</option>
             </optgroup>
             <optgroup label="⚠️ DESCUENTO DE CHEQUES - PROGRAMA SUPERVIELLE (CUPO LIMITADO 500 BOLSAS)">
                 <option value="direct|0.0506|0">Descuento Cheques 90 días (+5.06%) - Cupo Limitado</option>
@@ -977,7 +980,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                                 <option value="NEXT 25.8 PWU">NEXT 25.8 PWU</option>
                                 <option value="BRV 8181 PWU">BRV 8181 PWU</option>
                                 <option value="BRV 8380 PWUE">BRV 8380 PWUE</option>
-                                <option value="BRV 8421 PWUEN">BRV 8421 PWUEN</option>
+                                <option value="BRV 8421 PWUE">BRV 8421 PWUE</option>
+                                <option value="BRV 8525 PWU">BRV 8525 PWU</option>
+                                <option value="BRV 8027 PWU">BRV 8027 PWU</option>
                                 <option value="BRV 8472 PWU">BRV 8472 PWU</option>
                                 <option value="BRV 4225 CL">BRV 4225 CL (Girasol)</option>
                                 <option value="BRV L 210 CP">BRV L 210 CP (Girasol)</option>
@@ -1087,7 +1092,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <img src="rycdas.logo.png" alt="Rindes DAS" class="h-24 object-contain" onerror="this.style.display='none'" style="display: none;">
                 <div>
                     <h2 class="text-3xl font-black text-slate-900 leading-none">Rindes y Cultivos <span class="text-brevant">DAS</span></h2>
-                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mt-3">Gente de Campo • Propuesta Octubre 2026</p>
+                    <p class="text-[11px] font-black text-slate-400 uppercase tracking-[0.2em] mt-3">Gente de Campo • Propuesta Noviembre 2026</p>
                 </div>
             </div>
             <div class="text-right">
@@ -1124,7 +1129,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     <!-- Dinámicamente poblado con el promedio de Maíz y/o Girasol por separado -->
                 </div>
                 <div class="text-right">
-                    <p class="text-[10px] text-brevant uppercase font-black tracking-widest mb-2">Inversión Total Octubre</p>
+                    <p class="text-[10px] text-brevant uppercase font-black tracking-widest mb-2">Inversión Total Noviembre</p>
                     <p class="text-5xl font-black text-brevant" id="receiptGrandTotal">$0</p>
                 </div>
             </div>
@@ -1432,7 +1437,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             const encodedUri = encodeURI(csvContent);
             const link = document.createElement("a");
             link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `Perdidas_RYC_DAS_Compartido_Octubre.csv`);
+            link.setAttribute("download", `Perdidas_RYC_DAS_Compartido_Noviembre.csv`);
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -1534,14 +1539,15 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
         const standardConditions = `
             <option value="direct|0">Contado (A 30 días) - Precio Lista (Bonif. 5% x NC si paga en término)</option>
-            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - 360 días)">
-                <option value="direct|0">Nera Santander USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Nera Galicia USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Nera Comafi USD (360d - Tasa 0%)</option>
-                <option value="direct|0">AgroNación Préstamo USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Procampo Digital USD (360d - Tasa 0%)</option>
-                <option value="direct|0">Macro USD (360d - Tasa 0%)</option>
-                <option value="direct|0">BBVA USD (360d - Tasa 0%)</option>
+            <optgroup label="🏦 CONVENIOS BANCARIOS USD (Tasa 0% - Solo compras nuevas)">
+                <option value="direct|0">Nera Santander USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.035">Nera Santander USD (360d - TNA 3.50%)</option>
+                <option value="direct|0">Nera Galicia USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.024">Nera Galicia USD (360d - TNA 2.40%)</option>
+                <option value="direct|0">Nera Comafi USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">AgroNación Préstamo USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">Procampo Digital USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">BBVA USD (hasta 31/08/27 - Tasa 0%)</option>
             </optgroup>
             <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
                 <option value="direct|0">Convenio SGR</option>
@@ -1549,8 +1555,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
                 <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
             </optgroup>
-            <optgroup label="📈 GRANO FORWARD (Tasa 0% - Dic 26 a Ago 27)">
-                <option value="direct|0|0">Grano Forward Vto Diciembre 26 (Tasa 0%)</option>
+            <optgroup label="📈 GRANO FORWARD (Tasa 0% - Ene 27 a Ago 27)">
+                <option value="direct|0|0">Grano Forward Vto Enero 27 (Tasa 0%)</option>
                 <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
                 <option value="direct|0|0">Grano Forward Vto Febrero 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Marzo 27 (Tasa 0%)</option>
@@ -1562,22 +1568,21 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             </optgroup>
             <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista - Sin Plus)">
                 <option value="corteva_tna|0.06|0">Fin. Corteva USD - TNA 6.00% ⚡</option>
-                <option value="direct|0.0100|0">Fin Corteva Vto Diciembre 2026 (+1.00%)</option>
-                <option value="direct|0.0150|0">Fin Corteva Vto Enero 2027 (+1.50%)</option>
-                <option value="direct|0.0200|0">Fin Corteva Vto Febrero 2027 (+2.00%)</option>
-                <option value="direct|0.0250|0">Fin Corteva Vto Marzo 2027 (+2.50%)</option>
-                <option value="direct|0.0300|0">Fin Corteva Vto Abril 2027 (+3.00%)</option>
-                <option value="direct|0.0350|0">Fin Corteva Vto Mayo 2027 (+3.50%)</option>
-                <option value="direct|0.0400|0">Fin Corteva Vto Junio 2027 (+4.00%)</option>
-                <option value="direct|0.0450|0">Fin Corteva Vto Julio 2027 (+4.50%)</option>
-                <option value="direct|0.0500|0">Fin Corteva Vto Agosto 2027 (+5.00%) ⚡</option>
+                <option value="direct|0.0100|0">Fin Corteva Vto Enero 2027 (+1.00%)</option>
+                <option value="direct|0.0150|0">Fin Corteva Vto Febrero 2027 (+1.50%)</option>
+                <option value="direct|0.0200|0">Fin Corteva Vto Marzo 2027 (+2.00%)</option>
+                <option value="direct|0.0250|0">Fin Corteva Vto Abril 2027 (+2.50%)</option>
+                <option value="direct|0.0300|0">Fin Corteva Vto Mayo 2027 (+3.00%)</option>
+                <option value="direct|0.0350|0">Fin Corteva Vto Junio 2027 (+3.50%)</option>
+                <option value="direct|0.0400|0">Fin Corteva Vto Julio 2027 (+4.00%)</option>
+                <option value="direct|0.0450|0">Fin Corteva Vto Agosto 2027 (+4.50%) ⚡</option>
             </optgroup>
-            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Oct 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
-                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 360d)</option>
-                <option value="procampo_tna|0">Procampo (TNA 7% a 180d / 14% a 270d / 18% a 360d)</option>
+            <optgroup label="💳 TARJETAS DE CRÉDITO PESOS (Nov 2026 - AgroNación y Procampo: tasa la cobra el Banco al Productor)">
+                <option value="tna|0.225">AgroNación (TNA 22.50% - máx 300d)</option>
+                <option value="procampo_tna|0">Procampo (TNA 11% a 180d / 18% a 270d / 21% a 300d)</option>
             </optgroup>
-            <optgroup label="💳 TARJETA BBVA PESOS (Oct 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
-                <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA Variable: 35% - 39% - 39%)</option>
+            <optgroup label="💳 TARJETA BBVA PESOS (Nov 2026 - Tasa en el precio, no la cobra el Banco al Productor)">
+                <option value="bbva_tna|0">BBVA - Plataforma Digital (TNA 35% a 180d / 37.5% a 270d / 39% a 360d)</option>
             </optgroup>
             <optgroup label="⚠️ DESCUENTO DE CHEQUES - PROGRAMA SUPERVIELLE (CUPO LIMITADO 500 BOLSAS)">
                 <option value="direct|0.0506|0">Descuento Cheques 90 días (+5.06%) - Cupo Limitado</option>
@@ -1742,21 +1747,23 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             if (type === 'tna' || type === 'corteva_tna' || type === 'procampo_tna' || type === 'bbva_tna' || type === 'soja_fwd_tna') {
                 daysContainer.classList.remove('opacity-40', 'grayscale');
                 simDays.disabled = false;
+                simDays.max = getMaxDays(type, condText);
+                if (parseInt(simDays.value) > parseInt(simDays.max)) simDays.value = simDays.max;
                 if (type === 'tna') {
                     const effective = (rate * (simDays.value / 360) * 100).toFixed(2);
                     helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${simDays.value} d)<div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else if (type === 'procampo_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
-                    let currentRate = 0.18;
-                    if (totalDays <= 180) currentRate = 0.07;
-                    else if (totalDays <= 270) currentRate = 0.14;
+                    let currentRate = 0.21;
+                    if (totalDays <= 180) currentRate = 0.11;
+                    else if (totalDays <= 270) currentRate = 0.18;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
                     helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta Procampo: TNA ${(currentRate * 100).toFixed(0)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-red-50 border-2 border-red-400 rounded-lg p-2 mt-1"><p class="text-red-700 font-black text-[10px]"><i class="fas fa-university mr-1"></i>⚠️ Tasa cobrada por el BANCO directamente al productor. Para nuestro sistema: Venta de Contado a Precio de Lista (sin 5% desc.).</p></div>`;
                 } else if (type === 'bbva_tna') {
                     const totalDays = parseInt(simDays.value) || 180;
                     let currentRate = 0.39;
                     if (totalDays <= 180) currentRate = 0.35;
-                    else if (totalDays <= 270) currentRate = 0.39;
+                    else if (totalDays <= 270) currentRate = 0.375;
                     const effective = (currentRate * (totalDays / 360) * 100).toFixed(2);
                     helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Tarjeta BBVA Plataforma Digital: TNA ${(currentRate * 100).toFixed(1)}% para ${totalDays} d. Tasa efectiva: <strong>+${effective}%</strong><div class="bg-blue-50 border-2 border-blue-300 rounded-lg p-2 mt-1"><p class="text-blue-800 font-black text-[10px]"><i class="fas fa-file-invoice-dollar mr-1"></i>La tasa NO la cobra el banco al productor: va incluida en el precio facturado (Precio de Lista + tasa).</p></div>`;
                 } else if (type === 'soja_fwd_tna') {
@@ -1784,6 +1791,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                             </ul>
                             <p class="text-[10px] text-red-800 mt-1 font-bold">Tasa Directa: +${(rate*100).toFixed(2)}%</p>
                         </div>`;
+                } else if (condText.includes("360d - TNA")) {
+                    const tnaFinal = (condText.match(/TNA ([\d.]+%)/) || [])[1] || '';
+                    helper.innerHTML = `<i class="fas fa-info-circle text-blue-600 mr-1"></i> Convenio bancario USD parcialmente subsidiado: <strong>${tnaFinal} final</strong>. Plazo 360 días. Solo para compras nuevas.`;
+                } else if (condText.includes("hasta") && condText.includes("Tasa 0%")) {
+                    const hastaPlazo = ((condText.match(/hasta ([^ ]+)/) || [])[1] || '').replace(/d$/, ' días');
+                    helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final</strong>. Plazo máximo: <strong>${hastaPlazo}</strong>. Solo para compras nuevas.`;
                 } else if (condText.includes("360d") || condText.includes("360 días")) {
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
@@ -1806,6 +1819,13 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             }
         }
         window.toggleDaysInput = toggleDaysInput;
+
+        // Plazo máximo por herramienta (Herramientas Comerciales Noviembre 2026): AgroNación y Procampo, 300 días.
+        function getMaxDays(condType, condText) {
+            if (condType === 'procampo_tna') return 300;
+            if (condType === 'tna' && (condText || '').includes('AgroNación')) return 300;
+            return 360;
+        }
 
         function getCurrentFormValues() {
             const hybridSel = document.getElementById('simHybrid');
@@ -1830,7 +1850,9 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
             const caliberDiscount = parseFloat(caliberSel.value) || 0;
             const caliberName = caliberSel.options[caliberSel.selectedIndex] ? caliberSel.options[caliberSel.selectedIndex].text : "Banda 1 (Base)";
             const appliedMargin = parseFloat(document.getElementById('simMargin').value) || 0;
-            const days = parseInt(document.getElementById('simDays').value) || 180;
+            const maxDays = getMaxDays(condType, condText);
+            let days = parseInt(document.getElementById('simDays').value) || 180;
+            if (days > maxDays) { days = maxDays; document.getElementById('simDays').value = maxDays; }
 
             // PARSEO REVOLUCIONARIO DE PLAZOS Y VENCIMIENTO SINCRO (SOPORTE DE CANJE Y FINANCIACIÓN)
             let plazoText = "30 días (Contado)";
@@ -1840,20 +1862,22 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 else if (condVal === 'special_cheques6') plazoText = "6 ECHEQs (Financiación 30 a 180 d)";
                 else if (condVal === 'special_cheque1') plazoText = "180 días (1 ECHEQ / Tarjeta)";
             } else {
-                if (condText.includes("Nera Santander")) {
-                    plazoText = "360 días (Nera Santander USD Tasa 0%)";
+                if (condText.includes("Nera Santander") && condText.includes("360d - TNA")) {
+                    plazoText = "360 días (Nera Santander USD TNA 3.50%)";
+                } else if (condText.includes("Nera Galicia") && condText.includes("360d - TNA")) {
+                    plazoText = "360 días (Nera Galicia USD TNA 2.40%)";
+                } else if (condText.includes("Nera Santander")) {
+                    plazoText = "hasta 270 días (Nera Santander USD Tasa 0%)";
                 } else if (condText.includes("Nera Galicia")) {
-                    plazoText = "360 días (Nera Galicia USD Tasa 0%)";
+                    plazoText = "hasta 270 días (Nera Galicia USD Tasa 0%)";
                 } else if (condText.includes("Nera Comafi")) {
-                    plazoText = "360 días (Nera Comafi USD Tasa 0%)";
+                    plazoText = "hasta 300 días (Nera Comafi USD Tasa 0%)";
                 } else if (condText.includes("AgroNación Préstamo USD")) {
-                    plazoText = "360 días (AgroNación USD Tasa 0%)";
+                    plazoText = "hasta 300 días (AgroNación USD Tasa 0%)";
                 } else if (condText.includes("Procampo Digital USD")) {
-                    plazoText = "360 días (Procampo Digital USD Tasa 0%)";
-                } else if (condText.includes("Macro USD")) {
-                    plazoText = "360 días (Macro USD Tasa 0%)";
+                    plazoText = "hasta 300 días (Procampo Digital USD Tasa 0%)";
                 } else if (condText.includes("BBVA USD")) {
-                    plazoText = "360 días (BBVA USD Tasa 0%)";
+                    plazoText = "hasta 31/08/2027 (BBVA USD Tasa 0%)";
                 } else if (condText.includes("Convenio SGR")) {
                     plazoText = "360 días (Convenio SGR)";
                 } else if (condText.includes("NERA (360")) {
@@ -1866,6 +1890,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                     const matchDias = condText.match(/(\d+)\s+días/);
                     const diasCheq = matchDias ? matchDias[1] : days;
                     plazoText = `${diasCheq} días (Descuento Cheques - ⚠️ Cupo Limitado)`;
+                } else if (condText.includes("Grano Forward Vto")) {
+                    const matchFwd = condText.match(/Vto\s+([A-Za-z]+)\s+(\d+)/i);
+                    if (matchFwd) {
+                        const anioFwd = matchFwd[2] === "26" ? "2026" : "2027";
+                        plazoText = `Vto ${matchFwd[1]} ${anioFwd} (Grano Forward)`;
+                    } else {
+                        plazoText = "Vto Cosecha (Grano Forward)";
+                    }
                 } else if (condText.includes("Grano Plus FWD")) {
                     const match = condText.match(/Grano Plus FWD\s+([A-Za-z]+)\s+(\d+)/i);
                     if (match) {
@@ -1887,14 +1919,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         plazoText = "Vto Cosecha (Fin. Corteva)";
                     }
                 } else if (condType === 'procampo_tna') {
-                    let procampoRate = 0.18;
-                    if (days <= 180) procampoRate = 0.07;
-                    else if (days <= 270) procampoRate = 0.14;
+                    let procampoRate = 0.21;
+                    if (days <= 180) procampoRate = 0.11;
+                    else if (days <= 270) procampoRate = 0.18;
                     plazoText = `${days} días (Tarjeta Procampo TNA ${(procampoRate*100).toFixed(0)}%)`;
                 } else if (condType === 'bbva_tna') {
                     let bbvaRate = 0.39;
                     if (days <= 180) bbvaRate = 0.35;
-                    else if (days <= 270) bbvaRate = 0.39;
+                    else if (days <= 270) bbvaRate = 0.375;
                     plazoText = `${days} días (Tarjeta BBVA Pesos TNA ${(bbvaRate*100).toFixed(1)}%)`;
                 } else if (condText.includes("AgroNación (TNA")) {
                     plazoText = `${days} días (Tarjeta AgroNación Pesos TNA 22.50%)`;
@@ -1949,12 +1981,12 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
 
             let effectiveRate = item.condRate;
             if (item.condType === 'procampo_tna') {
-                if (item.days <= 180) effectiveRate = 0.07;
-                else if (item.days <= 270) effectiveRate = 0.14;
-                else effectiveRate = 0.18;
+                if (item.days <= 180) effectiveRate = 0.11;
+                else if (item.days <= 270) effectiveRate = 0.18;
+                else effectiveRate = 0.21;
             } else if (item.condType === 'bbva_tna') {
                 if (item.days <= 180) effectiveRate = 0.35;
-                else if (item.days <= 270) effectiveRate = 0.39;
+                else if (item.days <= 270) effectiveRate = 0.375;
                 else effectiveRate = 0.39;
             }
 
@@ -2492,7 +2524,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 container.style.zIndex = '-1';
 
                 const link = document.createElement('a');
-                link.download = `Propuesta_Rindes_DAS_Octubre.png`;
+                link.download = `Propuesta_Rindes_DAS_Noviembre.png`;
                 link.href = canvas.toDataURL("image/png");
                 
                 // Forzamos el append en el DOM del iframe para evadir la seguridad del sandbox
@@ -2512,7 +2544,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
         window.downloadImage = downloadImage;
 
         function copyToClipboard() {
-            let text = `*RINDES Y CULTIVOS DAS* 🚜🌾🤝\n_Gente de Campo • Propuesta Octubre 2026_\n\n`;
+            let text = `*RINDES Y CULTIVOS DAS* 🚜🌾🤝\n_Gente de Campo • Propuesta Noviembre 2026_\n\n`;
             const totalMaizBags = cart.reduce((sum, item) => item.cropType === 'maiz' && !item.isSpecial ? sum + item.bags : sum, 0);
             const volDiscount = getVolumeDiscount(totalMaizBags);
 
