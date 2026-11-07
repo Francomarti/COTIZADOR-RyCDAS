@@ -814,15 +814,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0">Procampo Digital USD (hasta 300d - Tasa 0%)</option>
                 <option value="direct|0">BBVA USD (hasta 31/08/27 - Tasa 0%)</option>
             </optgroup>
-            <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
+            <optgroup label="🛡️ CONVENIO SGR (Precio de Lista - Requiere aprobación previa de Créditos)">
                 <option value="direct|0">Convenio SGR</option>
             </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
-                <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
+                <option value="direct|-0.05|0">Canje Granos Disponible (Plazo máx 30d | -5% Semilla)</option>
             </optgroup>
             <optgroup label="📈 GRANO FORWARD (Tasa 0% - Ene 27 a Ago 27)">
                 <option value="direct|0|0">Grano Forward Vto Enero 27 (Tasa 0%)</option>
-                <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
                 <option value="direct|0|0">Grano Forward Vto Febrero 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Marzo 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Abril 27 (Tasa 0%)</option>
@@ -831,7 +830,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0|0">Grano Forward Vto Julio 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Agosto 27 (Tasa 0%)</option>
             </optgroup>
-            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista - Sin Plus)">
+            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista)">
                 <option value="corteva_tna|0.06|0">Fin. Corteva USD - TNA 6.00% ⚡</option>
                 <option value="direct|0.0100|0">Fin Corteva Vto Enero 2027 (+1.00%)</option>
                 <option value="direct|0.0150|0">Fin Corteva Vto Febrero 2027 (+1.50%)</option>
@@ -1549,15 +1548,14 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0">Procampo Digital USD (hasta 300d - Tasa 0%)</option>
                 <option value="direct|0">BBVA USD (hasta 31/08/27 - Tasa 0%)</option>
             </optgroup>
-            <optgroup label="🛡️ CONVENIOS SGR Y SUBSIDIOS (Tasa 0% Hoy)">
+            <optgroup label="🛡️ CONVENIO SGR (Precio de Lista - Requiere aprobación previa de Créditos)">
                 <option value="direct|0">Convenio SGR</option>
             </optgroup>
             <optgroup label="🌾 CANJE DE GRANOS (Campaña 26)">
-                <option value="direct|-0.05|0.05">Canje Granos Disponible (Plazo máx 30d | -5% Semilla | +5% Bono Grano)</option>
+                <option value="direct|-0.05|0">Canje Granos Disponible (Plazo máx 30d | -5% Semilla)</option>
             </optgroup>
             <optgroup label="📈 GRANO FORWARD (Tasa 0% - Ene 27 a Ago 27)">
                 <option value="direct|0|0">Grano Forward Vto Enero 27 (Tasa 0%)</option>
-                <option value="direct|0|0.05">Grano Plus FWD Enero 27 (Tasa 0% | +5% Bono Grano) 🌾</option>
                 <option value="direct|0|0">Grano Forward Vto Febrero 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Marzo 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Abril 27 (Tasa 0%)</option>
@@ -1566,7 +1564,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 <option value="direct|0|0">Grano Forward Vto Julio 27 (Tasa 0%)</option>
                 <option value="direct|0|0">Grano Forward Vto Agosto 27 (Tasa 0%)</option>
             </optgroup>
-            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista - Sin Plus)">
+            <optgroup label="🌽 FINANCIACIÓN CORTEVA USD (TNA 6.00% s/ Lista)">
                 <option value="corteva_tna|0.06|0">Fin. Corteva USD - TNA 6.00% ⚡</option>
                 <option value="direct|0.0100|0">Fin Corteva Vto Enero 2027 (+1.00%)</option>
                 <option value="direct|0.0150|0">Fin Corteva Vto Febrero 2027 (+1.50%)</option>
@@ -1722,7 +1720,19 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 caliberInput.value = "0";
                 condSelect.innerHTML = ganaderoConditions;
             } else if (cropType === 'soja') {
-                condSelect.innerHTML = `<option value="direct|0">NERA (360 días - Tasa 0%)</option><option value="soja_fwd_tna|0.06">FWD Soja (0,5% Mensual)</option>`;
+                condSelect.innerHTML = `<optgroup label="🏦 NERA / CONVENIOS BANCARIOS USD (Tasa 0% - Solo compras nuevas)">
+                <option value="direct|0">Nera Santander USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.035">Nera Santander USD (360d - TNA 3.50%)</option>
+                <option value="direct|0">Nera Galicia USD (hasta 270d - Tasa 0%)</option>
+                <option value="direct|0.024">Nera Galicia USD (360d - TNA 2.40%)</option>
+                <option value="direct|0">Nera Comafi USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">AgroNación Préstamo USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">Procampo Digital USD (hasta 300d - Tasa 0%)</option>
+                <option value="direct|0">BBVA USD (hasta 31/08/27 - Tasa 0%)</option>
+            </optgroup>
+            <optgroup label="📈 FINANCIACIÓN USD (0,5% mensual)">
+                <option value="soja_fwd_tna|0.06">FWD Soja (0,5% Mensual)</option>
+            </optgroup>`;
                 daysContainer.classList.remove('hidden');
             } else {
                 condSelect.innerHTML = standardConditions;
@@ -1773,7 +1783,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else {
                     const totalDays = parseInt(simDays.value) || 180;
                     const effective = (rate * (totalDays / 360) * 100).toFixed(2);
-                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Fin. Corteva USD (Sin Plus): TNA 6.00%. Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${totalDays} d)`;
+                    helper.innerHTML = `<i class="fas fa-info-circle mr-1 text-brevant"></i> Fin. Corteva USD: TNA 6.00%. Tasa efectiva: <strong>+${effective}%</strong> (TNA / 360 * ${totalDays} d)`;
                 }
             } else if (type === 'direct') {
                 daysContainer.classList.add('opacity-40', 'grayscale');
@@ -1797,8 +1807,8 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (condText.includes("hasta") && condText.includes("Tasa 0%")) {
                     const hastaPlazo = ((condText.match(/hasta ([^ ]+)/) || [])[1] || '').replace(/d$/, ' días');
                     helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final</strong>. Plazo máximo: <strong>${hastaPlazo}</strong>. Solo para compras nuevas.`;
-                } else if (condText.includes("360d") || condText.includes("360 días")) {
-                    helper.innerHTML = `<i class="fas fa-check-circle text-green-600 mr-1"></i> Convenio Especial: <strong>Tasa 0% Final (Subsidio DAS/Banco)</strong>. Plazo 360 días.`;
+                } else if (condText.includes("Convenio SGR")) {
+                    helper.innerHTML = `<i class="fas fa-shield-alt text-blue-600 mr-1"></i> Convenio SGR: se factura a <strong>Precio de Lista</strong>. Requiere aprobación previa de Créditos. Solo para compras nuevas.`;
                 } else if (condText.includes("Contado (A 30 días) - Precio Lista")) {
                     helper.innerHTML = `<i class="fas fa-file-invoice-dollar text-blue-600 mr-1"></i> Se factura a <strong>Precio de Lista</strong>. Si el pago se realiza dentro de los 30 días, se acredita <strong>5% vía Nota de Crédito</strong> por fuera. Fuera de término, no aplica bonificación.`;
                 } else if (rate < 0) {
@@ -1879,9 +1889,7 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                 } else if (condText.includes("BBVA USD")) {
                     plazoText = "hasta 31/08/2027 (BBVA USD Tasa 0%)";
                 } else if (condText.includes("Convenio SGR")) {
-                    plazoText = "360 días (Convenio SGR)";
-                } else if (condText.includes("NERA (360")) {
-                    plazoText = "360 días (NERA Soja Tasa 0%)";
+                    plazoText = "Convenio SGR (sujeto a aprobación de Créditos)";
                 } else if (condType === 'soja_fwd_tna') {
                     plazoText = `${days} días (FWD Soja - TNA 6.00%)`;
                 } else if (condText.includes("Canje Granos Disponible")) {
@@ -1897,15 +1905,6 @@ url:e,reason:"blocked_domain_not_allowlisted"},b.parentOrigin);throw new DOMExce
                         plazoText = `Vto ${matchFwd[1]} ${anioFwd} (Grano Forward)`;
                     } else {
                         plazoText = "Vto Cosecha (Grano Forward)";
-                    }
-                } else if (condText.includes("Grano Plus FWD")) {
-                    const match = condText.match(/Grano Plus FWD\s+([A-Za-z]+)\s+(\d+)/i);
-                    if (match) {
-                        const mes = match[1];
-                        const anio = match[2] === "26" ? "2026" : "2027";
-                        plazoText = `FWD ${mes} ${anio} (Canje de Granos)`;
-                    } else {
-                        plazoText = "Forward (Canje de Granos)";
                     }
                 } else if (condType === 'corteva_tna') {
                     plazoText = `${days} días (Fin. Corteva USD - TNA 6.00%)`;
